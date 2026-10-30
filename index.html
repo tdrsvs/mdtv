@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>مشغّل الفيديو المحمي</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 100%; height: 100%; background: #030303; color: #fff; overflow: hidden; font-family: Tahoma, system-ui, sans-serif; }
+  
+  /* بوابة الدخول التفاعلية (لتفعيل توثيق المتصفح) */
+  #entry-gate {
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    background: rgba(5, 5, 8, 0.98);
+    backdrop-filter: blur(12px);
+    z-index: 9999999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.4s ease;
+  }
+  .gate-card {
+    background: #111116;
+    border: 1px solid rgba(0, 255, 204, 0.3);
+    padding: 35px 30px;
+    border-radius: 20px;
+    text-align: center;
+    max-width: 420px;
+    width: 90%;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.9);
+  }
+  .step-indicator { color: #00ffcc; font-size: 12px; font-weight: bold; margin-bottom: 15px; text-transform: uppercase; }
+  .gate-card h3 { color: #fff; font-size: 18px; line-height: 1.5; margin-bottom: 20px; min-height: 54px; display: flex; align-items: center; justify-content: center; }
+  .security-note { color: #888; font-size: 11px; margin-bottom: 25px; line-height: 1.5; }
+  .buttons-grid { display: flex; gap: 15px; justify-content: center; }
+  .ans-btn { flex: 1; padding: 12px 20px; font-size: 15px; font-weight: bold; border-radius: 12px; cursor: pointer; border: none; }
+  .yes-btn { background: linear-gradient(135deg, #00ffcc, #00b386); color: #000; }
+  .no-btn { background: #22222b; color: #fff; border: 1px solid rgba(255,255,255,0.1); }
+
+  /* المشغل الأساسي */
+  .player-wrapper {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background: #000;
+  }
+  iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+  }
+</style>
+</head>
+<body>
+
+  <!-- بوابة التحقق الأمني (3 أسئلة خفيفة) -->
+  <div id="entry-gate">
+    <div class="gate-card">
+      <div class="step-indicator" id="step-ind">تحقق الأمان (1 من 3)</div>
+      <h3 id="question-text">هل أنت جاهز للمشاهدة الآمنة؟</h3>
+      <div class="security-note">
+        🛡️ نظام حماية أمني يمنع الإعلانات المنبثقة من اختطاف جلسة العرض.
+      </div>
+      <div class="buttons-grid">
+        <button class="ans-btn yes-btn" onclick="answerQuestion()">نعم</button>
+        <button class="ans-btn no-btn" onclick="answerQuestion()">لا</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- المشغل النظيف بدون أي قيود تعيق تشغيله -->
+  <div class="player-wrapper">
+    <iframe
+      id="secure-player"
+      src="https://embedmaster.link/tv/6040/1/1?skin=onyx&welcome_page=on&autoplay=off"
+      allowfullscreen
+      allow="autoplay *; fullscreen *; picture-in-picture *; encrypted-media *">
+    </iframe>
+  </div>
+
+<script>
+  const questions = [
+    "هل أنت جاهز للمشاهدة الآمنة؟",
+    "هل تريد تفعيل درع الحماية ضد التحويلات الخبيثة؟",
+    "هل أنت مستعد لبدء العرض الآن؟"
+  ];
+  
+  let currentQ = 0;
+  let protectionArmed = false;
+
+  function answerQuestion() {
+    currentQ++;
+    if (currentQ < questions.length) {
+      document.getElementById('question-text').innerText = questions[currentQ];
+      document.getElementById('step-ind').innerText = `تحقق الأمان (${currentQ + 1} من 3)`;
+    } else {
+      // إخفاء البوابة بعد السؤال الثالث
+      const gate = document.getElementById('entry-gate');
+      gate.style.opacity = '0';
+      setTimeout(() => gate.remove(), 400);
+
+      // تسليح نظام الحماية
+      protectionArmed = true;
+
+      // تثبيت تاريخ المتصفح للسيطرة على زر الرجوع
+      history.pushState({ page: 'secure_session' }, '', window.location.href);
+    }
+  }
+
+  // 1. مصيدة زر الرجوع وتاريخ المتصفح
+  window.addEventListener('popstate', function () {
+    if (!protectionArmed) return;
+
+    let confirmExit = confirm("⚠️ تنبيه أمني: هل تريد حقاً مغادرة صفحة العرض وإغلاق المشغل؟");
+    if (confirmExit) {
+      history.back();
+    } else {
+      history.pushState({ page: 'secure_session' }, '', window.location.href);
+    }
+  });
+
+  // 2. حارس الإغلاق والتحويل الإجباري (يصطاد أي محاولة توجيه من الإعلان أو مغادرة المستخدم)
+  window.addEventListener('beforeunload', function (e) {
+    if (protectionArmed) {
+      e.preventDefault();
+      e.returnValue = ''; // يفرض على المتصفح إظهار نافذة التأكيد
+    }
+  });
+</script>
+</body>
+</html>
