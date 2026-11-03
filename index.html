@@ -4,7 +4,7 @@
 <meta charset="utf-8"><script>try{var _t=JSON.parse(localStorage.getItem("see")||"{}").theme;if(_t)document.documentElement.dataset.theme=_t}catch(e){}</script>
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#0c0a09">
-<title>See</title>
+<title>See & Moives & Tv show</title>
 <link rel="preconnect" href="https://image.tmdb.org"><link rel="preconnect" href="https://api.themoviedb.org">
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&family=Reem+Kufi:wght@500;700&family=Noto+Naskh+Arabic:wght@400;600&family=Cairo:wght@500;700;900&family=Amiri:wght@400;700&family=Readex+Pro:wght@400;600&display=swap" rel="stylesheet">
 <style>
@@ -349,7 +349,7 @@ html[data-theme=purple] body:not(.dv) .bb.bt{background:#ffffff0d;border-color:#
 body.kd nav [data-r=picks],body.kd nav [data-r=seedo]{display:none}
 .kdb{display:flex;align-items:center;gap:8px;justify-content:center;margin-bottom:14px;padding:7px 12px;border-radius:99px;background:var(--s2);border:1px solid var(--a);color:var(--a);font-size:.82rem;font-weight:700}.kdb svg{width:18px;height:18px}
 .pin{text-align:center;letter-spacing:.6em;font-size:1.4rem}.pne{color:var(--c);font-size:.84rem;min-height:1.5em}
-.tb button{flex:1 0 25%}
+.tb button{flex:1 0 20%}
 .th2 .btn.on{border-color:var(--a);color:var(--a)}.edn{text-align:center;font-size:.8rem;color:var(--a);padding-bottom:8px}
 .lrs{display:grid;gap:8px;max-width:760px;margin:0 auto;padding:4px 18px 12px}
 .lr{display:flex;align-items:center;gap:12px;width:100%;padding:13px 14px;border-radius:var(--lf);background:var(--s1);border:1px solid var(--ln);text-align:start}.lr svg{width:22px;height:22px;color:var(--a)}.lr b{flex:1}.lr small{color:var(--mu)}
@@ -360,6 +360,85 @@ body.ed .lr[data-dl]{touch-action:none;user-select:none;-webkit-user-select:none
 .sol{display:grid;gap:8px}
 .so{position:relative;display:grid;gap:3px;text-align:start;padding:12px 14px;padding-inline-start:22px;border-radius:14px;background:var(--s2);border:1px solid var(--ln)}.so::before{content:"";position:absolute;inset-block:10px;inset-inline-start:9px;width:3px;border-radius:3px;background:var(--c)}
 .so span{display:flex;align-items:center;gap:8px}.so b{font-family:var(--dsp);font-size:1.05rem}.so em{font-style:normal;font-size:.7rem;color:var(--c);border:1px solid var(--c);border-radius:8px;padding:0 7px}.so small{color:var(--mu);font-size:.78rem;line-height:1.7}.so.on{border-color:var(--c);box-shadow:0 0 0 1px var(--c) inset}
+
+/* ===== سجل / إشعارات / قفل / إعدادات ===== */
+.bel{position:relative;width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:var(--s1);border:1px solid var(--ln);flex:none;color:var(--tx)}.bel svg{width:21px;height:21px}
+.bel i{position:absolute;top:-4px;inset-inline-end:-4px;min-width:18px;height:18px;border-radius:9px;background:var(--c);color:#fff;font:700 .68rem/18px Tajawal,sans-serif;text-align:center;padding:0 4px;font-style:normal}.bel i[hidden]{display:none}
+.bel.ringb{animation:belr .7s}@keyframes belr{20%{transform:rotate(16deg)}40%{transform:rotate(-14deg)}60%{transform:rotate(9deg)}80%{transform:rotate(-5deg)}}
+
+.ntl{display:grid;gap:8px;margin:10px 0}
+.ntr{display:flex;gap:12px;align-items:center;padding:10px 12px;border-radius:var(--lf);background:var(--s1);border:1px solid var(--ln);position:relative}
+.ntr.u{border-color:var(--a)}.ntr.u::after{content:"";position:absolute;top:10px;inset-inline-end:10px;width:8px;height:8px;border-radius:50%;background:var(--a)}
+.ntp{flex:none;width:46px;height:64px;border-radius:9px;overflow:hidden;background:var(--s2);display:grid;place-items:center;color:var(--a)}.ntp img{width:100%;height:100%;object-fit:cover}
+.ntr b{display:block;font-size:.92rem}.ntr p{font-size:.8rem;color:var(--mu);margin:2px 0}.ntr small{color:var(--mu);font-size:.7rem}
+.hxl{max-width:760px;margin:0 auto;padding:0 18px 14px;display:grid;gap:10px}
+.hxg{font-family:var(--dsp);font-size:.95rem;color:var(--mu);margin-top:10px}
+.hxr{display:flex;gap:12px;align-items:center;padding:8px;border-radius:var(--lf);background:var(--s1);border:1px solid var(--ln)}
+.hxp{position:relative;flex:none;width:68px;aspect-ratio:2/3;border-radius:10px;overflow:hidden;background:var(--s2)}.hxp img{width:100%;height:100%;object-fit:cover}.hxp i{position:absolute;inset:auto 0 0 0;height:4px;background:var(--a)}
+.hxi{min-width:0;display:grid;gap:2px}.hxi small{color:var(--mu);font-size:.76rem}
+.hxm{display:flex;margin:6px auto 24px}
+.sth2{font-family:var(--dsp);font-size:.9rem;color:var(--a);margin:18px 2px 2px}
+.cdx{font-family:ui-monospace,Menlo,monospace;letter-spacing:.25em;direction:ltr;display:inline-block}.cdx.big{display:block;text-align:center;font-size:2rem;margin:14px 0;color:var(--a)}
+#lkc{position:fixed;inset:0;z-index:200;background:var(--bg);display:grid;place-items:center;padding:24px}
+.lkb{width:min(320px,100%);display:grid;gap:12px;text-align:center;justify-items:center}.lkb>svg{width:54px;height:54px;color:var(--a)}.lkb h2{font-family:var(--dsp);font-size:2rem;letter-spacing:5px}
+.lkb input{width:100%;height:52px;border-radius:var(--lf);background:var(--s1);border:1px solid var(--ln);color:var(--tx);outline:none}.lkb input:focus{border-color:var(--a)}
+
+/* ===== هيدر نظيف بلا شعار ===== */
+header{padding:0 16px;gap:10px}
+body:not(.ss) header{justify-content:center}
+#sf{flex:1;max-width:640px;margin-inline:0}
+#sf input{height:44px;border-radius:99px;padding-inline:20px 50px;background:color-mix(in srgb,var(--s1) 90%,transparent);font-size:.92rem}
+#sf button{top:6px;inset-inline-end:7px}
+.bel{width:44px;height:44px;flex:none;display:grid!important}
+.bel i{display:block}.bel i[hidden]{display:none!important}
+body.ss header{justify-content:space-between}
+.xs{border-radius:99px}
+/* ===== الإشعارات ===== */
+.ntr{padding:10px 12px;gap:13px;background:linear-gradient(135deg,color-mix(in srgb,var(--a) 7%,transparent),var(--s1) 60%)}
+.ntp{width:54px;height:78px;border-radius:11px;box-shadow:0 6px 16px #0007}
+.ntr>div{min-width:0}.ntr b{line-height:1.45}
+.ntk{display:inline-block;font-size:.66rem;font-weight:800;color:var(--a);border:1px solid var(--a);border-radius:99px;padding:0 8px;margin-bottom:3px}
+#npop{position:fixed;z-index:95;top:calc(72px + env(safe-area-inset-top,0px));left:50%;width:min(94vw,430px);transform:translate(-50%,-28px);opacity:0;pointer-events:none;transition:opacity .45s,transform .45s cubic-bezier(.2,.9,.3,1.2);display:flex;align-items:stretch;gap:4px;background:color-mix(in srgb,var(--s2) 94%,transparent);backdrop-filter:blur(18px);border:1px solid var(--a);border-radius:22px;box-shadow:0 18px 50px #000c;overflow:hidden}
+#npop.on{opacity:1;transform:translate(-50%,0);pointer-events:auto}
+#npop .npa{flex:1;min-width:0;display:flex;gap:13px;align-items:center;padding:11px 14px}
+#npop .ntp{flex:none}#npop small{display:block;color:var(--a);font-weight:800;font-size:.7rem;margin-bottom:2px}
+#npop b{display:block;font-family:var(--dsp);font-size:1rem;line-height:1.4}
+#npop p{font-size:.8rem;color:var(--tx2);line-height:1.6;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+#npop .npx{flex:none;width:40px;display:grid;place-items:start center;padding-top:12px;color:var(--mu)}#npop .npx svg{width:18px;height:18px}
+/* ===== سجل المشاهدة ===== */
+.hxr{align-items:flex-start;padding:10px;gap:14px}
+.hxp{width:92px;display:block}
+.hxp u{position:absolute;inset:auto 0 0 0;height:4px;background:#ffffff4d;display:block;text-decoration:none}
+.hxp u i{position:static;inset:auto;display:block;height:100%;background:#ff0000;border-radius:0 2px 2px 0}
+.hxi{flex:1;gap:3px}.hxi b{font-size:.95rem;line-height:1.4}
+.hxgo{margin-top:8px;padding:7px 14px;font-size:.8rem;justify-self:start;width:fit-content}.hxgo svg{width:14px;height:14px}
+/* ===== بطاقة الحساب ===== */
+.acd{max-width:728px;margin:6px auto 4px;width:calc(100% - 36px);background:var(--s1);border:1px solid var(--ln);border-radius:var(--lf);padding:14px 16px;display:grid;gap:10px}
+.acd>b{display:flex;align-items:center;gap:8px;font-family:var(--dsp);font-size:1.05rem}.acd>b svg{color:var(--a)}
+.acd p{font-size:.82rem;color:var(--mu);line-height:1.8}
+.acd .srb{width:100%;flex:none}
+.acr{display:flex;gap:12px;align-items:center}.acr b{display:block}.acr p{direction:ltr;text-align:start}
+.aci{width:38px;height:38px;border-radius:50%;background:var(--b);color:var(--inkb);display:grid;place-items:center;flex:none}
+.acg{display:grid;grid-template-columns:1fr 1fr;gap:8px}.acg .btn{padding:9px 8px;font-size:.82rem}
+.acd .scw{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:9px 12px;border-radius:12px;background:var(--s2);font-size:.82rem}.acd .scw[hidden]{display:none}
+.stl{font-family:var(--dsp);font-size:.9rem;color:var(--a);margin:16px 2px 2px}
+
+/* ===== زر الحساب والقائمة الجانبية ===== */
+.acb2{width:44px;height:44px;border-radius:50%;flex:none;display:grid;place-items:center;background:var(--s1);border:1px solid var(--ln);color:var(--tx);overflow:hidden;padding:0}
+.acb2 img{width:100%;height:100%;object-fit:cover}.acb2 svg{width:21px;height:21px}
+body.ss .acb2{display:none}
+.dw{position:fixed;inset:0;z-index:92;visibility:hidden;pointer-events:none;transition:visibility 0s .3s}
+.dw.on{visibility:visible;pointer-events:auto;transition:none}
+.dwb{position:absolute;inset:0;background:#000b;opacity:0;transition:opacity .3s}.dw.on .dwb{opacity:1}
+.dwp{position:absolute;top:0;bottom:0;left:0;width:min(84vw,330px);background:var(--s1);border-inline-end:1px solid var(--ln);box-shadow:12px 0 50px #000a;transform:translateX(-102%);transition:transform .32s cubic-bezier(.2,.8,.2,1);display:flex;flex-direction:column;gap:18px;padding:calc(22px + env(safe-area-inset-top,0px)) 18px calc(22px + env(safe-area-inset-bottom,0px));overflow-y:auto;outline:none}
+.dw.on .dwp{transform:none}
+.dwh{display:flex;align-items:center;gap:12px}.dwn{flex:1;min-width:0}.dwn b{display:block;font-family:var(--dsp);font-size:1.1rem;line-height:1.3}.dwn small{direction:ltr;display:block;text-align:start}
+.dwx{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;color:var(--mu);background:var(--s2);flex:none}.dwx svg{width:18px;height:18px}
+.dwl{display:grid;gap:6px}
+.dwi{display:flex;align-items:center;gap:14px;width:100%;padding:14px 14px;border-radius:var(--lf);text-align:start;font-weight:700;transition:.2s}.dwi:hover,.dwi:active{background:var(--s2)}.dwi svg:first-child{color:var(--a)}.dwi span{flex:1}.dwi svg:last-child{width:16px;height:16px;color:var(--mu);transform:rotate(90deg)}
+.dwg{margin-top:auto;display:grid;gap:8px;padding-top:16px;border-top:1px solid var(--ln)}.dwg p{font-size:.84rem;color:var(--mu);line-height:1.8}
+.eda{display:grid;grid-template-columns:1fr auto;gap:8px 10px;align-items:center;padding:12px 14px;margin:10px 0;border-radius:var(--lf);background:var(--s2);border:1px solid var(--ln)}
+.eda>div{min-width:0}.eda small{display:block;font-size:.7rem}.eda b{font-size:.9rem;word-break:break-all}.eda .btn{padding:6px 12px;font-size:.78rem;grid-row:2;grid-column:2}
 </style>
 </head>
 <body>
@@ -368,35 +447,39 @@ body.ed .lr[data-dl]{touch-action:none;user-select:none;-webkit-user-select:none
 <script>
 /* ===================== الإعدادات والسيرفرات ===================== */
 const API='https://api.themoviedb.org/3',IMG='https://image.tmdb.org/t/p/',KEY='4e5b0ace6aaab68ef66d1183d954ecb4',HOLD=1500;
+/* ===== إعدادات Firebase: ضع بيانات مشروعك هنا (Authentication: Email/Password + Firestore) =====
+   قواعد Firestore المطلوبة:
+   rules_version='2'; service cloud.firestore{match /databases/{d}/documents{
+     match /users/{u}/{p=**}{allow read,write:if request.auth!=null&&request.auth.uid==u}
+     match /codes/{k}{allow get:if true;allow create:if request.auth!=null;allow update:if request.auth!=null&&request.auth.uid==resource.data.uid}}} */
+const FB_CFG={apiKey:"AIzaSyCjhmGWOGvLJhm2XakeaMalKWOr0NikL2A",authDomain:"moriq-573c9.firebaseapp.com",projectId:"moriq-573c9",storageBucket:"moriq-573c9.firebasestorage.app",messagingSenderId:"706262823542",appId:"1:706262823542:web:f7d21bef8b74ce4aeb6557",measurementId:"G-ZGME4J60SD"};
 /* كل سيرفر: تفاصيل كاملة (مميزات + مقاييس + لمن يناسب). عدّل أي قيمة هنا فقط وتتغير البطاقة تلقائيًا */
 const SV=[
-{k:'z',n:'سوبرسي',g:'الأفضل',c:'#ffb02e',sc:'9.6',
- f:[['hd','1080p'],['noad','بلا إعلانات'],['bolt','سريع'],['cc','ترجمة دقيقة'],['lock','ثبات عالٍ']],
- m:[['الجودة',5],['السرعة',4],['الثبات',5],['الترجمة',5],['دقة العمل',5]],
- b:'الأنسب لكل الأعمال، خصوصًا حين تريد أعلى جودة بلا أي انقطاع.',
- d:'يحتاج لحظات ليجهّز العرض، وانتظاره يستحق.',
- u:(t,i,s,e)=>`https://vidrock.to/${t}/${i}${t=='tv'?`/${s}/${e}`:''}`},
-{k:'d',n:'سلوسي',g:'هادئ',c:'#5ab4ff',sc:'8.4',
+{k:'d',n:'سيبلاس',g:'الرئيسي',c:'#5ab4ff',sc:'8.4',
  f:[['hd','جودة جيدة'],['noad','بلا إعلانات'],['lock','ثابت'],['clock','بدء أبطأ قليلًا']],
  m:[['الجودة',4],['السرعة',3],['الثبات',5],['الترجمة',4],['دقة العمل',4]],
- b:'الأنسب حين يتعذّر الخيار الأول، أو إن كنت تفضّل الثبات على السرعة.',
- d:'هادئ وثابت، لكنه يحتاج وقتًا أطول قليلًا ليبدأ التشغيل.',
+ b:'الأنسب لمعظم الأعمال، ثابت وبلا إعلانات.',
+ d:'هادئ وثابت، لكنه قد يحتاج لحظات ليبدأ التشغيل.',
  u:(t,i,s,e)=>`https://cinesrc.st/embed/${t}/${i}${t=='tv'?`?s=${s}&e=${e}`:''}`},
 {k:'s',n:'فلاشسي',g:'احتياطي',c:'#ff5b3d',sc:'7.8',
  f:[['hd','جودة جيدة'],['noad','بلا إعلانات'],['play','تشغيل مباشر'],['target','دقة اختيار أقل']],
  m:[['الجودة',4],['السرعة',4],['الثبات',4],['الترجمة',4],['دقة العمل',2]],
- b:'خيار احتياطي أخير حين لا تعمل الخيارات السابقة.',
+ b:'خيار احتياطي حين لا يعمل الخيار الرئيسي.',
  d:'بلا إعلانات، لكن دقته في اختيار العمل أقل؛ إن ظهر لك عمل مختلف عمّا اخترته فانتقل إلى غيره.',
  u:(t,i,s,e)=>`https://embedwave.cc/embed/${t}/${i}${t=='tv'?`/${s}/${e}`:''}`}];
 const P={eye:'<path d="M3 12c2.5-4.5 5.5-7 9-7s6.5 2.5 9 7c-2.5 4.5-5.5 7-9 7s-6.5-2.5-9-7z"/><circle cx="12" cy="12" r="3"/>',home:'<path d="M3 11l9-8 9 8v9a1 1 0 01-1 1h-5v-6H9v6H4a1 1 0 01-1-1z"/>',sparkle:'<path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8zM19 16l.8 2.2L22 19l-2.2.8L19 22l-.8-2.2L16 19l2.2-.8z"/>',user:'<circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0116 0"/>',users:'<circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0113 0M16 4.8a3.5 3.5 0 010 6.4M18.5 14.5A6.5 6.5 0 0121.5 20"/>',search:'<circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/>',heart:'<path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.8-8 11-8 11z"/>',star:'<path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/>',clock:'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',bookmark:'<path d="M6 3h12v18l-6-4-6 4z"/>',list:'<path d="M4 6h16M4 12h16M4 18h10"/>',chat:'<path d="M4 5h16v11H9l-5 4z"/><path d="M8.5 10h.01M12 10h.01M15.5 10h.01" stroke-width="3"/>',camera:'<path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/>',plus:'<path d="M12 5v14M5 12h14"/>',check:'<path d="M5 12.5l4.5 4.5L19 7.5"/>',back:'<path d="M19 12H5M11 6l-6 6 6 6"/>',play:'<path d="M7 4l13 8-13 8z"/>',bolt:'<path d="M13 2L4 14h7l-1 8 9-12h-7z"/>',x:'<path d="M6 6l12 12M18 6L6 18"/>',
 fire:'<path d="M12 22c4 0 7-2.8 7-7 0-3-1.8-5-3.5-7 0 2-1 3-2.5 3 .5-3-1-6-4-8 .5 3-4 5.5-4 12 0 4 3 7 7 7z"/>',crown:'<path d="M3 8l4.5 4L12 5l4.5 7L21 8l-2 11H5z"/>',ghost:'<path d="M5 21V11a7 7 0 0114 0v10l-3.5-2.5L12 21l-3.5-2.5z"/><path d="M9.5 11h.01M14.5 11h.01"/>',rocket:'<path d="M12 2c4 2 6 6 5 11l-3 3h-4l-3-3c-1-5 1-9 5-11z"/><circle cx="12" cy="9" r="1.8"/><path d="M7 15l-3 4 4-1M17 15l3 4-4-1"/>',moon:'<path d="M20 14.5A8.5 8.5 0 119.5 4a7 7 0 0010.5 10.5z"/>',smile:'<circle cx="12" cy="12" r="9"/><path d="M8 14c1 1.6 2.4 2.4 4 2.4s3-.8 4-2.4M9 9.5h.01M15 9.5h.01"/>',diamond:'<path d="M6 4h12l4 5-10 12L2 9z"/><path d="M2 9h20"/>',flag:'<path d="M5 21V4M5 4h13l-3 4 3 4H5"/>',gift:'<rect x="3" y="8" width="18" height="4"/><path d="M5 12v9h14v-9M12 8v13M12 8c-3 0-4-4-1-4s1 4 1 4zm0 0c3 0 4-4 1-4"/>',film:'<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 4v16M17 4v16M3 9h4M3 15h4M17 9h4M17 15h4"/>',grip:'<path d="M9 6h.01M15 6h.01M9 12h.01M15 12h.01M9 18h.01M15 18h.01" stroke-width="3.4"/>',pencil:'<path d="M4 20l1-4L16 5l3 3L8 19z"/>',cal:'<rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/>',shield:'<path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/>',globe:'<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/>',pin:'<path d="M12 21s7-6 7-11a7 7 0 00-14 0c0 5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/>',
 hd:'<rect x="3" y="5" width="18" height="14" rx="3"/><path d="M7 9v6M7 12h3M10 9v6M13.5 9v6h1.2a3 3 0 000-6z"/>',cc:'<rect x="3" y="5" width="18" height="14" rx="3"/><path d="M10.3 10.2a2 2 0 100 3.6M16.3 10.2a2 2 0 100 3.6"/>',noad:'<path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/>',lock:'<rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 018 0v3"/>',trailer:'<circle cx="12" cy="12" r="9"/><path d="M10 8.5l5 3.5-5 3.5z"/>',refresh:'<path d="M20 11a8 8 0 10-2.3 5.7M20 4v7h-7"/>',tv:'<rect x="3" y="5" width="18" height="12" rx="2"/><path d="M8 21h8M12 17v4"/>',target:'<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.5"/>',gear:'<circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/>',building:'<path d="M4 21V7l8-4 8 4v14M9 21v-6h6v6"/>',money:'<circle cx="12" cy="12" r="9"/><path d="M14.5 9c-.5-1-1.5-1.5-2.5-1.5-1.7 0-2.8 1-2.8 2.2 0 3 5.6 1.5 5.6 4.3 0 1.2-1.2 2.2-2.8 2.2-1.1 0-2.1-.6-2.6-1.6M12 6v1.5M12 16.5V18"/>'};
 P.chev='<path d="M6 9l6 6 6-6"/>';
+P.share='<circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 10.6l6.8-4M8.6 13.4l6.8 4"/>';P.bell='<path d="M6 16v-5a6 6 0 0112 0v5l1.5 2h-15z"/><path d="M10 21h4"/>';P.key='<circle cx="8" cy="15" r="4"/><path d="M11 12l9-9M16 7l3 3"/>';P.out='<path d="M9 4H5a1 1 0 00-1 1v14a1 1 0 001 1h4M16 8l4 4-4 4M20 12H9"/>';
 const LIC=['list','film','fire','crown','ghost','rocket','moon','smile','diamond','flag','gift','bolt'];
 const ic=(n,c)=>`<svg viewBox="0 0 24 24"${c?` class="${c}"`:''}>${P[n]||P.list}</svg>`;
 const $=s=>document.querySelector(s),$$=s=>document.querySelectorAll(s),app=$('#app'),esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-let S;try{S=JSON.parse(localStorage.getItem('see')||'{}')}catch(e){S={}}S={lk:[],fv:[],lt:[],ls:[],hl:[],nm:'',cont:{},taste:{},q:[],sn:[],srv:'z',ss:false,theme:'classic',un:'',bio:'',kid:{on:false,h:'',s:'',f:0,lu:0},...S};delete S.av;
-const save=()=>{try{localStorage.setItem('see',JSON.stringify(S))}catch(e){}};
+let S;try{S=JSON.parse(localStorage.getItem('see')||'{}')}catch(e){S={}}S={lk:[],fv:[],lt:[],ls:[],hl:[],nm:'',cont:{},taste:{},q:[],sn:[],srv:'d',ss:false,theme:'classic',un:'',bio:'',kid:{on:false,h:'',s:'',f:0,lu:0},wh:{},nh:[],nt:{},set:{ar:true},lock:null,acc:null,...S};delete S.av;S.nt=S.nt||{};S.nt.l=S.nt.l||[];S.nt.sh=S.nt.sh||{};S.nt.tp=S.nt.tp||{};S.nt.rd=S.nt.rd||0;S.nt.g=S.nt.g||0;S.set=S.set||{ar:true};S.wh=S.wh||{};S.nh=S.nh||[];
+const lsMain=()=>{try{const m={...S};delete m.wh;delete m.nh;localStorage.setItem('see',JSON.stringify(m))}catch(e){}},lsHist=()=>{try{localStorage.setItem('see_wh',JSON.stringify(S.wh));localStorage.setItem('see_nh',JSON.stringify(S.nh))}catch(e){}};
+try{const w=localStorage.getItem('see_wh'),n=localStorage.getItem('see_nh');if(w){const z=JSON.parse(w);if(z&&typeof z=='object'&&!Array.isArray(z))S.wh=z}if(n){const z=JSON.parse(n);if(Array.isArray(z))S.nh=z}}catch(e){}
+lsHist();lsMain();
+const save=h=>{lsMain();if(h===1)lsHist();cq()};
 const toast=m=>{const e=$('#toast');e.textContent=m;e.classList.add('on');setTimeout(()=>e.classList.remove('on'),1800)};
 const shuf=a=>{a=[...a];for(let i=a.length;--i>0;){const j=Math.random()*(i+1)|0;[a[i],a[j]]=[a[j],a[i]]}return a};
 const empty=(i,m)=>`<div class="empty">${ic(i)}<br>${m}</div>`,sk=(n,c='')=>`<div class="sk ${c}"></div>`.repeat(n),loader=`<div class="lo"><div class="rg"></div>${ic('eye')}</div>`;
@@ -474,22 +557,22 @@ function drag(box,sel,fn){if(!box)return;$$(sel).forEach(el=>{el.onpointerdown=e
  const end=()=>{el.onpointermove=el.onpointerup=el.onpointercancel=null;el.classList.remove('dg');els.forEach(o=>o.classList.remove('tg'));el.style.transform='';if(moved)DM=Date.now();if(to!=from)fn(from,to)};el.onpointerup=end;el.onpointercancel=end}})}
 /* ===================== الهيكل العام ===================== */
 function chrome(){document.body.classList.toggle('ss',S.ss);document.body.classList.toggle('kd',S.kid.on);
- $('#hd').innerHTML=`<a class="lg" href="#/"><i>${ic('eye')}</i><span>See</span></a><form id="sf"><input id="q" type="search" placeholder="ابحث عن فيلم أو مسلسل أو ممثل…" autocomplete="off"><button aria-label="بحث">${ic('search')}</button></form><button class="xs" id="xs">إيقاف سوبر سي</button>`;
- $('#nv').innerHTML=[['home','home','#/','الرئيسية'],['picks','sparkle','#/picks','مُقترحات'],['seedo','chat','#/seedo','Seedo'],['me','user','#/me','حسابي']].map(([r,i,h,n])=>`<a href="${h}" data-r="${r}">${ic(i)}<span>${n}</span></a>`).join('');
- $('#sf').onsubmit=e=>{e.preventDefault();const v=$('#q').value.trim();if(v){$('#q').blur();location.hash='#/s/'+encodeURIComponent(v)}};$('#xs').onclick=()=>{S.ss=false;save();chrome();route();toast('تم إيقاف سوبر سي')}}
+ $('#hd').innerHTML=`<form id="sf"><input id="q" type="search" placeholder="ابحث عن فيلم أو مسلسل أو ممثل…" autocomplete="off"><button aria-label="بحث">${ic('search')}</button></form><button class="bel" id="bl" aria-label="الإشعارات" type="button">${ic('bell')}<i id="bc2" hidden></i></button><button class="xs" id="xs" type="button">إيقاف سوبر سي</button><button class="acb2" id="acb" type="button" aria-label="الحساب" aria-haspopup="dialog">${acbHTML()}</button>`;
+ $('#nv').innerHTML=[['home','home','#/','الرئيسية'],['seedo','chat','#/seedo','Seedo'],['me','user','#/me','حسابي']].map(([r,i,h,n])=>`<a href="${h}" data-r="${r}">${ic(i)}<span>${n}</span></a>`).join('');
+ $('#sf').onsubmit=e=>{e.preventDefault();const v=$('#q').value.trim();if(v){$('#q').blur();location.hash='#/s/'+encodeURIComponent(v)}};$('#xs').onclick=()=>{S.ss=false;save();chrome();route();toast('تم إيقاف سوبر سي')};$('#bl').onclick=ntOpen;$('#acb').onclick=dwOpen;ntBadge()}
 addEventListener('scroll',()=>$('#hd').classList.toggle('sc',scrollY>8),{passive:true});
-function superAsk(){const QS=[['هل تعرف كيف تختار مصدر المشاهدة وتبدّله؟','تحت المشغّل ستجد «مشاهدة عبر» وثلاثة خيارات مرتبة من الأفضل، لكل منها تفاصيله. إن لم يعمل أحدها أو ظهر عمل مختلف فانتقل إلى التالي.'],['هل تعرف كيف تُظهر الترجمة وتتحكم بها؟','داخل المشغّل اضغط ⚙ الإعدادات ثم Subtitles (أو Sub أو ARABIC) ثم OpenSubtitles ثم Arabic، واختر أحد الخيارات الظاهرة (ستكون أسماؤها بالإنجليزية).']];
+function superAsk(){const QS=[['هل تعرف كيف تختار مصدر المشاهدة وتبدّله؟','تحت المشغّل ستجد «مصدر المشاهدة» وفيه خياران: الرئيسي ثم الاحتياطي. إن لم يعمل أحدهما أو ظهر عمل مختلف فانتقل إلى الآخر.'],['هل تعرف كيف تُظهر الترجمة وتتحكم بها؟','داخل المشغّل اضغط ⚙ الإعدادات ثم Subtitles (أو Sub أو ARABIC) ثم OpenSubtitles ثم Arabic، واختر أحد الخيارات الظاهرة (ستكون أسماؤها بالإنجليزية).']];
  modal(`<h3>قبل تفعيل سوبر سي</h3><small>لن تظهر الأقسام ولا التفاصيل. فقط البحث، وفي المشاهدة الحلقات والمواسم ومصادر المشاهدة.</small>${QS.map(q=>`<div class="q"><b>${q[0]}</b><div><button data-y="1">نعم</button><button data-y="0">لا</button></div><p>${q[1]}</p></div>`).join('')}<button class="btn p" id="go" style="width:100%;margin-top:12px">${ic('bolt')}فعّل سوبر سي</button>`);
  $$('.q button').forEach(b=>b.onclick=()=>{const q=b.closest('.q');q.querySelectorAll('button').forEach(x=>x.classList.toggle('on',x==b));q.classList.toggle('o',b.dataset.y=='0')});
  $('#go').onclick=()=>{S.ss=true;save();cm();chrome();location.hash='#/';route()}}
 /* ===================== الموجّه ===================== */
 let rid=0,timers=[],OB=[],ED=false,HEROT;const cyc=new Map(),HELD={};
-async function route(){const my=++rid;timers.forEach(clearInterval);timers=[];clearInterval(HEROT);cyc.forEach(clearInterval);cyc.clear();OB.forEach(o=>o.disconnect());OB=[];cm();scrollTo(0,0);ED=false;document.body.classList.remove('ed');
- const h=location.hash.slice(2).split('/'),r=h[0];document.body.classList.toggle('rp',r=='picks');document.body.classList.toggle('dv',r=='m'||r=='w');
- if(S.ss&&(r=='picks'||r=='me'||r=='p'||r=='seedo'))return location.hash='#/';
- if(S.kid.on&&(r=='picks'||r=='p'||r=='seedo'))return location.hash='#/';
- $$('[data-r]').forEach(a=>a.classList.toggle('on',a.dataset.r==(r==''||r=='s'||r=='m'||r=='p'?'home':r)));
- try{if(r=='s')await results(decodeURIComponent(h[1]||''),my);else if(r=='m')await details(h[1],h[2],my);else if(r=='p')await person(h[1],my);else if(r=='w')await watch(h[1],h[2],h[3],h[4],my);else if(r=='seedo')seedo();else if(r=='picks')await picks(my);else if(r=='me')account(h[1]);else await home(my)}
+async function route(){const my=++rid;dwClose();if(!$('#bl'))chrome();ntBadge();timers.forEach(clearInterval);timers=[];clearInterval(HEROT);cyc.forEach(clearInterval);cyc.clear();OB.forEach(o=>o.disconnect());OB=[];cm();scrollTo(0,0);ED=false;document.body.classList.remove('ed');
+ const h=location.hash.slice(2).split('/'),r=h[0];document.body.classList.toggle('dv',r=='m'||r=='w');
+ if(S.ss&&(r=='me'||r=='p'||r=='seedo'||r=='hist'))return location.hash='#/';
+ if(S.kid.on&&(r=='p'||r=='seedo'||r=='hist'))return location.hash='#/';
+ $$('[data-r]').forEach(a=>a.classList.toggle('on',a.dataset.r==(r==''||r=='s'||r=='m'||r=='p'?'home':r=='hist'?'me':r)));
+ try{if(r=='s')await results(decodeURIComponent(h[1]||''),my);else if(r=='m')await details(h[1],h[2],my);else if(r=='p')await person(h[1],my);else if(r=='w')await watch(h[1],h[2],h[3],h[4],my);else if(r=='seedo')seedo();else if(r=='hist')account('wh');else if(r=='me')account(h[1]);else await home(my)}
  catch(e){if(my==rid)app.innerHTML=empty('eye','تعذّر التحميل. تحقق من اتصالك ثم أعد المحاولة.')+`<p style="text-align:center"><button class="btn" onclick="route()">إعادة المحاولة</button></p>`}}
 /* ===================== الرئيسية ===================== */
 let HT='all',MI=0,LI=0,SI=0;
@@ -518,8 +601,7 @@ async function home(my){
  ${sec('s4','04','رحلة حول العالم','اختر وجهتك وشاهد أشهر أعمالها.',`<div class="lns" id="lns">${LANDS.map((l,i)=>`<button class="ob ${i==LI?'on':''}" data-i="${i}"><span>${l[1]}</span>${l[2]}</button>`).join('')}</div><div class="rail" id="lsh">${sk(5,'pk')}</div>`,'',`<button class="rf" id="rfl" aria-label="تبديل">${ic('refresh')}</button>`)}
  ${sec('s5','05','على قدر وقتك','أفلام تناسب طول سهرتك.',`<div class="sls" id="sls">${SLOTS.map((s,i)=>`<button class="sl ${i==SI?'on':''}" data-i="${i}"><b>${s[0]}</b><small>${s[1]}</small></button>`).join('')}</div><div class="rail" id="ssh">${sk(5,'pk')}</div>`,'movie')}
  ${sec('s6','06','ذاكرة السينما','كلاسيكيات خالدة قبل عام ٢٠٠٠.',`<div class="rail" id="csh">${sk(5,'pk')}</div>`,'movie')}
- ${wl.length?sec('s7','07','على رف الانتظار','أعمال حفظتها لوقت لاحق.',`<div class="rail">${wl.map(i=>arch(fromIt(i))).join('')}</div>`):''}
- ${sec('s8','08','مختارات تناسبك','تتغير حسب ما تشاهده وتحبه.',`<div class="grid" id="fd">${sk(6)}</div>`,'',`<button class="rf" id="rfs" aria-label="تبديل">${ic('refresh')}</button>`)}`;
+ ${wl.length?sec('s7','07','على رف الانتظار','أعمال حفظتها لوقت لاحق.',`<div class="rail">${wl.map(i=>arch(fromIt(i))).join('')}</div>`):''}`;
  const live=id=>my==rid&&$(id),vis=()=>$$('.sx[data-o]').forEach(s=>s.style.display=HT==({movie:'tv',tv:'movie'})[s.dataset.o]?'none':'');vis();
  async function fHero(){clearInterval(HEROT);const ep=HT=='all'?'all':HT,[E,A]=await Promise.all([nr(`/trending/${ep}/day`),nr(`/trending/${ep}/day`,{language:'ar'})]);if(!live('#hbox'))return;
   const am=new Map((A.results||[]).map(x=>[(x.media_type||HT)+x.id,x.overview]));
@@ -537,21 +619,15 @@ async function home(my){
   if(!live('#lsh'))return;const l=shuf(rs.flat()).slice(0,12);$('#lsh').innerHTML=l.map(arch).join('')||empty('globe','لا توجد أعمال حاليًا')}
  async function fSlot(){if(HT=='tv')return;const sl=SLOTS[SI],r=await dsc('movie',{sort_by:'popularity.desc','vote_count.gte':500,'with_runtime.gte':sl[2],'with_runtime.lte':sl[3],page:1+Math.random()*3|0},500);if(!live('#ssh'))return;$('#ssh').innerHTML=shuf(r).slice(0,12).map(arch).join('')||empty('clock','لا توجد أفلام مناسبة')}
  async function fClassic(){if(HT=='tv')return;const r=await dsc('movie',{sort_by:'vote_average.desc','primary_release_date.lte':'1999-12-31','vote_count.gte':3000,page:1+Math.random()*3|0},3000);if(!live('#csh'))return;$('#csh').innerHTML=shuf(r).slice(0,12).map(arch).join('')||empty('film','لا توجد كلاسيكيات')}
- async function sug(){const ts=types(),L=LAST(),pg=1+Math.random()*4|0;
-  const jobs=ts.map(ty=>{const q={sort_by:'popularity.desc','vote_count.gte':200,page:pg},g=gs(ty);if(g)q.with_genres=g;return dsc(ty,q,200)});
-  if(L&&(HT=='all'||HT==L.t))jobs.push(nr(`/${L.t}/${L.id}/recommendations`).then(r=>pick(r.results,L.t,60)));
-  if(S.q[0])jobs.push(nr('/search/multi',{query:S.q[0]}).then(r=>(r.results||[]).filter(x=>x.media_type!='person'&&fam(x,30)&&(HT=='all'||x.media_type==HT))));
-  const seen=new Set(),l=shuf((await Promise.all(jobs)).flat()).filter(x=>{const k=x.media_type+x.id;if(seen.has(k))return false;seen.add(k);return true}).slice(0,6);
-  if(!live('#fd'))return;$('#fd').innerHTML=l.map(feed).join('')||empty('film','لا توجد اقتراحات')}
  async function nsec(id,key,ttl,fn){const b=$(id);if(!b)return;const s=b.closest('.sx');s.classList.remove('em');b.innerHTML=sk(5,'pk');
   const l=(await scache(key+(S.kid.on?'k':'n'),ttl,fn)).filter(isKidSafe);if(!live(id))return;s.classList.toggle('em',!l.length);b.innerHTML=l.slice(0,14).map(arch).join('')}
  const fNew=()=>nsec('#nw1','new'+HT,18e5,async()=>{const rs=await Promise.all(types().map(t=>{const m=t=='tv'?'first_air_date':'primary_release_date',vc=t=='tv'?10:25;return dsc(t,{sort_by:m+'.desc',[m+'.gte']:D(75),'vote_count.gte':vc,page:1},vc)}));return rs.flat().sort((a,b)=>dt(b).localeCompare(dt(a)))});
  const fTop=()=>{if(HT!='movie')nsec('#nw2','tvtop',216e5,()=>dsc('tv',{sort_by:'popularity.desc','vote_count.gte':300,page:1},300));if(HT!='tv')nsec('#nw3','mvtop',216e5,()=>dsc('movie',{sort_by:'popularity.desc','vote_count.gte':1500,page:1},1500))};
- const fills=()=>{fHero();fPulse();fTk();fMood();fLands();fSlot();fClassic();fNew();fTop();sug()};
+ const fills=()=>{fHero();fPulse();fTk();fMood();fLands();fSlot();fClassic();fNew();fTop()};
  const sel=(box,cls,fn)=>$(box).onclick=e=>{const b=e.target.closest(cls);if(!b)return;$$(box+' '+cls).forEach(z=>z.classList.toggle('on',z==b));fn(+b.dataset.i)};
  $('#ch').onclick=e=>{const b=e.target.closest('button');if(!b)return;HT=b.dataset.k;$$('#ch button').forEach(x=>x.classList.toggle('on',x==b));vis();fills()};
  sel('#mos','.mo',i=>{MI=i;fMood()});sel('#lns','.ob',i=>{LI=i;fLands()});sel('#sls','.sl',i=>{SI=i;fSlot()});
- $('#rfm').onclick=fMood;$('#rfl').onclick=fLands;$('#rfs').onclick=sug;
+ $('#rfm').onclick=fMood;$('#rfl').onclick=fLands;
  fills()}
 /* ===================== البحث ===================== */
 let SF='all';
@@ -564,8 +640,8 @@ async function results(q,my){if(!q){app.innerHTML=empty('search','اكتب اس�
  const draw=()=>{const l=L.filter(x=>SF=='all'||x.media_type==SF);$('#sl').innerHTML=l.length?l.map(feed).join(''):empty('search','لا توجد نتائج مطابقة')};draw();
  $('#ch').onclick=e=>{const b=e.target.closest('button');if(!b)return;SF=b.dataset.k;$$('#ch button').forEach(x=>x.classList.toggle('on',x==b));draw()}}
 /* ===================== التفاصيل ===================== */
-const acts=it=>{const f=(a,i,n)=>`<button class="tl ${has(S[a],it.t,it.id)?'on':''}" data-a="${a}" aria-label="${n}">${ic(i)}<span>${n}</span></button>`;return f('lk','heart','إعجاب')+f('fv','star','مفضلة')+f('lt','bookmark','لاحقًا')+`<button class="tl" data-a="ls" aria-label="قائمة">${ic('list')}<span>قائمة</span></button>`};
-function bindActs(it,d,root){const hb=$('#hlb');if(hb)hb.onclick=()=>mkHl(it);(root||document).querySelectorAll('[data-a]').forEach(b=>b.onclick=()=>{const a=b.dataset.a;if(a=='ls')return pickList(it);const on=tog(S[a],it);b.classList.toggle('on',on);if(on)bump(gi(d),a=='lk'?3:a=='fv'?2:1);toast(on?'تمت الإضافة':'تمت الإزالة')})}
+const acts=it=>{const f=(a,i,n)=>`<button class="tl ${has(S[a],it.t,it.id)?'on':''}" data-a="${a}" aria-label="${n}">${ic(i)}<span>${n}</span></button>`;return f('lk','heart','إعجاب')+f('fv','star','مفضلة')+f('lt','bookmark','لاحقًا')+`<button class="tl" data-a="sh" aria-label="مشاركة">${ic('share')}<span>مشاركة</span></button>`};
+function bindActs(it,d,root){const hb=$('#hlb');if(hb)hb.onclick=()=>mkHl(it);(root||document).querySelectorAll('[data-a]').forEach(b=>b.onclick=()=>{const a=b.dataset.a;if(a=='sh')return shareIt(it);const on=tog(S[a],it);b.classList.toggle('on',on);if(on)bump(gi(d),a=='lk'?3:a=='fv'?2:1);toast(on?'تمت الإضافة':'تمت الإزالة')})}
 const er=(id,s,x,cur)=>`<a class="er ${x.episode_number===cur?'on':''}" href="#/w/tv/${id}/${s}/${x.episode_number}"><div class="en">${x.episode_number}</div><div class="et">${x.still_path?`<img loading="lazy" src="${IMG}w300${x.still_path}" alt="">`:''}</div><div class="ei"><b>${esc(x.name)}</b><small>${x.runtime?x.runtime+' دقيقة · ':''}${esc(fd(x.air_date))}</small>${x.overview?`<p>${esc(x.overview)}</p>`:''}</div></a>`;
 const JOB={Director:'إخراج',Screenplay:'سيناريو',Writer:'كتابة',Novel:'رواية',Story:'قصة',Producer:'إنتاج','Executive Producer':'إنتاج تنفيذي','Original Music Composer':'موسيقى','Director of Photography':'تصوير',Editor:'مونتاج'};
 function crewOf(d){const seen=new Set(),out=[],ord=Object.keys(JOB);
@@ -578,7 +654,7 @@ async function details(ty,id,my){const t0=Date.now();app.innerHTML=loader;
  const ss=ty=='tv'?(d.seasons||[]).filter(s=>s.season_number>0&&s.air_date&&s.air_date<=today):[],rc=S.cont[ty+id],cs=rc&&ss.some(s=>s.season_number==rc.s)?rc.s:(ss[0]?ss[0].season_number:1);
  const go=ty=='movie'?`#/w/movie/${id}`:rc?`#/w/tv/${id}/${rc.s}/${rc.e}`:`#/w/tv/${id}/${cs}/1`;
  if(S.ss)return location.replace(go);
- await wait(Math.max(0,HOLD-(Date.now()-t0)));if(my!=rid)return;HELD[ty+id]=Date.now();bump(gi(d),1);
+ await wait(Math.max(0,HOLD-(Date.now()-t0)));if(my!=rid)return;HELD[ty+id]=Date.now();bump(gi(d),1);hNav(ty,id,d);
  const it=item(d,ty),seen=new Set([+id]),sim=pick([...(d.recommendations?.results||[]),...(d.similar?.results||[])],ty,60).filter(x=>!seen.has(x.id)&&seen.add(x.id)).slice(0,18);
  const c=cert(d),rt=ty=='tv'?((d.episode_run_time||[])[0]||(d.last_episode_to_air||{}).runtime):d.runtime,cast=S.kid.on?[]:(d.credits?.cast||[]).filter(p=>p.profile_path).slice(0,24),gn=a.genres&&a.genres.length?a.genres:(d.genres||[]);
  const crew=S.kid.on?[]:crewOf(d),vd=d.videos?.results||[],tr=vd.find(v=>v.site=='YouTube'&&v.type=='Trailer')||vd.find(v=>v.site=='YouTube'),at=a.title||a.name,pr=Math.round((d.vote_average||0)*10);
@@ -632,9 +708,9 @@ async function watch(ty,id,s,e,my){const t0=Date.now(),need=!(HELD[ty+id]&&t0-HE
  if(need){await wait(Math.max(0,HOLD-(Date.now()-t0)));if(my!=rid)return}
  HELD[ty+id]=Date.now();
  let prev=null,next=null;if(ty=='tv'){const i=eps.findIndex(x=>x.episode_number===e);if(eps[i-1])prev=`${s}/${eps[i-1].episode_number}`;if(eps[i+1])next=`${s}/${eps[i+1].episode_number}`;else{const n=ss.filter(x=>x.season_number>s).sort((a,b)=>a.season_number-b.season_number)[0];if(n)next=`${n.season_number}/1`}}
- S.cont[ty+id]={type:ty,id:+id,s,e,t:Date.now(),ti:ttl(d),b:d.backdrop_path,g:gi(d),ad:!!d.adult,c:cert(d)};bump(gi(d),2);save();
+ S.cont[ty+id]={type:ty,id:+id,s,e,t:Date.now(),ti:ttl(d),b:d.backdrop_path,p:d.poster_path,g:gi(d),ad:!!d.adult,c:cert(d)};bump(gi(d),2);save();
  const it=item(d,ty),ep=ty=='tv'?eps.find(x=>x.episode_number===e):null,title=ttl(d)+(ty=='tv'?` · م${s} ح${e}`:'');
- const guide='';
+ const guide='';hWatch(ty,id,d,ep,s,e);
  app.innerHTML=`<div class="wl"><div class="wp"><div class="player" id="pl">${guide}</div></div>
  <div class="wt">${S.ss?'':`<h1 class="ttl">${esc(title)}</h1><small>${ep?esc(ep.name):yr(d)+' · ★ '+vt(d)}</small><div class="tools">${acts(it)}</div>`}<div class="nv">${prev?`<a class="btn" href="#/w/tv/${id}/${prev}">${ic('back')}السابقة</a>`:''}${next?`<a class="btn p" href="#/w/tv/${id}/${next}">التالية</a>`:''}${S.ss?'':`<button class="btn" id="gdb">${ic('cc')}كيف أفعّل الترجمة؟</button><a class="btn" href="#/m/${ty}/${id}">${ic('eye')}تفاصيل العمل</a>`}</div></div>
  <div class="wsv"><div class="src"><button class="srb" id="srb" aria-haspopup="dialog">${ic('bolt')}<span><small>مصدر المشاهدة</small><b id="srn"></b></span>${ic('chev')}</button><button class="btn" id="srx">${ic('refresh')}المشغل لا يعمل؟</button></div><div class="slow" id="slow" role="status" hidden><span>إن لم يبدأ العرض، جرّب مصدرًا آخر.</span><button class="btn p" id="slowb">المصدر التالي</button></div></div>
@@ -643,34 +719,12 @@ async function watch(ty,id,s,e,my){const t0=Date.now(),need=!(HELD[ty+id]&&t0-HE
  const gb=$('#gdb');if(gb)gb.onclick=()=>modal(`<h3>تفعيل الترجمة العربية</h3>${steps()}<button class="btn p" style="width:100%" onclick="cm()">فهمت</button>`);
  let slt;const pl=$('#pl'),mark=k=>{const n=$('#srn');if(n)n.textContent=(SV.find(z=>z.k==k)||SV[0]).n};
  const play=k=>{const v=SV.find(z=>z.k==k)||SV[0];S.srv=v.k;save();mark(v.k);const g=$('#gd');if(g)g.remove();
-  pl.innerHTML=`<div class="ld">${ic('eye')}<b>جارٍ التحميل…</b><small>${v.k=='z'?'يجهّز هذا الخيار أعلى جودة ممكنة، وسيبدأ العرض بعد لحظات.':''}</small></div><iframe src="${v.u(ty,id,s,e)}" allowfullscreen allow="autoplay *; fullscreen *; picture-in-picture *; encrypted-media *" onload="this.style.opacity=1"></iframe>`;const sw=$('#slow');if(sw)sw.hidden=true;clearTimeout(slt);slt=setTimeout(()=>{const z=$('#slow');if(z)z.hidden=false},1e4);timers.push(slt)};
+  pl.innerHTML=`<div class="ld">${ic('eye')}<b>جارٍ التحميل…</b></div><iframe src="${AR(v.u(ty,id,s,e))}" allowfullscreen allow="autoplay *; fullscreen *; picture-in-picture *; encrypted-media *" onload="this.style.opacity=1"></iframe>`;const sw=$('#slow');if(sw)sw.hidden=true;clearTimeout(slt);slt=setTimeout(()=>{const z=$('#slow');if(z)z.hidden=false},1e4);timers.push(slt)};
  const nextSrc=()=>{const i=SV.findIndex(z=>z.k==S.srv);play(SV[(i+1)%SV.length].k);toast('المصدر: '+SV.find(z=>z.k==S.srv).n)};
  $('#srx').onclick=nextSrc;$('#slowb').onclick=nextSrc;
  $('#srb').onclick=()=>{modal(`<h3>اختر المصدر</h3><div class="sol">${SV.map(v=>`<button class="so ${v.k==S.srv?'on':''}" data-k="${v.k}" style="--c:${v.c}"><span><b>${v.n}</b><em>${v.g}</em></span><small>${v.d}</small></button>`).join('')}</div><button class="btn" style="width:100%;margin-top:10px" onclick="cm()">إغلاق</button>`,'bs');
   $$('.so').forEach(b=>b.onclick=()=>{play(b.dataset.k);cm();pl.scrollIntoView({block:'center',behavior:'smooth'})})};
- const sv=SV.find(z=>z.k==S.srv)?S.srv:'z';mark(sv);play(sv)}
-/* ===================== المقترحات (عشوائية بلا تكرار) ===================== */
-const POOL=[['movie',{sort_by:'popularity.desc','vote_count.gte':500}],['tv',{sort_by:'popularity.desc','vote_count.gte':300}],['movie',{sort_by:'vote_average.desc','vote_count.gte':2000}],['tv',{sort_by:'vote_average.desc','vote_count.gte':800}],['tv',{sort_by:'popularity.desc',with_original_language:'tr','vote_count.gte':40}],['movie',{sort_by:'revenue.desc','vote_count.gte':1000}],['tv',{sort_by:'popularity.desc',with_original_language:'ko','vote_count.gte':100}],['movie',{sort_by:'popularity.desc',with_original_language:'ja','vote_count.gte':300}]];
-const PI={};
-async function anim(sl,on){if(!on){clearInterval(cyc.get(sl));return}
- if(!sl._im){sl._im=1;const r=await nr(`/${sl.dataset.t}/${sl.dataset.i}/images`,{include_image_language:'null'}),box=sl.querySelector('.rimg'),cur=box.querySelector('img');
-  (r.backdrops||[]).slice(0,8).map(b=>b.file_path).filter(p=>!cur.src.endsWith(p)).slice(0,5).forEach(p=>{const i=new Image();i.src=IMG+'w780'+p;i.alt='';box.appendChild(i)})}
- const im=[...sl.querySelectorAll('.rimg img')];if(im.length<2)return;let n=im.findIndex(i=>i.style.opacity=='1');if(n<0)n=0;
- clearInterval(cyc.get(sl));cyc.set(sl,setInterval(()=>{im[n].style.opacity=0;n=(n+1)%im.length;im[n].style.opacity=1},3200))}
-async function picks(my){app.innerHTML=`<div id="rl"><div id="rend" style="height:2px"></div></div>`;const R=$('#rl');let busy=false;
- const so=new IntersectionObserver(es=>es.forEach(e=>anim(e.target,e.isIntersecting)),{root:R,threshold:.6});OB.push(so);
- async function more(tries=0){if(busy)return;busy=true;
-  const jobs=[0,1,2,3].map(()=>{const[ty,q]=POOL[Math.random()*POOL.length|0],pg=1+Math.random()*(ty=='tv'?12:20)|0;return nr('/discover/'+ty,{...q,page:pg,language:'ar',[ty=='tv'?'first_air_date.lte':'primary_release_date.lte']:today}).then(r=>pick(r.results,ty,40))});
-  const rs=(await Promise.all(jobs)).flat();if(my!=rid||!$('#rl'))return;
-  const seen=new Set(),l=shuf(rs).filter(x=>{const k=x.media_type+x.id;if(seen.has(k)||S.sn.includes(k)||(x.overview||'').length<40)return false;seen.add(k);return true}).slice(0,8);
-  l.forEach(x=>{S.sn.push(x.media_type+x.id);PI[x.media_type+x.id]=x});S.sn=S.sn.slice(-700);save();
-  $('#rend').insertAdjacentHTML('beforebegin',l.map(x=>{const ps=x.overview.split(/(?<=[.!؟?])\s+/),pp=[];for(let i=0;i<ps.length;i+=2)pp.push(ps.slice(i,i+2).join(' '));
-   const b=(a,i,n)=>`<button class="ico ${has(S[a],x.media_type,x.id)?'on':''}" data-a="${a}" aria-label="${n}">${ic(i)}</button>`;
-   return `<section class="rs" data-t="${x.media_type}" data-i="${x.id}"><div class="rimg"><img style="opacity:1" src="${IMG}w780${x.backdrop_path}" alt=""></div><div class="rb"><div><span class="pill a">${TYN(x)}</span><span class="pill">★ ${vt(x)}</span><span class="pill">${yr(x)}</span></div><h2>${esc(ttl(x))}</h2><div class="story">${pp.map(z=>`<p>${esc(z)}</p>`).join('')}</div><div><a class="btn p" href="${href(x)}">${ic('play','f')}التفاصيل</a></div></div><div class="rside">${b('lk','heart','إعجاب')}${b('fv','star','المفضلة')}${b('lt','bookmark','لاحقًا')}<button class="ico" data-a="ls" aria-label="قائمة">${ic('plus')}</button></div></section>`}).join(''));
-  R.querySelectorAll('.rs').forEach(s=>so.observe(s));busy=false;
-  if(!l.length&&tries<4)return more(tries+1);const e=$('#rend');if(e&&e.getBoundingClientRect().top<innerHeight*3)more()}
- R.onclick=e=>{const b=e.target.closest('[data-a]');if(!b)return;const sl=b.closest('.rs'),x=PI[sl.dataset.t+sl.dataset.i],a=b.dataset.a,it=item(x,sl.dataset.t);if(a=='ls')return pickList(it);const on=tog(S[a],it);b.classList.toggle('on',on);if(on)bump(gi(x),a=='lk'?3:1);toast(on?'تمت الإضافة':'تمت الإزالة')};
- const eo=new IntersectionObserver(es=>{if(es[0].isIntersecting)more()},{root:R,rootMargin:'1500px'});eo.observe($('#rend'));OB.push(eo);more()}
+ const sv=SV.find(z=>z.k==S.srv)?S.srv:SV[0].k;mark(sv);play(sv)}
 /* ===================== حسابي (بلا صورة شخصية) ===================== */
 let AT='lk';const HC=['#0c0a09','#7a3a00','#0b6a52','#9a1d3a','#3b3a9a'];
 function mkHl(it){if(S.hl.some(h=>h.t==it.t&&h.mid==it.id))return toast('لهذا العمل هايلايت في حسابك');
@@ -684,47 +738,236 @@ function openHl(i,k=0){const h=S.hl[i];if(!h)return;const n=Math.max(1,h.s.lengt
   $('#ok').onclick=()=>{const x=$('#tx').value.trim();if(!x)return;h.s.push({x,c});save();openHl(i,h.s.length-1)}};
  const dl=$('#dt');if(dl)dl.onclick=()=>{h.s.splice(k,1);save();openHl(i,Math.max(0,k-1))};
  $('#rm').onclick=()=>{S.hl.splice(i,1);save();cm();account()}}
-function settings(){const kd=S.kid.on;
- modal(`<h3>الإعدادات</h3><div class="box"><span style="color:var(--a)">${ic('smile')}</span><div><b>وضع الأطفال</b><p>${kd?'مفعّل الآن. الخروج منه يحتاج رمز PIN.':'محتوى مناسب للأطفال فقط، ويُقفل برمز من 4 أرقام.'}</p></div><button class="btn p" id="kdb">${kd?'خروج':'دخول'}</button></div>${kd?'':`<div class="box"><span style="color:var(--a)">${ic('bolt')}</span><div><b>سوبر سي</b><p>وضع مشاهدة هادئ: بحث فقط، وفي المشاهدة الحلقات والمواسم ومصادر المشاهدة.</p></div><button class="sw ${S.ss?'on':''}" id="ssw" role="switch" aria-checked="${S.ss}" aria-label="سوبر سي"></button></div>`}${themeBox()}<button class="btn" style="width:100%;margin-top:10px" onclick="cm()">إغلاق</button>`,'bs');
- $('#kdb').onclick=kd?kidExit:kidEnter;bindTheme();const w=$('#ssw');if(w)w.onclick=()=>S.ss?(S.ss=false,save(),chrome(),cm(),account()):superAsk()}
-function account(tab){if(tab)AT=tab;let li=AT[0]=='c'?+AT.slice(1):-1,cur=li>=0?S.ls[li]:null;if(li>=0&&!cur){AT='ls';li=-1}
+function settings(){const kd=S.kid.on,lk=!!(S.lock&&S.lock.h),ar=S.set.ar!==false;
+ const row=(i,t,p,x)=>`<div class="box"><span style="color:var(--a)">${ic(i)}</span><div><b>${t}</b>${p?`<p>${p}</p>`:''}</div>${x||''}</div>`,sw=(id,on,n)=>`<button class="sw ${on?'on':''}" id="${id}" role="switch" aria-checked="${on}" aria-label="${n}"></button>`,hd=t=>`<h4 class="sth2">${t}</h4>`;
+ modal(`<h3>الإعدادات</h3>${hd('المظهر')}${themeBox()}
+ ${hd('المشاهدة')}${kd?'':row('bolt','سوبر سي','بحث فقط، وفي المشاهدة الحلقات والمصادر.',sw('ssw',S.ss,'سوبر سي'))}${row('cc','الترجمة العربية تلقائيًا','تُفضَّل العربية عند توفّرها، ويبقى التحكم اليدوي داخل المشغّل.',sw('arw',ar,'الترجمة العربية'))}
+ ${hd('الخصوصية والأمان')}${row('smile','وضع الأطفال',kd?'مفعّل. الخروج يحتاج الرمز.':'محتوى مناسب للأطفال فقط.',`<button class="btn p" id="kdb">${kd?'خروج':'دخول'}</button>`)}${row('lock','قفل التطبيق',lk?'مفعّل. يُطلب رمز من 4 أرقام عند الفتح.':'رمز من 4 أرقام يُطلب قبل فتح التطبيق.',sw('lkw',lk,'قفل التطبيق'))}
+ <button class="btn" style="width:100%;margin-top:12px" onclick="cm()">إغلاق</button>`,'bs');
+ $('#kdb').onclick=kd?kidExit:kidEnter;bindTheme();const w=$('#ssw');if(w)w.onclick=()=>S.ss?(S.ss=false,save(),chrome(),cm(),account()):superAsk();
+ $('#arw').onclick=e=>{S.set.ar=S.set.ar===false;save();e.currentTarget.classList.toggle('on',S.set.ar);e.currentTarget.setAttribute('aria-checked',S.set.ar)};
+ $('#lkw').onclick=()=>lk?pinAsk('تعطيل قفل التطبيق','اكتب الرمز الحالي.',0,async p=>{if(await kh(p,S.lock.s)!=S.lock.h)return 'الرمز غير صحيح.';S.lock=null;save();settings();toast('تم تعطيل القفل')}):pinAsk('رمز قفل التطبيق','اختر 4 أرقام تُطلب عند فتح التطبيق.',1,async p=>{const z=Math.random().toString(36).slice(2);S.lock={h:await kh(p,z),s:z,f:0,lu:0};save();settings();toast('تم تفعيل القفل')})}
+/* ===== بطاقة الحساب (كل ما يخص الحساب هنا فقط) ===== */
+function acRefresh(){if(/^#\/me/.test(location.hash))account()}
+function logoutAsk(){modal(`<h3>تسجيل الخروج</h3><small>ستبقى بياناتك محفوظة في حسابك، ويمكنك استعادتها كاملة عند تسجيل الدخول مرة أخرى.</small><button class="btn p" id="lgy" type="button" style="width:100%;margin-top:12px">تسجيل الخروج</button><button class="btn" style="width:100%;margin-top:8px" onclick="cm()">إلغاء</button>`,'bs');$('#lgy').onclick=doLogout}
+async function doLogout(){const b=$('#lgy');if(b)b.disabled=true;
+ try{await fbTmo(cloudPush(),6000)}catch(e){if(!confirm('تعذّر حفظ آخر تغييراتك بسبب مشكلة في الاتصال. هل تريد تسجيل الخروج على أي حال؟')){if(b)b.disabled=false;return}}
+ clearTimeout(CQT);try{await fbInit();await FA.signOut()}catch(e){}
+ try{[localStorage,sessionStorage].forEach(st=>Object.keys(st).filter(k=>/^firebase/i.test(k)).forEach(k=>st.removeItem(k)))}catch(e){}
+ S.acc=null;S.nm='';S.un='';S.bio='';try{localStorage.removeItem('see_av')}catch(e){}PUSHED={};save();cm();chrome();toast('تم تسجيل الخروج');acRefresh()}
+function account(tab){if(tab)AT=tab;if(S.kid.on&&AT=='wh')AT='lk';let li=AT[0]=='c'?+AT.slice(1):-1,cur=li>=0?S.ls[li]:null;if(li>=0&&!cur){AT='ls';li=-1}
  const kd=S.kid.on,inL=AT=='ls';if(kd&&cur)ED=false;document.body.classList.toggle('ed',ED);
- const MT={lk:['heart','الإعجابات'],fv:['star','المفضلة'],lt:['bookmark','مشاهدة لاحقًا']},raw=cur?cur.items:(inL?[]:S[AT]),arr=kd?raw.filter(isKidSafe):raw;
- const tabs=[['lk','heart','الإعجابات'],['fv','star','المفضلة'],['lt','bookmark','لاحقًا'],['ls','list','قوائمي']].map(([k,i,n])=>{const on=k==AT||(k=='ls'&&li>=0);return `<button data-t="${k}" role="tab" aria-selected="${on}" class="${on?'on':''}" aria-label="${n}">${ic(i)}</button>`}).join('');
+ const MT={lk:['heart','الإعجابات'],fv:['star','المفضلة'],lt:['bookmark','مشاهدة لاحقًا']},raw=cur?cur.items:(inL||AT=='wh'?[]:S[AT]),arr=kd?raw.filter(isKidSafe):raw;
+ const tabs=[['lk','heart','الإعجابات'],['fv','star','المفضلة'],['lt','bookmark','لاحقًا'],['ls','list','قوائمي'],...(kd?[]:[['wh','clock','السجل']])].map(([k,i,n])=>{const on=k==AT||(k=='ls'&&li>=0);return `<button data-t="${k}" role="tab" aria-selected="${on}" class="${on?'on':''}" aria-label="${n}">${ic(i)}</button>`}).join('');
  const edb=`<button class="btn ${ED?'on':''}" id="edm">${ic('grip')}ترتيب</button>`;let mid;
- if(inL)mid=`<div class="th2">${ic('list')}<b>قوائمي</b><small>${S.ls.length}</small><button class="btn" id="nl">${ic('plus')}إضافة</button>${edb}</div>${ED?'<p class="edn">اسحب القوائم لإعادة ترتيبها</p>':''}${S.ls.length?`<div class="lrs" id="lrs">${S.ls.map((l,i)=>`<button class="lr" data-t="c${i}" data-dl>${ic(l.ic||'list')}<b>${esc(l.n)}</b><small>${kd?kf(l.items).length:l.items.length}</small></button>`).join('')}</div>`:empty('list','لا توجد قوائم بعد. اضغط «إضافة» لإنشاء أول قائمة.')}`;
- else{const grid=arr.length?`<div class="pg" id="pg">${arr.map(i=>`<a href="#/m/${i.t}/${i.id}">${i.p?`<img loading="lazy" src="${IMG}w342${i.p}" alt="">`:''}</a>`).join('')}</div>`:empty(cur?(cur.ic||'list'):MT[AT][0],cur?'القائمة فارغة، أضف إليها من صفحة أي عمل أو من المُقترحات.':'لا شيء هنا بعد. ابدأ بإضافة ما يعجبك.');
-  mid=(cur?`<div class="th2"><button class="btn" data-t="ls" aria-label="رجوع">${ic('back')}</button>${ic(cur.ic||'list')}<b>${esc(cur.n)}</b><small>${arr.length}</small><button class="btn" id="el2">${ic('pencil')}تعديل</button>${kd?'':edb}</div>${ED?'<p class="edn">اسحب الأعمال لإعادة ترتيبها</p>':''}`:'')+grid}
- app.innerHTML=`<div class="ig">${kd?`<div class="kdb">${ic('smile')}وضع الأطفال مفعّل</div>`:''}<div class="igt"><div class="igav" id="igav">${avH()}</div><div class="igs">${[['lk','إعجابات',kf(S.lk).length],['fv','المفضلة',kf(S.fv).length],['lt','لاحقًا',kf(S.lt).length],['ls','قوائم',S.ls.length]].map(([k,n,c])=>`<button data-t="${k}"><b>${c}</b><small>${n}</small></button>`).join('')}</div></div><div class="igb"><b class="ttl">${esc(S.nm||'مشاهد See')}</b><span class="igu">@${esc(S.un||'see_user')}</span><p class="ttl igbio${S.bio?'':' mu'}">${S.bio?esc(S.bio):'أضف نبذة عنك من «تعديل الملف الشخصي».'}</p></div><div class="igr"><button class="btn" id="ed">${ic('pencil')}تعديل الملف الشخصي</button><button class="btn" id="stg">${ic('gear')}الإعدادات</button></div></div>
+ if(AT=='wh')mid=histBox();else if(inL)mid=`<div class="th2">${ic('list')}<b>قوائمي</b><small>${S.ls.length}</small><button class="btn" id="nl">${ic('plus')}إضافة</button>${edb}</div>${ED?'<p class="edn">اسحب القوائم لإعادة ترتيبها</p>':''}${S.ls.length?`<div class="lrs" id="lrs">${S.ls.map((l,i)=>`<button class="lr" data-t="c${i}" data-dl>${ic(l.ic||'list')}<b>${esc(l.n)}</b><small>${kd?kf(l.items).length:l.items.length}</small></button>`).join('')}</div>`:empty('list','لا توجد قوائم بعد. اضغط «إضافة» لإنشاء أول قائمة.')}`;
+ else{const grid=arr.length?`<div class="pg" id="pg">${arr.map(i=>`<a href="#/m/${i.t}/${i.id}">${i.p?`<img loading="lazy" src="${IMG}w342${i.p}" alt="">`:''}</a>`).join('')}</div>`:empty(cur?(cur.ic||'list'):MT[AT][0],cur?'القائمة فارغة. اضغط «إضافة» لإضافة أعمال إليها.':'لا شيء هنا بعد. ابدأ بإضافة ما يعجبك.');
+  mid=(cur?`<div class="th2"><button class="btn" data-t="ls" aria-label="رجوع">${ic('back')}</button>${ic(cur.ic||'list')}<b>${esc(cur.n)}</b><small>${arr.length}</small>${kd?'':`<button class="btn" id="ad2">${ic('plus')}إضافة</button>`}<button class="btn" id="el2">${ic('pencil')}تعديل</button>${kd?'':edb}</div>${ED?'<p class="edn">اسحب الأعمال لإعادة ترتيبها</p>':''}`:'')+grid}
+ app.innerHTML=`<div class="ig">${kd?`<div class="kdb">${ic('smile')}وضع الأطفال مفعّل</div>`:''}<div class="igt"><div class="igav" id="igav">${avH()}</div><div class="igs">${[['lk','إعجابات',kf(S.lk).length],['fv','المفضلة',kf(S.fv).length],['lt','لاحقًا',kf(S.lt).length],['ls','قوائم',S.ls.length]].map(([k,n,c])=>`<button data-t="${k}"><b>${c}</b><small>${n}</small></button>`).join('')}</div></div><div class="igb"><b class="ttl">${esc(S.nm||'مشاهد See')}</b><span class="igu">@${esc(S.un||'see_user')}</span><p class="ttl igbio${S.bio?'':' mu'}">${S.bio?esc(S.bio):'أضف نبذة عنك من «تعديل الملف الشخصي».'}</p></div></div>
  ${kd?'':`<div class="hl">${S.hl.map((h,i)=>`<button data-h="${i}"><span><img src="${IMG}w185${h.p}" alt=""></span>${esc(h.n)}</button>`).join('')||'<small style="padding:8px 0">افتح صفحة عمل أكملته واضغط «أنشئ هايلايت» لتنشئ له هايلايت خاصًا.</small>'}</div>`}
  <div class="tb" id="tb" role="tablist">${tabs}</div>${mid}`;
  $$('[data-t]').forEach(b=>b.onclick=()=>{if(Date.now()-DM<350)return;AT=b.dataset.t;ED=false;account()});$$('[data-h]').forEach(b=>b.onclick=()=>openHl(+b.dataset.h));
- $('#ed').onclick=editProfile;$('#igav').onclick=editProfile;$('#stg').onclick=settings;
+ $('#igav').onclick=editProfile;if(AT=='wh')histBind();
  const nl=$('#nl');if(nl)nl.onclick=()=>listModal(null,i=>{AT='c'+i;ED=false;account()});
- const em=$('#edm');if(em)em.onclick=()=>{ED=!ED;account()};
+ const em=$('#edm');if(em)em.onclick=()=>{ED=!ED;account()};const ad2=$('#ad2');if(ad2)ad2.onclick=()=>addToList(li);
  const el=$('#el2');if(el)el.onclick=()=>listModal(li,i=>{AT=i<0?'ls':AT;account()});
  if(ED){const pg=$('#pg');if(pg)pg.onclick=e=>{if(e.target.closest('a'))e.preventDefault()};
   if(inL)drag($('#lrs'),'[data-dl]',(f,t)=>{mv(S.ls,f,t);account()});
   else drag(pg,'.pg a',(f,t)=>{mv(arr,f,t);account()})}}
 /* ===================== الإقلاع ===================== */
+/* ===================== القائمة الجانبية للحساب ===================== */
+function acbHTML(){const a=avt();return a?`<img src="${a}" alt="">`:ic('user')}
+function acbRefresh(){const b=$('#acb');if(b)b.innerHTML=acbHTML()}
+function dwRender(){const el=$('#dwp');if(!el)return;const a=S.acc,kd=S.kid.on,it=(k,i,n)=>`<button class="dwi" type="button" data-k="${k}">${ic(i)}<span>${n}</span>${ic('chev')}</button>`;
+ el.innerHTML=`<div class="dwh"><div class="igav" style="width:60px;height:60px">${avH()}</div><div class="dwn"><b class="ttl">${esc(S.nm||'مشاهد See')}</b><small>@${esc(S.un||'see_user')}</small></div><button class="dwx" type="button" data-k="x" aria-label="إغلاق">${ic('x')}</button></div>
+ <div class="dwl">${it('me','user','حسابي')}${kd?'':it('hist','clock','السجل')}${it('ed','pencil','تعديل الملف الشخصي')}${it('set','gear','الإعدادات')}</div>
+ ${a||kd?'':`<div class="dwg"><p>سجّل دخولك لتبقى بياناتك محفوظة معك.</p><button class="btn p" type="button" data-k="in">تسجيل الدخول</button><button class="btn" type="button" data-k="up">إنشاء حساب</button></div>`}`}
+function dwOpen(){const d=$('#dw');if(!d)return;dwRender();d.classList.add('on');d.setAttribute('aria-hidden','false');const p=$('#dwp');if(p)p.focus({preventScroll:true})}
+function dwClose(){const d=$('#dw');if(!d||!d.classList.contains('on'))return;d.classList.remove('on');d.setAttribute('aria-hidden','true')}
+function dwInit(){if($('#dw'))return;document.body.insertAdjacentHTML('beforeend','<div class="dw" id="dw" aria-hidden="true"><div class="dwb" id="dwb"></div><aside class="dwp" id="dwp" role="dialog" aria-modal="true" aria-label="القائمة" tabindex="-1"></aside></div>');
+ $('#dwb').onclick=dwClose;
+ $('#dwp').onclick=e=>{const b=e.target.closest('[data-k]');if(!b)return;const k=b.dataset.k;dwClose();
+  if(k=='me'||k=='hist'){if(k=='hist'){AT='wh';HTB='w';HN=40}ED=false;if(location.hash=='#/me')account();else location.hash='#/me'}
+  else if(k=='ed')editProfile();else if(k=='set')settings();else if(k=='in')authModal('in');else if(k=='up')authModal('up')}}
+addEventListener('keydown',e=>{if(e.key=='Escape')dwClose()});
+/* ===================== السجل الدائم (مشاهدة + تصفّح) ===================== */
+var WK=null,WRL={},WSV=0;
+function hNav(ty,id,d){const a=S.nh,n=Date.now(),z=a[0];if(z&&z.t==ty&&z.id==+id&&n-z.a<3e4)return;a.unshift({t:ty,id:+id,ti:ttl(d),p:d.poster_path,a:n});save(1)}
+function hWatch(ty,id,d,ep,s,e){const k=ty=='tv'?`tv:${id}:${s}:${e}`:`movie:${id}`,now=Date.now(),W=S.wh,o=W[k]||{k,t:ty,id:+id,f:now,v:0,pr:0,pos:0};
+ const rt=((ty=='tv'?((ep&&ep.runtime)||(d.episode_run_time||[])[0]||(d.last_episode_to_air||{}).runtime):d.runtime)||0)*60;
+ o.ti=ttl(d);o.p=d.poster_path;if(ty=='tv'){o.s=+s;o.e=+e;o.en=ep?ep.name:''}if(rt&&!o.du)o.du=rt;
+ if(!o.ts||now-o.ts>2e4)o.v=(o.v||0)+1;o.ts=now;W[k]=o;
+ save(1);WK=k;let last=now;
+ timers.push(setInterval(()=>{const t=Date.now(),dt=(t-last)/1000;last=t;if(WK!=k||document.visibilityState!='visible'||(WRL[k]&&t-WRL[k]<2e4))return;o.pos=Math.min(o.du||1e9,(o.pos||0)+dt);if(o.du)o.pr=Math.min(99,Math.round(o.pos/o.du*100));o.ts=t;save(1)},1e4))}
+addEventListener('message',ev=>{const f=document.querySelector('#pl iframe');if(!f||ev.source!==f.contentWindow||!WK||!S.wh[WK])return;let m=ev.data;if(typeof m=='string'){try{m=JSON.parse(m)}catch(e){return}}if(!m||typeof m!='object')return;
+ const q=m.data&&typeof m.data=='object'?m.data:m,ct=Number(q.currentTime??q.time??q.position),du=Number(q.duration??q.total??0);if(!isFinite(ct)||ct<0)return;
+ const o=S.wh[WK],t=Date.now();o.pos=ct;if(du>0)o.du=du;if(o.du)o.pr=Math.min(100,Math.round(ct/o.du*100));o.ts=t;WRL[WK]=t;if(t-WSV>5e3){WSV=t;save(1)}});
+const fmtS=x=>{x=Math.floor(x);const h=x/3600|0,m=(x%3600)/60|0,c=x%60,p=n=>String(n).padStart(2,'0');return(h?h+':'+p(m):m)+':'+p(c)};
+let HTB='w',HN=40;
+function histBox(){const tv=HTB=='w',L=tv?Object.values(S.wh).sort((a,b)=>(b.ts||0)-(a.ts||0)):S.nh,vs=L.slice(0,HN);
+ const dk=ts=>{const d=new Date(ts),n=new Date();return d.toDateString()==n.toDateString()?'اليوم':d.toDateString()==new Date(n-864e5).toDateString()?'أمس':d.toLocaleDateString('ar',{weekday:'long',day:'numeric',month:'long',year:'numeric'})},tt=ts=>new Date(ts).toLocaleTimeString('ar',{hour:'2-digit',minute:'2-digit'}),dd=ts=>new Date(ts).toLocaleDateString('ar',{day:'numeric',month:'long',year:'numeric'});
+ let g='',h='';
+ vs.forEach(x=>{const ts=tv?x.ts:x.a,k=dk(ts);if(k!=g){g=k;h+=`<h3 class="hxg">${k}</h3>`}
+  if(tv){const w=x.t=='tv',pr=Math.max(0,Math.min(100,x.pr||0)),go=`#/w/${x.t}/${x.id}${w?`/${x.s}/${x.e}`:''}`,l3=[pr+'% مشاهدة'];if(x.pos>0)l3.push('آخر موضع '+fmtS(x.pos));l3.push((x.v||1)>1?(x.v||1)+' مرات':'مرة واحدة');
+   h+=`<div class="hxr"><a class="hxp" href="${go}" aria-label="${esc(x.ti)}">${x.p?`<img loading="lazy" src="${IMG}w185${x.p}" alt="">`:''}<u><i style="width:${pr}%"></i></u></a><div class="hxi"><b class="ttl">${esc(x.ti)}</b><small>${w?`الموسم ${x.s} · الحلقة ${x.e}${x.en?' — <span class="ttl">'+esc(x.en)+'</span>':''}`:'فيلم'}</small><small>${dd(ts)} · ${tt(ts)}</small><small>${l3.join(' · ')}</small><a class="btn p hxgo" href="${go}">${ic('play','f')}${pr>=95?'شاهد مجددًا':'متابعة المشاهدة'}</a></div></div>`}
+  else h+=`<a class="hxr" href="#/m/${x.t}/${x.id}"><span class="hxp">${x.p?`<img loading="lazy" src="${IMG}w185${x.p}" alt="">`:''}</span><div class="hxi"><b class="ttl">${esc(x.ti)}</b><small>${x.t=='tv'?'مسلسل':'فيلم'}</small><small>${dd(ts)} · ${tt(ts)}</small></div></a>`});
+ return `<div class="th2">${ic('clock')}<b>السجل</b><small>${L.length}</small></div><div class="chips" id="hch" style="position:static;padding-top:0"><button data-k="w" class="${tv?'on':''}">المشاهدة</button><button data-k="n" class="${tv?'':'on'}">التصفّح</button></div>${vs.length?`<div class="hxl">${h}</div>`:empty('clock',tv?'لا يوجد سجل مشاهدة بعد. ابدأ بمشاهدة عمل وسيظهر هنا.':'لا يوجد سجل تصفّح بعد.')}${L.length>HN?'<button class="btn hxm" id="hm">عرض المزيد</button>':''}`}
+function histBind(){const c=$('#hch');if(c)c.onclick=e=>{const b=e.target.closest('button');if(b&&b.dataset.k!=HTB){HTB=b.dataset.k;HN=40;account()}};const m=$('#hm');if(m)m.onclick=()=>{HN+=40;account()}}
+/* ===================== المشاركة والترجمة ===================== */
+function shareIt(it){const u=location.href.split('#')[0]+`#/m/${it.t}/${it.id}`;
+ if(navigator.share)navigator.share({url:u}).catch(()=>{});else{try{navigator.clipboard.writeText(u);toast('تم نسخ الرابط')}catch(e){prompt('',u)}}}
+function AR(u){return S.set&&S.set.ar===false?u:u+(u.indexOf('?')>=0?'&':'?')+'ds_lang=ar&sub_lang=ar&lang=ar'}
+/* ===================== إضافة أعمال إلى قائمة ===================== */
+function addToList(li){const L=S.ls[li];if(!L)return;let R=[],tz;
+ modal(`<h3>إضافة إلى «${esc(L.n)}»</h3><input id="as" type="search" placeholder="ابحث عن فيلم أو مسلسل" autocomplete="off"><div class="lrs" id="asr" style="padding:8px 0"></div><button class="btn p" style="width:100%" id="asd">تم</button>`,'bs');
+ const draw=()=>{$('#asr').innerHTML=R.map((x,i)=>`<button class="lr" data-i="${i}">${ic(has(L.items,x.media_type,x.id)?'check':'plus')}<b class="ttl">${esc(ttl(x))}</b><small>${yr(x)} · ${TYN(x)}</small></button>`).join('')};
+ $('#as').oninput=e=>{clearTimeout(tz);const q=e.target.value.trim();tz=setTimeout(async()=>{if(!q){R=[];return draw()}const r=await nr('/search/multi',{query:q});if($('#as')&&$('#as').value.trim()==q){R=(r.results||[]).filter(x=>x.media_type!='person'&&x.poster_path&&ok(x)&&al(x)&&!x.adult&&isKidSafe(x)).slice(0,12);draw()}},350)};
+ $('#asr').onclick=e=>{const b=e.target.closest('.lr');if(!b)return;const x=R[b.dataset.i];tog(L.items,item(x,x.media_type));draw()};
+ $('#asd').onclick=()=>{cm();account()};$('#as').focus()}
+/* ===================== الإشعارات (من بيانات المتصفح فقط) ===================== */
+const NT={
+ new:[['{k} جديد متاح','«{t}» وصل حديثًا إلى See. ألقِ نظرة.'],['أُضيف حديثًا','أُضيف {k} «{t}» للتو. كن أول من يشاهده.'],['{k} وصل حديثًا','هل سمعت عن «{t}»؟ اكتشفه الآن.'],['لا تفوّت هذا الإصدار','«{t}» جديد ويستحق وقتك.'],['جديد على See','«{t}» وصل للتو، وقد يكون سهرتك القادمة.']],
+ vis:[['زرت هذا العمل من قبل','«{t}» ما زال بانتظارك، تابع من حيث توقفت.'],['هل تذكر «{t}»؟','عُد إليه وأكمل رحلتك معه.'],['ما زلت مهتمًا؟','زرت «{t}» مؤخرًا، لعل الوقت مناسب الآن.'],['شيء لفت انتباهك','«{t}» كان على شاشتك قبل قليل. هل تشاهده الآن؟']],
+ cont:[['تابع المشاهدة','أوقفت «{t}» {se}. أكمل الآن.'],['أكمل ما بدأته','«{t}» ينتظرك {se}.'],['لم تنتهِ بعد','عُد إلى «{t}» من حيث توقفت {se}.'],['استأنف الآن','«{t}» جاهز لتكمله {se}.']],
+ lt:[['عنوانك المحفوظ ينتظرك','«{t}» في قائمة المشاهدة لاحقًا. هل حان وقته؟'],['تذكير لطيف','حفظت «{t}» لوقت لاحق، لا تتركه ينتظر طويلًا.'],['حان وقت المشاهدة','أنت حفظت «{t}» لهذه اللحظة بالذات.'],['من قائمتك','«{t}» بانتظارك في المشاهدة لاحقًا.']],
+ fv:[['من مفضلتك','«{t}» من أعمالك المفضلة. وقت مناسب لإعادة المشاهدة.'],['عمل تحبه','مضى وقت على «{t}»، ربما حان موعد العودة.'],['مفضلتك تناديك','«{t}» يستحق نظرة أخرى.'],['لحظة حنين','ما رأيك بإعادة «{t}» الليلة؟']],
+ ep:[['حلقة جديدة متاحة','صدرت حلقة جديدة من «{t}». شاهدها الآن.'],['حلقة جديدة بانتظارك','«{t}» أضاف حلقة جديدة. لا تفوّتها.'],['وصلت الحلقة الأحدث','تابع «{t}» مع الحلقة الجديدة.']],
+ rec:[['اقتراح لك','قد يعجبك «{t}» بناءً على ما تحب مشاهدته.'],['اخترنا لك','«{t}» مرشّح لسهرتك القادمة.'],['لا تفوّت هذا العمل','«{t}» من أكثر الأعمال رواجًا الآن.'],['ترشيح الليلة','جرّب «{t}»، يستحق المشاهدة.']]};
+const NK={new:'جديد',vis:'تذكير',cont:'تابع المشاهدة',lt:'لاحقًا',fv:'من مفضلتك',ep:'حلقة جديدة',rec:'مقترح لك',wel:'See'};
+async function ntEp(){const m=new Map(),N=S.nt;
+ Object.values(S.cont).filter(x=>x.type=='tv').forEach(x=>m.set(x.id,{i:x.id,w:x}));
+ [...S.fv,...S.lt].filter(x=>x.t=='tv').forEach(x=>{if(!m.has(x.id))m.set(x.id,{i:x.id})});
+ const L=shuf([...m.values()]).slice(0,5),out=[];
+ await Promise.all(L.map(async z=>{try{const d=await tm('/tv/'+z.i),le=d.last_episode_to_air;if(!le||!le.air_date||le.air_date>today||le.air_date<D(21)||!d.poster_path||!isKidSafe(d))return;
+  const w=z.w;if(w&&(w.s>le.season_number||(w.s==le.season_number&&w.e>=le.episode_number)))return;
+  out.push({ty:'tv',i:z.i,t:ttl(d),p:d.poster_path,s:le.season_number,e:le.episode_number})}catch(e){}}));
+ return out}
+async function ntPool(){const kd=S.kid.on,x={ep:[],rec:[]};
+ try{x.ep=await ntEp()}catch(e){}
+ let c={};try{c=JSON.parse(localStorage.getItem('see_sc')||'{}')}catch(e){}
+ Object.keys(c).filter(k=>/^(tvtop|mvtop)/.test(k)&&k.slice(-1)==(kd?'k':'n')).forEach(k=>(c[k].v||[]).slice(0,14).forEach(y=>{if(y.poster_path&&y.media_type&&isKidSafe(y))x.rec.push({ty:y.media_type,i:y.id,t:ttl(y),p:y.poster_path})}));
+ if(x.rec.length<4){try{const r=await nr('/trending/all/week');pick(r.results,'movie',100).slice(0,14).forEach(y=>x.rec.push({ty:y.media_type,i:y.id,t:ttl(y),p:y.poster_path}))}catch(e){}}
+ return x}
+function ntMake(n,X){X=X||{};const N=S.nt,now=Date.now(),kd=S.kid.on,Q={new:[],vis:[],cont:[],lt:[],fv:[],ep:X.ep||[],rec:X.rec||[]};let c={};try{c=JSON.parse(localStorage.getItem('see_sc')||'{}')}catch(e){}
+ Object.keys(c).filter(k=>k.indexOf('new')==0&&k.slice(-1)==(kd?'k':'n')).forEach(k=>(c[k].v||[]).slice(0,14).forEach(x=>{if(x.poster_path&&x.media_type&&isKidSafe(x))Q.new.push({ty:x.media_type,i:x.id,t:ttl(x),p:x.poster_path})}));
+ if(!kd)S.nh.slice(0,60).forEach(x=>{if(x.p)Q.vis.push({ty:x.t,i:x.id,t:x.ti,p:x.p})});
+ Object.values(S.cont).filter(x=>x.ti&&(x.p||x.b)&&isKidSafe(x)).forEach(x=>Q.cont.push({ty:x.type,i:x.id,t:x.ti,p:x.p||x.b,s:x.s,e:x.e}));
+ S.lt.filter(x=>x.p&&isKidSafe(x)).forEach(x=>Q.lt.push({ty:x.t,i:x.id,t:x.ti,p:x.p}));S.fv.filter(x=>x.p&&isKidSafe(x)).forEach(x=>Q.fv.push({ty:x.t,i:x.id,t:x.ti,p:x.p}));
+ const out=[],kinds=Object.keys(Q).filter(k=>Q[k].length),recent=N.l.slice(0,14);
+ for(let j=0;j<n&&kinds.length;j++){let done=0,ks=shuf(kinds).sort((a,b)=>(a==N.lk)-(b==N.lk));if(Q.ep.length&&Math.random()<.7)ks=['ep',...ks.filter(k=>k!='ep')];
+  for(const k of ks){const key=z=>k+z.ty+z.i,fr=shuf(Q[k]).filter(z=>!(N.sh[key(z)]>now-4*864e5)&&!out.some(o=>o.i==z.i&&o.ty==z.ty)&&!recent.some(o=>o.i==z.i&&o.ty==z.ty));if(!fr.length)continue;
+   const z=fr[0],T=NT[k],ix=T.map((_,q)=>q).filter(q=>q!=N.tp[k]),q=ix[Math.random()*ix.length|0];N.tp[k]=q;N.sh[key(z)]=now;N.lk=k;
+   const w=z.ty=='tv'?'مسلسل':'فيلم',se=z.ty=='tv'?`عند الموسم ${z.s} الحلقة ${z.e}`:'قبل أن تنهيه',f=t=>t.replace('{k}',w).replace('{t}',z.t).replace('{se}',se);
+   out.push({k,ty:z.ty,i:z.i,p:z.p,h:f(T[q][0]),x:f(T[q][1]),hr:(k=='cont'||k=='ep')&&z.ty=='tv'?`#/w/tv/${z.i}/${z.s}/${z.e}`:k=='cont'?`#/w/movie/${z.i}`:`#/m/${z.ty}/${z.i}`,a:now-j*1e3});done=1;break}
+  if(!done)break}
+ Object.keys(N.sh).forEach(k=>{if(N.sh[k]<now-7*864e5)delete N.sh[k]});
+ if(!out.length&&!N.l.length)out.push({k:'wel',h:'أهلًا بك في See',x:'ستصلك هنا تنبيهات وتذكيرات تناسب ما تتصفحه وتحفظه.',hr:'#/',a:now});
+ return out}
+function ntRing(){const b=$('#bl');if(b){b.classList.remove('ringb');void b.offsetWidth;b.classList.add('ringb')}}
+function ntPush(add,seen){const N=S.nt;N.g=Date.now();add.slice().reverse().forEach(x=>{if(seen)x.s=1;N.l.unshift(x)});N.l.length=Math.min(N.l.length,60);save();ntBadge();if(!seen)ntRing()}
+let NTB=0;
+async function ntTick(force){if($('#lkc')||NTB)return;const N=S.nt;if(!force&&N.l.length&&Date.now()-N.g<27e5)return;NTB=1;
+ try{const add=ntMake(N.l.length?1+(Math.random()<.4):2,await ntPool());if(add.length)ntPush(add)}catch(e){}NTB=0}
+function ntBadge(){const bl=$('#bl');if(!bl)return;let b=$('#bc2');if(!b){b=document.createElement('i');b.id='bc2';bl.appendChild(b)}const n=S.nt.l.filter(x=>x.a>S.nt.rd&&!x.s).length;b.hidden=!n;b.textContent=n>9?'9+':n}
+let NPT;
+function npopShow(n){let el=$('#npop');if(el)el.remove();clearTimeout(NPT);el=document.createElement('div');el.id='npop';el.setAttribute('role','status');
+ el.innerHTML=`<a class="npa" href="${esc(n.hr||'#/')}"><span class="ntp">${n.p?`<img src="${IMG}w185${n.p}" alt="">`:ic('bell')}</span><div><small>${NK[n.k]||'See'}</small><b>${esc(n.h)}</b><p>${esc(n.x)}</p></div></a><button class="npx" type="button" aria-label="إغلاق">${ic('x')}</button>`;
+ document.body.appendChild(el);requestAnimationFrame(()=>requestAnimationFrame(()=>el.classList.add('on')));
+ const hide=()=>{el.classList.remove('on');setTimeout(()=>el.remove(),500)};el.querySelector('.npx').onclick=hide;el.querySelector('.npa').onclick=hide;NPT=setTimeout(hide,8000)}
+async function ntStart(t){t=t||0;if($('#lkc')){if(t<90)setTimeout(()=>ntStart(t+1),2000);return}if(NTB)return;NTB=1;let it=null;
+ try{it=ntMake(1,await ntPool())[0]}catch(e){}NTB=0;if(!it)return;ntPush([it],1);npopShow(it)}
+document.addEventListener('visibilitychange',()=>{if(!document.hidden){ntBadge();ntTick()}});
+function ntOpen(){const rd=S.nt.rd;S.nt.rd=Date.now();save();ntBadge();
+ const rt=new Intl.RelativeTimeFormat('ar',{numeric:'auto'}),ago=ts=>{const x=(Date.now()-ts)/1e3;return x<60?'الآن':x<3600?rt.format(-Math.round(x/60),'minute'):x<86400?rt.format(-Math.round(x/3600),'hour'):rt.format(-Math.round(x/86400),'day')};
+ modal(`<h3>الإشعارات</h3>${S.nt.l.length?`<div class="ntl">${S.nt.l.slice(0,40).map(n=>`<a class="ntr ${n.a>rd&&!n.s?'u':''}" href="${esc(n.hr||'#/')}"><span class="ntp">${n.p?`<img src="${IMG}w185${n.p}" alt="">`:ic('bell')}</span><div><span class="ntk">${NK[n.k]||'See'}</span><b>${esc(n.h)}</b><p>${esc(n.x)}</p><small>${ago(n.a)}</small></div></a>`).join('')}</div>`:empty('bell','لا إشعارات بعد')}<button class="btn" style="width:100%" onclick="cm()">إغلاق</button>`,'bs');
+ $$('.ntr').forEach(a=>a.addEventListener('click',cm))}
+/* ===================== قفل التطبيق ===================== */
+function lockScreen(){if($('#lkc'))return;const d=document.createElement('div');d.id='lkc';
+ d.innerHTML=`<div class="lkb">${ic('lock')}<h2>See</h2><small>اكتب رمز القفل للمتابعة</small><input id="lki" class="pin" type="password" inputmode="numeric" maxlength="4" autocomplete="off" placeholder="••••" dir="ltr" aria-label="رمز القفل"><p class="pne" id="lke" role="alert"></p>${S.acc&&fbReady()?'<button class="lnk" id="lkf">نسيت الرمز؟</button>':''}</div>`;document.body.appendChild(d);
+ const i=d.querySelector('#lki'),er=m=>d.querySelector('#lke').textContent=m;i.focus();
+ i.oninput=async()=>{i.value=i.value.replace(/\D/g,'').slice(0,4);if(i.value.length<4)return;const L=S.lock;if(!L)return d.remove();
+  if(L.lu>Date.now()){i.value='';return er('محاولات كثيرة. انتظر قليلًا.')}
+  if(await kh(i.value,L.s)==L.h){L.f=0;L.lu=0;save();d.remove();return}
+  L.f=(L.f||0)+1;i.value='';if(L.f>=5){L.f=0;L.lu=Date.now()+6e4;er('تم إيقاف المحاولات لمدة دقيقة.')}else er('الرمز غير صحيح.');save()};
+ const f=d.querySelector('#lkf');if(f)f.onclick=async()=>{const pw=prompt('اكتب كلمة مرور حسابك لإلغاء القفل');if(!pw)return;try{await fbInit();await FA.signInWithEmailAndPassword(S.acc.email,pw);S.lock=null;save();d.remove()}catch(e){er(fbErr(e))}}}
+var HIDT=0;document.addEventListener('visibilitychange',()=>{if(document.hidden)HIDT=Date.now();else if(S.lock&&S.lock.h&&HIDT&&Date.now()-HIDT>12e4)lockScreen()});
+/* ===================== الحساب السحابي (نسخ ومزامنة للملف نفسه) ===================== */
+var FBP=null,FA=null,FD=null,CQT=0;
+const fbReady=()=>!!(FB_CFG.apiKey&&FB_CFG.projectId),fbTmo=(p,ms)=>Promise.race([p,new Promise((_,j)=>setTimeout(()=>j({code:'auth/network-request-failed'}),ms||8000))]);
+function fbInit(){if(FBP)return FBP;FBP=new Promise((ok2,no)=>{const ld=u=>new Promise((r,j)=>{const t=document.createElement('script');t.src=u;t.onload=r;t.onerror=j;document.head.appendChild(t)}),b='https://www.gstatic.com/firebasejs/10.12.2/';
+ ld(b+'firebase-app-compat.js').then(()=>Promise.all([ld(b+'firebase-auth-compat.js'),ld(b+'firebase-firestore-compat.js')])).then(()=>{firebase.initializeApp(FB_CFG);FA=firebase.auth();FD=firebase.firestore();ok2()}).catch(e=>{FBP=null;no({code:'auth/network-request-failed'})})});return FBP}
+const fbUser=()=>fbInit().then(()=>new Promise(r=>{const u=FA.onAuthStateChanged(x=>{u();r(x)})}));
+const fbErr=e=>({'auth/email-already-in-use':'هذا البريد مسجّل مسبقًا. جرّب تسجيل الدخول.','auth/invalid-email':'البريد الإلكتروني غير صالح.','auth/weak-password':'كلمة المرور ضعيفة. استخدم 6 أحرف على الأقل.','auth/wrong-password':'كلمة المرور غير صحيحة.','auth/invalid-credential':'البريد أو كلمة المرور غير صحيحة.','auth/user-not-found':'لا يوجد حساب بهذا البريد.','auth/wrong-code':'الرمز السري غير صحيح.','auth/too-many-requests':'محاولات كثيرة. يرجى المحاولة لاحقًا.','auth/network-request-failed':'مشكلة في الاتصال. تحقق من الإنترنت وحاول مرة أخرى.','auth/requires-recent-login':'يرجى تسجيل الدخول مرة أخرى للمتابعة.','unavailable':'مشكلة في الاتصال. يرجى المحاولة لاحقًا.'}[e&&e.code]||'تعذّر إتمام العملية. يرجى المحاولة مرة أخرى.');
+function cq(){if(!S||!S.acc||!fbReady())return;clearTimeout(CQT);CQT=setTimeout(()=>cloudPush().catch(()=>{}),4000)}
+var PUSHED={};const HCH=200;
+const hChunks=(a,p)=>{const o={};for(let i=0;i<a.length;i+=HCH)o[p+(i/HCH|0)]=JSON.stringify(a.slice(i,i+HCH));return o};
+async function cloudPush(){if(!S.acc||!fbReady())return;const u=await fbUser();if(!u)return;const m={...S};['wh','nh','lock','kid','acc','sn','nt'].forEach(k=>delete m[k]);
+ const r=FD.doc('users/'+u.uid),W=Object.values(S.wh).sort((a,b)=>(a.f||0)-(b.f||0)),N=[...S.nh].sort((a,b)=>a.a-b.a),ops=[['data/main',{j:JSON.stringify(m),av:avt()}]];
+ const wc=hChunks(W,'w'),nc=hChunks(N,'n');Object.keys(wc).forEach(k=>ops.push(['hist/'+k,{j:wc[k]}]));Object.keys(nc).forEach(k=>ops.push(['hist/'+k,{j:nc[k]}]));
+ const todo=ops.filter(([p,d])=>PUSHED[p]!==JSON.stringify(d));
+ for(let i=0;i<todo.length;i+=8){const b=FD.batch();todo.slice(i,i+8).forEach(([p,d])=>{const q=p.split('/');b.set(r.collection(q[0]).doc(q[1]),{...d,u:Date.now()})});await b.commit()}
+ todo.forEach(([p,d])=>PUSHED[p]=JSON.stringify(d))}
+function mergeS(c,cw){const un=(a,b)=>{const o=[...(a||[])];(b||[]).forEach(x=>{if(!has(o,x.t,x.id))o.push(x)});return o};
+ S.lk=un(S.lk,c.lk);S.fv=un(S.fv,c.fv);S.lt=un(S.lt,c.lt);
+ (c.ls||[]).forEach(l=>{const m=S.ls.find(z=>z.n==l.n);if(m)m.items=un(m.items,l.items);else S.ls.push(l)});
+ (c.hl||[]).forEach(h=>{if(!S.hl.some(z=>z.t==h.t&&z.mid==h.mid))S.hl.push(h)});
+ for(const k in c.cont||{}){const o=S.cont[k];if(!o||c.cont[k].t>o.t)S.cont[k]=c.cont[k]}
+ for(const k in c.taste||{})S.taste[k]=Math.max(S.taste[k]||0,c.taste[k]);
+ ['nm','un','bio'].forEach(k=>{if(c[k]&&(cw||!S[k]))S[k]=c[k]});if(c.theme&&(cw||S.theme=='classic'))S.theme=c.theme;if(c.srv&&(cw||S.srv=='d'))S.srv=c.srv;if(c.set)S.set=cw?{...S.set,...c.set}:{...c.set,...S.set};}
+async function cloudPull(cw){if(!S.acc||!fbReady())return;const u=await fbUser();if(!u)return;const ur=FD.doc('users/'+u.uid),r=ur.collection('data'),[m,w,n,hc]=await Promise.all([r.doc('main').get(),r.doc('watch').get(),r.doc('nav').get(),ur.collection('hist').get()]);
+ const J=d=>{try{return d.exists?JSON.parse(d.data().j):null}catch(e){return null}},cm2=J(m);let W=[],N=[];
+ const lw=J(w);if(lw)W.push(...Object.values(lw));const ln=J(n);if(Array.isArray(ln))N.push(...ln);
+ hc.forEach(d=>{const a=J(d);if(Array.isArray(a)){if(d.id[0]=='w')W.push(...a);else if(d.id[0]=='n')N.push(...a)}});
+ if(cm2)mergeS(cm2,cw);
+ W.forEach(x=>{if(!x||!x.k)return;const o=S.wh[x.k];if(!o)S.wh[x.k]=x;else{const v=Math.max(o.v||0,x.v||0);if((x.ts||0)>(o.ts||0))S.wh[x.k]={...x};S.wh[x.k].v=v}});
+ const seen=new Set(S.nh.map(z=>z.t+z.id+'_'+z.a));N.forEach(z=>{if(z&&!seen.has(z.t+z.id+'_'+z.a)){seen.add(z.t+z.id+'_'+z.a);S.nh.push(z)}});S.nh.sort((a,b)=>b.a-a.a);
+ if(m.exists&&m.data().av&&(cw||!avt())){try{localStorage.setItem('see_av',m.data().av)}catch(e){}acbRefresh()}
+ lsMain();lsHist()}
+async function fbRegister(email,un,pw){await fbInit();const cr=await FA.createUserWithEmailAndPassword(email,pw),u=cr.user,code=fbCode();
+ try{const sl=await fbSeal(code,pw);await FD.collection('codes').doc(await fbEk(email)).set({uid:u.uid,...sl});await FD.doc('users/'+u.uid).set({email,un,code,created:Date.now()})}catch(e){await u.delete().catch(()=>{});throw e}
+ if(un)S.un=un;S.acc={email,un,code,uid:u.uid};PUSHED={};save(1);await cloudPush();return code}
+async function fbLogin(email,secret,mode,cw){await fbInit();let pw=secret;
+ if(mode=='code'){const d=await FD.collection('codes').doc(await fbEk(email)).get();if(!d.exists)throw{code:'auth/user-not-found'};try{pw=await fbOpen(secret,d.data())}catch(e){throw{code:'auth/wrong-code'}}}
+ const cr=await FA.signInWithEmailAndPassword(email,pw),u=cr.user,p=(await FD.doc('users/'+u.uid).get()).data()||{};
+ S.acc={email,un:p.un||'',code:p.code||'',uid:u.uid};PUSHED={};await cloudPull(cw===undefined?1:cw);if(!S.un&&p.un)S.un=p.un;save(1);await cloudPush()}
+document.addEventListener('visibilitychange',()=>{if(document.hidden&&S.acc&&fbReady())cloudPush().catch(()=>{})});addEventListener('pagehide',()=>{if(S.acc&&fbReady())cloudPush().catch(()=>{})});
+function authModal(tab){
+ if(!fbReady())return modal(`<h3>الحساب</h3><small>الحساب غير متاح حاليًا. يرجى المحاولة لاحقًا.</small><button class="btn" style="width:100%;margin-top:10px" onclick="cm()">إغلاق</button>`,'bs');
+ const up=tab=='up';let mode='pw';
+ modal(`<h3>${up?'إنشاء حساب':'تسجيل الدخول'}</h3><small>${up?'تُحفظ بياناتك الحالية في حسابك، فلا تبدأ من الصفر.':'سجّل دخولك لتصل إلى ملفك وبياناتك.'}</small><input id="fe" type="email" dir="ltr" autocomplete="email" placeholder="البريد الإلكتروني">${up?'<input id="fu" dir="ltr" maxlength="24" autocapitalize="off" autocomplete="username" placeholder="اسم المستخدم">':''}${up?'':'<div class="chips" id="fm" style="position:static;padding:4px 0"><button data-m="pw" class="on">كلمة المرور</button><button data-m="code">الرمز السري</button></div>'}<input id="fp" type="password" dir="ltr" autocomplete="${up?'new-password':'current-password'}" placeholder="كلمة المرور"><p class="pne" id="fer" role="alert"></p><button class="btn p" id="fgo" style="width:100%">${up?'إنشاء الحساب':'دخول'}</button><button class="lnk" id="fsw" style="margin-top:8px">${up?'لدي حساب بالفعل':'ليس لدي حساب'}</button>`,'bs');
+ const er=m=>$('#fer').textContent=m,fp=$('#fp');
+ if(up)$('#fu').oninput=e=>{e.target.value=e.target.value.toLowerCase().replace(/^@/,'').replace(/[^a-z0-9._]/g,'')};
+ const fm=$('#fm');if(fm)fm.onclick=e=>{const b=e.target.closest('button');if(!b)return;mode=b.dataset.m;$$('#fm button').forEach(z=>z.classList.toggle('on',z==b));fp.value='';fp.type=mode=='code'?'text':'password';fp.inputMode=mode=='code'?'numeric':'text';fp.maxLength=mode=='code'?8:128;fp.placeholder=mode=='code'?'الرمز السري (8 أرقام)':'كلمة المرور'};
+ $('#fsw').onclick=()=>authModal(up?'in':'up');
+ $('#fgo').onclick=async()=>{const em=$('#fe').value.trim(),v=fp.value,btn=$('#fgo');er('');if(!em)return er('اكتب البريد الإلكتروني.');
+  if(up){const un=$('#fu').value.trim();if(un.length<3)return er('اسم المستخدم 3 أحرف على الأقل.');if(v.length<6)return er('كلمة المرور 6 أحرف على الأقل.');
+   btn.disabled=true;try{const c=await fbRegister(em,un,v);cm();chrome();acRefresh();modal(`<h3>رمزك السري</h3><p class="cdx big" dir="ltr">${esc(c)}</p><small>8 أرقام. استخدمه مع بريدك لتسجيل الدخول بدل كلمة المرور. يمكنك رؤيته دائمًا في «تعديل الملف الشخصي».</small><button class="btn p" style="width:100%;margin-top:10px" onclick="cm()">تم</button>`,'bs')}catch(e){er(fbErr(e));btn.disabled=false}}
+  else{if(!v)return er(mode=='code'?'اكتب الرمز السري.':'اكتب كلمة المرور.');if(mode=='code'&&!/^\d{8}$/.test(v))return er('الرمز السري 8 أرقام.');
+   btn.disabled=true;try{await fbLogin(em,v,mode);applyTheme(S.theme,1);cm();chrome();route();toast('تم تسجيل الدخول')}catch(e){er(fbErr(e));btn.disabled=false}}}}
+function pwModal(){modal(`<h3>تغيير كلمة المرور</h3><input id="pwo" type="password" dir="ltr" autocomplete="current-password" placeholder="كلمة المرور الحالية"><input id="pwn" type="password" dir="ltr" autocomplete="new-password" placeholder="كلمة المرور الجديدة"><p class="pne" id="pwe" role="alert"></p><button class="btn p" id="pwg" style="width:100%">حفظ</button>`,'bs');
+ $('#pwg').onclick=async()=>{const o=$('#pwo').value,n=$('#pwn').value,er=m=>$('#pwe').textContent=m;if(n.length<6)return er('6 أحرف على الأقل.');
+  try{const u=await fbUser();await u.reauthenticateWithCredential(firebase.auth.EmailAuthProvider.credential(S.acc.email,o));await u.updatePassword(n);await FD.collection('codes').doc(await fbEk(S.acc.email)).set({uid:u.uid,...await fbSeal(S.acc.code,n)});cm();toast('تم تغيير كلمة المرور')}catch(e){er(fbErr(e))}}}
 /* ===================== الثيمات ===================== */
 const THEMES=[['classic','الأساسي','سينما دافئة بحواف مقصوصة وخط كوفي',['#0c0a09','#ffb02e','#201b17','#3a3029',18]],['black','الأسود','أسود خالص وزوايا حادة وبياض نقي',['#000000','#f5f5f5','#131313','#2a2a2a',2]],['brown','البني','قهوة دافئة وملمس ورقي وخط نسخي',['#1b130d','#e0a458','#33241a','#5a4230',22]],['purple','البنفسجي','زجاج بنفسجي وتوهج نيون وحواف دائرية',['#0d0820','#b388ff','#20174a','#3d3080',28]]];
 function applyTheme(k,boot){if(!THEMES.some(x=>x[0]==k))k='classic';S.theme=k;document.documentElement.dataset.theme=k;const m=document.querySelector('meta[name=theme-color]');if(m)m.content=THEMES.find(x=>x[0]==k)[3][0];if(!boot)save()}
-const themeBox=()=>`<div class="thm" id="thm"><h3>${ic('sparkle')}المظهر</h3><p>اختر هوية تصميم كاملة للتطبيق. يُحفظ اختيارك تلقائيًا في المتصفح.</p><div class="tgr">${THEMES.map(([k,n,d,p])=>`<button class="tc ${S.theme==k?'on':''}" data-th="${k}" style="--pb:${p[0]};--pa:${p[1]};--ps:${p[2]};--pl:${p[3]};--k:${p[4]}"><span class="tv2"><span class="pb"></span><span class="pr"><span></span><span></span><span></span></span><span class="pc2"></span></span><b>${n}</b><small>${d}</small></button>`).join('')}</div></div>`;
+const themeBox=()=>`<div class="thm" id="thm"><div class="tgr">${THEMES.map(([k,n,d,p])=>`<button class="tc ${S.theme==k?'on':''}" data-th="${k}" style="--pb:${p[0]};--pa:${p[1]};--ps:${p[2]};--pl:${p[3]};--k:${p[4]}"><span class="tv2"><span class="pb"></span><span class="pr"><span></span><span></span><span></span></span><span class="pc2"></span></span><b>${n}</b><small>${d}</small></button>`).join('')}</div></div>`;
 function bindTheme(){$$('[data-th]').forEach(b=>b.onclick=()=>{applyTheme(b.dataset.th);$$('[data-th]').forEach(z=>z.classList.toggle('on',z==b));toast('تم تطبيق ثيم «'+THEMES.find(x=>x[0]==b.dataset.th)[1]+'»')})}
 /* ===================== الملف الشخصي ===================== */
 const avt=()=>{try{return localStorage.getItem('see_av')||''}catch(e){return ''}};
 const avH=()=>{const a=avt();return `<div>${a?`<img src="${a}" alt="">`:ic('user')}</div>`};
-function editProfile(){let av=avt();
- modal(`<h3>تعديل الملف الشخصي</h3><div style="display:grid;place-items:center;gap:8px;margin-bottom:12px"><div class="igav" id="pav" style="width:96px;height:96px">${avH()}</div><button class="lnk" id="pch">${ic('camera')}تغيير صورة الحساب</button><input id="pfi" type="file" accept="image/*" hidden></div><small>الاسم</small><input id="nmi" maxlength="30" value="${esc(S.nm)}" placeholder="اسمك"><small>اسم المستخدم (إنجليزي، أرقام، نقطة، شرطة سفلية)</small><input id="uni" maxlength="24" dir="ltr" autocapitalize="off" autocomplete="off" value="${esc(S.un)}" placeholder="username"><small>النبذة الشخصية<span id="bc">${(S.bio||'').length}/150</span></small><textarea id="bio" rows="3" maxlength="150" placeholder="اكتب نبذة قصيرة عنك…">${esc(S.bio)}</textarea><button class="btn p" id="sv" style="width:100%">حفظ</button><button class="btn" id="prm" style="width:100%;margin-top:8px;${av?'':'display:none'}">إزالة الصورة</button>`);
+function editProfile(){let av=avt();const a=S.acc;
+ modal(`<h3>تعديل الملف الشخصي</h3><div style="display:grid;place-items:center;gap:8px;margin-bottom:12px"><div class="igav" id="pav" style="width:96px;height:96px">${avH()}</div><button class="lnk" id="pch" type="button">${ic('camera')}تغيير الصورة</button><input id="pfi" type="file" accept="image/*" hidden></div><small>الاسم</small><input id="nmi" maxlength="30" value="${esc(S.nm)}" placeholder="اسمك"><small>اسم المستخدم</small><input id="uni" maxlength="24" dir="ltr" autocapitalize="off" autocomplete="off" value="${esc(S.un)}" placeholder="username"><small>النبذة<span id="bc">${(S.bio||'').length}/150</span></small><textarea id="bio" rows="3" maxlength="150" placeholder="اكتب نبذة قصيرة عنك…">${esc(S.bio)}</textarea>
+ ${a?`<div class="eda"><div><small>البريد الإلكتروني</small><b dir="ltr">${esc(a.email)}</b></div><div><small>الرمز السري</small><b class="cdx" id="scd" dir="ltr">••••••••</b></div><button class="btn" id="scs" type="button">إظهار</button></div><button class="btn" id="cpw" type="button" style="width:100%;margin-bottom:8px">${ic('lock')}تغيير كلمة المرور</button>`:''}
+ <button class="btn p" id="sv" type="button" style="width:100%">حفظ</button><button class="btn" id="prm" type="button" style="width:100%;margin-top:8px;${av?'':'display:none'}">إزالة الصورة</button>${a?`<button class="btn" id="lgo" type="button" style="width:100%;margin-top:8px">${ic('out')}تسجيل الخروج</button>`:''}`,'bs');
  const show=()=>{$('#pav').innerHTML=`<div>${av?`<img src="${av}" alt="">`:ic('user')}</div>`;$('#prm').style.display=av?'':'none'};
  $('#pch').onclick=()=>$('#pfi').click();$('#prm').onclick=()=>{av='';show()};
  $('#bio').oninput=e=>$('#bc').textContent=e.target.value.length+'/150';
  $('#uni').oninput=e=>{e.target.value=e.target.value.toLowerCase().replace(/^@/,'').replace(/[^a-z0-9._]/g,'')};
  $('#pfi').onchange=e=>{const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{const im=new Image();im.onload=()=>{const s=Math.min(im.width,im.height),c=document.createElement('canvas');c.width=c.height=360;c.getContext('2d').drawImage(im,(im.width-s)/2,(im.height-s)/2,s,s,0,0,360,360);av=c.toDataURL('image/jpeg',.85);show()};im.onerror=()=>toast('تعذّر قراءة الصورة');im.src=r.result};r.readAsDataURL(f)};
+ if(a){let vs=0;$('#scs').onclick=e=>{vs=!vs;$('#scd').textContent=vs?(a.code||'—'):'••••••••';e.currentTarget.textContent=vs?'إخفاء':'إظهار'};$('#cpw').onclick=pwModal;$('#lgo').onclick=logoutAsk}
  $('#sv').onclick=()=>{const u=$('#uni').value.trim();if(u&&u.length<3)return toast('اسم المستخدم 3 أحرف على الأقل');
-  S.nm=$('#nmi').value.trim();S.un=u;S.bio=$('#bio').value.trim();let bad=0;try{av?localStorage.setItem('see_av',av):localStorage.removeItem('see_av')}catch(e){bad=1}
-  save();cm();account();if(bad)toast('تعذّر حفظ الصورة، المساحة ممتلئة')}}
+  S.nm=$('#nmi').value.trim();S.un=u;if(S.acc)S.acc.un=u;S.bio=$('#bio').value.trim();let bad=0;try{av?localStorage.setItem('see_av',av):localStorage.removeItem('see_av')}catch(e){bad=1}
+  save();cm();acbRefresh();acRefresh();dwRender();if(bad)toast('تعذّر حفظ الصورة، المساحة ممتلئة')}}
 /* ===================== Seedo ===================== */
 const SG={'أكشن':[28,10759],'كوميديا':[35,35],'مغامرة':[12,10759],'رعب':[27,9648],'دراما':[18,18],'رومانسية':[10749,18],'خيال علمي':[878,10765],'جريمة':[80,80],'رسوم متحركة':[16,16],'غموض وإثارة':['9648|53',9648]};
 const VB={'مشوّق ومشدود':[53,9648,80],'خفيف ومضحك':[35,10751,16],'مؤثر وعاطفي':[18,10749],'حماسي وسريع':[28,12,10759,878],'غامض ومحيّر':[9648,80,53],'دافئ ومريح':[10751,35,10749,16],'مظلم وجاد':[27,80,53,18,10752],'ملهم وعميق':[18,36,99,10752]};
@@ -763,7 +1006,9 @@ function seedo(){SD={a:{},shown:new Set(),n:0};
    await say(first?`وجدت لك <b>${l.length}</b> اقتراحات مبنية على إجاباتك. اضغط على أي عمل لعرض تفاصيله:`:'اقتراحات إضافية تناسبك:');
    l.forEach(x=>{SD.shown.add(x.media_type+x.id);c.insertAdjacentHTML('beforeend',sdCard(x,SD.shown.size,a))});first=0;sv(c.lastElementChild);
    const r=await choose({o:['اكتشف المزيد','ابدأ من جديد']});push(r[0],'us');if(r[0]=='ابدأ من جديد')return seedo()}})()}
-addEventListener('keydown',e=>{if(e.key=='Escape'&&$('#md').classList.contains('on'))cm()});applyTheme(S.theme,1);chrome();addEventListener('hashchange',route);route();setTimeout(()=>$('#sp').classList.add('x'),4500)
+addEventListener('keydown',e=>{if(e.key=='Escape'&&$('#md').classList.contains('on'))cm()});if(S.lock&&S.lock.h)lockScreen();dwInit();applyTheme(S.theme,1);chrome();addEventListener('hashchange',route);route();setTimeout(()=>{$('#sp').classList.add('x');setTimeout(ntStart,2600)},4500);
+setInterval(ntTick,6e5);
+if(S.acc&&fbReady())setTimeout(()=>cloudPull(0).then(()=>{applyTheme(S.theme,1);ntBadge();if(!$('#md').classList.contains('on')&&(location.hash.indexOf('#/me')==0||location.hash.indexOf('#/hist')==0))route()}).catch(()=>{}),2500);
 
 	
 </script>
