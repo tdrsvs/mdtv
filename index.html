@@ -360,28 +360,6 @@ body.ed .lr[data-dl]{touch-action:none;user-select:none;-webkit-user-select:none
 .sol{display:grid;gap:8px}
 .so{position:relative;display:grid;gap:3px;text-align:start;padding:12px 14px;padding-inline-start:22px;border-radius:14px;background:var(--s2);border:1px solid var(--ln)}.so::before{content:"";position:absolute;inset-block:10px;inset-inline-start:9px;width:3px;border-radius:3px;background:var(--c)}
 .so span{display:flex;align-items:center;gap:8px}.so b{font-family:var(--dsp);font-size:1.05rem}.so em{font-style:normal;font-size:.7rem;color:var(--c);border:1px solid var(--c);border-radius:8px;padding:0 7px}.so small{color:var(--mu);font-size:.78rem;line-height:1.7}.so.on{border-color:var(--c);box-shadow:0 0 0 1px var(--c) inset}
-
-/* ===== سجل / إشعارات / قفل / إعدادات ===== */
-.bel{position:relative;width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:var(--s1);border:1px solid var(--ln);flex:none;color:var(--tx)}.bel svg{width:21px;height:21px}
-.bel i{position:absolute;top:-4px;inset-inline-end:-4px;min-width:18px;height:18px;border-radius:9px;background:var(--c);color:#fff;font:700 .68rem/18px Tajawal,sans-serif;text-align:center;padding:0 4px;font-style:normal}.bel i[hidden]{display:none}
-.bel.rg{animation:belr .7s}@keyframes belr{20%{transform:rotate(16deg)}40%{transform:rotate(-14deg)}60%{transform:rotate(9deg)}80%{transform:rotate(-5deg)}}
-body.ss .bel{display:none}
-.ntl{display:grid;gap:8px;margin:10px 0}
-.ntr{display:flex;gap:12px;align-items:center;padding:10px 12px;border-radius:var(--lf);background:var(--s1);border:1px solid var(--ln);position:relative}
-.ntr.u{border-color:var(--a)}.ntr.u::after{content:"";position:absolute;top:10px;inset-inline-end:10px;width:8px;height:8px;border-radius:50%;background:var(--a)}
-.ntp{flex:none;width:46px;height:64px;border-radius:9px;overflow:hidden;background:var(--s2);display:grid;place-items:center;color:var(--a)}.ntp img{width:100%;height:100%;object-fit:cover}
-.ntr b{display:block;font-size:.92rem}.ntr p{font-size:.8rem;color:var(--mu);margin:2px 0}.ntr small{color:var(--mu);font-size:.7rem}
-.hxl{max-width:760px;margin:0 auto;padding:0 18px 14px;display:grid;gap:10px}
-.hxg{font-family:var(--dsp);font-size:.95rem;color:var(--mu);margin-top:10px}
-.hxr{display:flex;gap:12px;align-items:center;padding:8px;border-radius:var(--lf);background:var(--s1);border:1px solid var(--ln)}
-.hxp{position:relative;flex:none;width:68px;aspect-ratio:2/3;border-radius:10px;overflow:hidden;background:var(--s2)}.hxp img{width:100%;height:100%;object-fit:cover}.hxp i{position:absolute;inset:auto 0 0 0;height:4px;background:var(--a)}
-.hxi{min-width:0;display:grid;gap:2px}.hxi small{color:var(--mu);font-size:.76rem}
-.hxm{display:flex;margin:6px auto 24px}
-.sth2{font-family:var(--dsp);font-size:.9rem;color:var(--a);margin:18px 2px 2px}
-.cdx{font-family:ui-monospace,Menlo,monospace;letter-spacing:.25em;direction:ltr;display:inline-block}.cdx.big{display:block;text-align:center;font-size:2rem;margin:14px 0;color:var(--a)}
-#lkc{position:fixed;inset:0;z-index:200;background:var(--bg);display:grid;place-items:center;padding:24px}
-.lkb{width:min(320px,100%);display:grid;gap:12px;text-align:center;justify-items:center}.lkb>svg{width:54px;height:54px;color:var(--a)}.lkb h2{font-family:var(--dsp);font-size:2rem;letter-spacing:5px}
-.lkb input{width:100%;height:52px;border-radius:var(--lf);background:var(--s1);border:1px solid var(--ln);color:var(--tx);outline:none}.lkb input:focus{border-color:var(--a)}
 </style>
 </head>
 <body>
@@ -390,12 +368,6 @@ body.ss .bel{display:none}
 <script>
 /* ===================== الإعدادات والسيرفرات ===================== */
 const API='https://api.themoviedb.org/3',IMG='https://image.tmdb.org/t/p/',KEY='4e5b0ace6aaab68ef66d1183d954ecb4',HOLD=1500;
-/* ===== إعدادات Firebase: ضع بيانات مشروعك هنا (Authentication: Email/Password + Firestore) =====
-   قواعد Firestore المطلوبة:
-   rules_version='2'; service cloud.firestore{match /databases/{d}/documents{
-     match /users/{u}/{p=**}{allow read,write:if request.auth!=null&&request.auth.uid==u}
-     match /codes/{k}{allow get:if true;allow create:if request.auth!=null;allow update:if request.auth!=null&&request.auth.uid==resource.data.uid}}} */
-const FB_CFG={apiKey:"AIzaSyCjhmGWOGvLJhm2XakeaMalKWOr0NikL2A",authDomain:"moriq-573c9.firebaseapp.com",projectId:"moriq-573c9",storageBucket:"moriq-573c9.firebasestorage.app",messagingSenderId:"706262823542",appId:"1:706262823542:web:f7d21bef8b74ce4aeb6557",measurementId:"G-ZGME4J60SD"};
 /* كل سيرفر: تفاصيل كاملة (مميزات + مقاييس + لمن يناسب). عدّل أي قيمة هنا فقط وتتغير البطاقة تلقائيًا */
 const SV=[
 {k:'z',n:'سوبرسي',g:'الأفضل',c:'#ffb02e',sc:'9.6',
@@ -420,12 +392,11 @@ const P={eye:'<path d="M3 12c2.5-4.5 5.5-7 9-7s6.5 2.5 9 7c-2.5 4.5-5.5 7-9 7s-6
 fire:'<path d="M12 22c4 0 7-2.8 7-7 0-3-1.8-5-3.5-7 0 2-1 3-2.5 3 .5-3-1-6-4-8 .5 3-4 5.5-4 12 0 4 3 7 7 7z"/>',crown:'<path d="M3 8l4.5 4L12 5l4.5 7L21 8l-2 11H5z"/>',ghost:'<path d="M5 21V11a7 7 0 0114 0v10l-3.5-2.5L12 21l-3.5-2.5z"/><path d="M9.5 11h.01M14.5 11h.01"/>',rocket:'<path d="M12 2c4 2 6 6 5 11l-3 3h-4l-3-3c-1-5 1-9 5-11z"/><circle cx="12" cy="9" r="1.8"/><path d="M7 15l-3 4 4-1M17 15l3 4-4-1"/>',moon:'<path d="M20 14.5A8.5 8.5 0 119.5 4a7 7 0 0010.5 10.5z"/>',smile:'<circle cx="12" cy="12" r="9"/><path d="M8 14c1 1.6 2.4 2.4 4 2.4s3-.8 4-2.4M9 9.5h.01M15 9.5h.01"/>',diamond:'<path d="M6 4h12l4 5-10 12L2 9z"/><path d="M2 9h20"/>',flag:'<path d="M5 21V4M5 4h13l-3 4 3 4H5"/>',gift:'<rect x="3" y="8" width="18" height="4"/><path d="M5 12v9h14v-9M12 8v13M12 8c-3 0-4-4-1-4s1 4 1 4zm0 0c3 0 4-4 1-4"/>',film:'<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 4v16M17 4v16M3 9h4M3 15h4M17 9h4M17 15h4"/>',grip:'<path d="M9 6h.01M15 6h.01M9 12h.01M15 12h.01M9 18h.01M15 18h.01" stroke-width="3.4"/>',pencil:'<path d="M4 20l1-4L16 5l3 3L8 19z"/>',cal:'<rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/>',shield:'<path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/>',globe:'<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/>',pin:'<path d="M12 21s7-6 7-11a7 7 0 00-14 0c0 5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/>',
 hd:'<rect x="3" y="5" width="18" height="14" rx="3"/><path d="M7 9v6M7 12h3M10 9v6M13.5 9v6h1.2a3 3 0 000-6z"/>',cc:'<rect x="3" y="5" width="18" height="14" rx="3"/><path d="M10.3 10.2a2 2 0 100 3.6M16.3 10.2a2 2 0 100 3.6"/>',noad:'<path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/>',lock:'<rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 018 0v3"/>',trailer:'<circle cx="12" cy="12" r="9"/><path d="M10 8.5l5 3.5-5 3.5z"/>',refresh:'<path d="M20 11a8 8 0 10-2.3 5.7M20 4v7h-7"/>',tv:'<rect x="3" y="5" width="18" height="12" rx="2"/><path d="M8 21h8M12 17v4"/>',target:'<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.5"/>',gear:'<circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/>',building:'<path d="M4 21V7l8-4 8 4v14M9 21v-6h6v6"/>',money:'<circle cx="12" cy="12" r="9"/><path d="M14.5 9c-.5-1-1.5-1.5-2.5-1.5-1.7 0-2.8 1-2.8 2.2 0 3 5.6 1.5 5.6 4.3 0 1.2-1.2 2.2-2.8 2.2-1.1 0-2.1-.6-2.6-1.6M12 6v1.5M12 16.5V18"/>'};
 P.chev='<path d="M6 9l6 6 6-6"/>';
-P.share='<circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 10.6l6.8-4M8.6 13.4l6.8 4"/>';P.bell='<path d="M6 16v-5a6 6 0 0112 0v5l1.5 2h-15z"/><path d="M10 21h4"/>';P.key='<circle cx="8" cy="15" r="4"/><path d="M11 12l9-9M16 7l3 3"/>';P.out='<path d="M9 4H5a1 1 0 00-1 1v14a1 1 0 001 1h4M16 8l4 4-4 4M20 12H9"/>';
 const LIC=['list','film','fire','crown','ghost','rocket','moon','smile','diamond','flag','gift','bolt'];
 const ic=(n,c)=>`<svg viewBox="0 0 24 24"${c?` class="${c}"`:''}>${P[n]||P.list}</svg>`;
 const $=s=>document.querySelector(s),$$=s=>document.querySelectorAll(s),app=$('#app'),esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-let S;try{S=JSON.parse(localStorage.getItem('see')||'{}')}catch(e){S={}}S={lk:[],fv:[],lt:[],ls:[],hl:[],nm:'',cont:{},taste:{},q:[],sn:[],srv:'z',ss:false,theme:'classic',un:'',bio:'',kid:{on:false,h:'',s:'',f:0,lu:0},wh:{},nh:[],nt:{},set:{ar:true},lock:null,acc:null,...S};delete S.av;S.nt=S.nt||{};S.nt.l=S.nt.l||[];S.nt.sh=S.nt.sh||{};S.nt.tp=S.nt.tp||{};S.nt.rd=S.nt.rd||0;S.nt.g=S.nt.g||0;S.set=S.set||{ar:true};S.wh=S.wh||{};S.nh=S.nh||[];
-const save=()=>{try{localStorage.setItem('see',JSON.stringify(S))}catch(e){}cq()};
+let S;try{S=JSON.parse(localStorage.getItem('see')||'{}')}catch(e){S={}}S={lk:[],fv:[],lt:[],ls:[],hl:[],nm:'',cont:{},taste:{},q:[],sn:[],srv:'z',ss:false,theme:'classic',un:'',bio:'',kid:{on:false,h:'',s:'',f:0,lu:0},...S};delete S.av;
+const save=()=>{try{localStorage.setItem('see',JSON.stringify(S))}catch(e){}};
 const toast=m=>{const e=$('#toast');e.textContent=m;e.classList.add('on');setTimeout(()=>e.classList.remove('on'),1800)};
 const shuf=a=>{a=[...a];for(let i=a.length;--i>0;){const j=Math.random()*(i+1)|0;[a[i],a[j]]=[a[j],a[i]]}return a};
 const empty=(i,m)=>`<div class="empty">${ic(i)}<br>${m}</div>`,sk=(n,c='')=>`<div class="sk ${c}"></div>`.repeat(n),loader=`<div class="lo"><div class="rg"></div>${ic('eye')}</div>`;
@@ -503,9 +474,9 @@ function drag(box,sel,fn){if(!box)return;$$(sel).forEach(el=>{el.onpointerdown=e
  const end=()=>{el.onpointermove=el.onpointerup=el.onpointercancel=null;el.classList.remove('dg');els.forEach(o=>o.classList.remove('tg'));el.style.transform='';if(moved)DM=Date.now();if(to!=from)fn(from,to)};el.onpointerup=end;el.onpointercancel=end}})}
 /* ===================== الهيكل العام ===================== */
 function chrome(){document.body.classList.toggle('ss',S.ss);document.body.classList.toggle('kd',S.kid.on);
- $('#hd').innerHTML=`<a class="lg" href="#/"><i>${ic('eye')}</i><span>See</span></a><form id="sf"><input id="q" type="search" placeholder="ابحث عن فيلم أو مسلسل أو ممثل…" autocomplete="off"><button aria-label="بحث">${ic('search')}</button></form><button class="bel" id="bl" aria-label="الإشعارات">${ic('bell')}<i id="bc2" hidden></i></button><button class="xs" id="xs">إيقاف سوبر سي</button>`;
- $('#nv').innerHTML=[['home','home','#/','الرئيسية'],['seedo','chat','#/seedo','Seedo'],['me','user','#/me','حسابي']].map(([r,i,h,n])=>`<a href="${h}" data-r="${r}">${ic(i)}<span>${n}</span></a>`).join('');
- $('#sf').onsubmit=e=>{e.preventDefault();const v=$('#q').value.trim();if(v){$('#q').blur();location.hash='#/s/'+encodeURIComponent(v)}};$('#xs').onclick=()=>{S.ss=false;save();chrome();route();toast('تم إيقاف سوبر سي')};$('#bl').onclick=ntOpen;ntBadge()}
+ $('#hd').innerHTML=`<a class="lg" href="#/"><i>${ic('eye')}</i><span>See</span></a><form id="sf"><input id="q" type="search" placeholder="ابحث عن فيلم أو مسلسل أو ممثل…" autocomplete="off"><button aria-label="بحث">${ic('search')}</button></form><button class="xs" id="xs">إيقاف سوبر سي</button>`;
+ $('#nv').innerHTML=[['home','home','#/','الرئيسية'],['picks','sparkle','#/picks','مُقترحات'],['seedo','chat','#/seedo','Seedo'],['me','user','#/me','حسابي']].map(([r,i,h,n])=>`<a href="${h}" data-r="${r}">${ic(i)}<span>${n}</span></a>`).join('');
+ $('#sf').onsubmit=e=>{e.preventDefault();const v=$('#q').value.trim();if(v){$('#q').blur();location.hash='#/s/'+encodeURIComponent(v)}};$('#xs').onclick=()=>{S.ss=false;save();chrome();route();toast('تم إيقاف سوبر سي')}}
 addEventListener('scroll',()=>$('#hd').classList.toggle('sc',scrollY>8),{passive:true});
 function superAsk(){const QS=[['هل تعرف كيف تختار مصدر المشاهدة وتبدّله؟','تحت المشغّل ستجد «مشاهدة عبر» وثلاثة خيارات مرتبة من الأفضل، لكل منها تفاصيله. إن لم يعمل أحدها أو ظهر عمل مختلف فانتقل إلى التالي.'],['هل تعرف كيف تُظهر الترجمة وتتحكم بها؟','داخل المشغّل اضغط ⚙ الإعدادات ثم Subtitles (أو Sub أو ARABIC) ثم OpenSubtitles ثم Arabic، واختر أحد الخيارات الظاهرة (ستكون أسماؤها بالإنجليزية).']];
  modal(`<h3>قبل تفعيل سوبر سي</h3><small>لن تظهر الأقسام ولا التفاصيل. فقط البحث، وفي المشاهدة الحلقات والمواسم ومصادر المشاهدة.</small>${QS.map(q=>`<div class="q"><b>${q[0]}</b><div><button data-y="1">نعم</button><button data-y="0">لا</button></div><p>${q[1]}</p></div>`).join('')}<button class="btn p" id="go" style="width:100%;margin-top:12px">${ic('bolt')}فعّل سوبر سي</button>`);
@@ -514,11 +485,11 @@ function superAsk(){const QS=[['هل تعرف كيف تختار مصدر الم�
 /* ===================== الموجّه ===================== */
 let rid=0,timers=[],OB=[],ED=false,HEROT;const cyc=new Map(),HELD={};
 async function route(){const my=++rid;timers.forEach(clearInterval);timers=[];clearInterval(HEROT);cyc.forEach(clearInterval);cyc.clear();OB.forEach(o=>o.disconnect());OB=[];cm();scrollTo(0,0);ED=false;document.body.classList.remove('ed');
- const h=location.hash.slice(2).split('/'),r=h[0];document.body.classList.toggle('dv',r=='m'||r=='w');
- if(S.ss&&(r=='me'||r=='p'||r=='seedo'||r=='hist'))return location.hash='#/';
- if(S.kid.on&&(r=='p'||r=='seedo'||r=='hist'))return location.hash='#/';
- $$('[data-r]').forEach(a=>a.classList.toggle('on',a.dataset.r==(r==''||r=='s'||r=='m'||r=='p'?'home':r=='hist'?'me':r)));
- try{if(r=='s')await results(decodeURIComponent(h[1]||''),my);else if(r=='m')await details(h[1],h[2],my);else if(r=='p')await person(h[1],my);else if(r=='w')await watch(h[1],h[2],h[3],h[4],my);else if(r=='seedo')seedo();else if(r=='hist')hist(h[1]);else if(r=='me')account(h[1]);else await home(my)}
+ const h=location.hash.slice(2).split('/'),r=h[0];document.body.classList.toggle('rp',r=='picks');document.body.classList.toggle('dv',r=='m'||r=='w');
+ if(S.ss&&(r=='picks'||r=='me'||r=='p'||r=='seedo'))return location.hash='#/';
+ if(S.kid.on&&(r=='picks'||r=='p'||r=='seedo'))return location.hash='#/';
+ $$('[data-r]').forEach(a=>a.classList.toggle('on',a.dataset.r==(r==''||r=='s'||r=='m'||r=='p'?'home':r)));
+ try{if(r=='s')await results(decodeURIComponent(h[1]||''),my);else if(r=='m')await details(h[1],h[2],my);else if(r=='p')await person(h[1],my);else if(r=='w')await watch(h[1],h[2],h[3],h[4],my);else if(r=='seedo')seedo();else if(r=='picks')await picks(my);else if(r=='me')account(h[1]);else await home(my)}
  catch(e){if(my==rid)app.innerHTML=empty('eye','تعذّر التحميل. تحقق من اتصالك ثم أعد المحاولة.')+`<p style="text-align:center"><button class="btn" onclick="route()">إعادة المحاولة</button></p>`}}
 /* ===================== الرئيسية ===================== */
 let HT='all',MI=0,LI=0,SI=0;
@@ -547,7 +518,8 @@ async function home(my){
  ${sec('s4','04','رحلة حول العالم','اختر وجهتك وشاهد أشهر أعمالها.',`<div class="lns" id="lns">${LANDS.map((l,i)=>`<button class="ob ${i==LI?'on':''}" data-i="${i}"><span>${l[1]}</span>${l[2]}</button>`).join('')}</div><div class="rail" id="lsh">${sk(5,'pk')}</div>`,'',`<button class="rf" id="rfl" aria-label="تبديل">${ic('refresh')}</button>`)}
  ${sec('s5','05','على قدر وقتك','أفلام تناسب طول سهرتك.',`<div class="sls" id="sls">${SLOTS.map((s,i)=>`<button class="sl ${i==SI?'on':''}" data-i="${i}"><b>${s[0]}</b><small>${s[1]}</small></button>`).join('')}</div><div class="rail" id="ssh">${sk(5,'pk')}</div>`,'movie')}
  ${sec('s6','06','ذاكرة السينما','كلاسيكيات خالدة قبل عام ٢٠٠٠.',`<div class="rail" id="csh">${sk(5,'pk')}</div>`,'movie')}
- ${wl.length?sec('s7','07','على رف الانتظار','أعمال حفظتها لوقت لاحق.',`<div class="rail">${wl.map(i=>arch(fromIt(i))).join('')}</div>`):''}`;
+ ${wl.length?sec('s7','07','على رف الانتظار','أعمال حفظتها لوقت لاحق.',`<div class="rail">${wl.map(i=>arch(fromIt(i))).join('')}</div>`):''}
+ ${sec('s8','08','مختارات تناسبك','تتغير حسب ما تشاهده وتحبه.',`<div class="grid" id="fd">${sk(6)}</div>`,'',`<button class="rf" id="rfs" aria-label="تبديل">${ic('refresh')}</button>`)}`;
  const live=id=>my==rid&&$(id),vis=()=>$$('.sx[data-o]').forEach(s=>s.style.display=HT==({movie:'tv',tv:'movie'})[s.dataset.o]?'none':'');vis();
  async function fHero(){clearInterval(HEROT);const ep=HT=='all'?'all':HT,[E,A]=await Promise.all([nr(`/trending/${ep}/day`),nr(`/trending/${ep}/day`,{language:'ar'})]);if(!live('#hbox'))return;
   const am=new Map((A.results||[]).map(x=>[(x.media_type||HT)+x.id,x.overview]));
@@ -565,15 +537,21 @@ async function home(my){
   if(!live('#lsh'))return;const l=shuf(rs.flat()).slice(0,12);$('#lsh').innerHTML=l.map(arch).join('')||empty('globe','لا توجد أعمال حاليًا')}
  async function fSlot(){if(HT=='tv')return;const sl=SLOTS[SI],r=await dsc('movie',{sort_by:'popularity.desc','vote_count.gte':500,'with_runtime.gte':sl[2],'with_runtime.lte':sl[3],page:1+Math.random()*3|0},500);if(!live('#ssh'))return;$('#ssh').innerHTML=shuf(r).slice(0,12).map(arch).join('')||empty('clock','لا توجد أفلام مناسبة')}
  async function fClassic(){if(HT=='tv')return;const r=await dsc('movie',{sort_by:'vote_average.desc','primary_release_date.lte':'1999-12-31','vote_count.gte':3000,page:1+Math.random()*3|0},3000);if(!live('#csh'))return;$('#csh').innerHTML=shuf(r).slice(0,12).map(arch).join('')||empty('film','لا توجد كلاسيكيات')}
+ async function sug(){const ts=types(),L=LAST(),pg=1+Math.random()*4|0;
+  const jobs=ts.map(ty=>{const q={sort_by:'popularity.desc','vote_count.gte':200,page:pg},g=gs(ty);if(g)q.with_genres=g;return dsc(ty,q,200)});
+  if(L&&(HT=='all'||HT==L.t))jobs.push(nr(`/${L.t}/${L.id}/recommendations`).then(r=>pick(r.results,L.t,60)));
+  if(S.q[0])jobs.push(nr('/search/multi',{query:S.q[0]}).then(r=>(r.results||[]).filter(x=>x.media_type!='person'&&fam(x,30)&&(HT=='all'||x.media_type==HT))));
+  const seen=new Set(),l=shuf((await Promise.all(jobs)).flat()).filter(x=>{const k=x.media_type+x.id;if(seen.has(k))return false;seen.add(k);return true}).slice(0,6);
+  if(!live('#fd'))return;$('#fd').innerHTML=l.map(feed).join('')||empty('film','لا توجد اقتراحات')}
  async function nsec(id,key,ttl,fn){const b=$(id);if(!b)return;const s=b.closest('.sx');s.classList.remove('em');b.innerHTML=sk(5,'pk');
   const l=(await scache(key+(S.kid.on?'k':'n'),ttl,fn)).filter(isKidSafe);if(!live(id))return;s.classList.toggle('em',!l.length);b.innerHTML=l.slice(0,14).map(arch).join('')}
  const fNew=()=>nsec('#nw1','new'+HT,18e5,async()=>{const rs=await Promise.all(types().map(t=>{const m=t=='tv'?'first_air_date':'primary_release_date',vc=t=='tv'?10:25;return dsc(t,{sort_by:m+'.desc',[m+'.gte']:D(75),'vote_count.gte':vc,page:1},vc)}));return rs.flat().sort((a,b)=>dt(b).localeCompare(dt(a)))});
  const fTop=()=>{if(HT!='movie')nsec('#nw2','tvtop',216e5,()=>dsc('tv',{sort_by:'popularity.desc','vote_count.gte':300,page:1},300));if(HT!='tv')nsec('#nw3','mvtop',216e5,()=>dsc('movie',{sort_by:'popularity.desc','vote_count.gte':1500,page:1},1500))};
- const fills=()=>{fHero();fPulse();fTk();fMood();fLands();fSlot();fClassic();fNew();fTop()};
+ const fills=()=>{fHero();fPulse();fTk();fMood();fLands();fSlot();fClassic();fNew();fTop();sug()};
  const sel=(box,cls,fn)=>$(box).onclick=e=>{const b=e.target.closest(cls);if(!b)return;$$(box+' '+cls).forEach(z=>z.classList.toggle('on',z==b));fn(+b.dataset.i)};
  $('#ch').onclick=e=>{const b=e.target.closest('button');if(!b)return;HT=b.dataset.k;$$('#ch button').forEach(x=>x.classList.toggle('on',x==b));vis();fills()};
  sel('#mos','.mo',i=>{MI=i;fMood()});sel('#lns','.ob',i=>{LI=i;fLands()});sel('#sls','.sl',i=>{SI=i;fSlot()});
- $('#rfm').onclick=fMood;$('#rfl').onclick=fLands;
+ $('#rfm').onclick=fMood;$('#rfl').onclick=fLands;$('#rfs').onclick=sug;
  fills()}
 /* ===================== البحث ===================== */
 let SF='all';
@@ -586,8 +564,8 @@ async function results(q,my){if(!q){app.innerHTML=empty('search','اكتب اس�
  const draw=()=>{const l=L.filter(x=>SF=='all'||x.media_type==SF);$('#sl').innerHTML=l.length?l.map(feed).join(''):empty('search','لا توجد نتائج مطابقة')};draw();
  $('#ch').onclick=e=>{const b=e.target.closest('button');if(!b)return;SF=b.dataset.k;$$('#ch button').forEach(x=>x.classList.toggle('on',x==b));draw()}}
 /* ===================== التفاصيل ===================== */
-const acts=it=>{const f=(a,i,n)=>`<button class="tl ${has(S[a],it.t,it.id)?'on':''}" data-a="${a}" aria-label="${n}">${ic(i)}<span>${n}</span></button>`;return f('lk','heart','إعجاب')+f('fv','star','مفضلة')+f('lt','bookmark','لاحقًا')+`<button class="tl" data-a="sh" aria-label="مشاركة">${ic('share')}<span>مشاركة</span></button>`};
-function bindActs(it,d,root){const hb=$('#hlb');if(hb)hb.onclick=()=>mkHl(it);(root||document).querySelectorAll('[data-a]').forEach(b=>b.onclick=()=>{const a=b.dataset.a;if(a=='sh')return shareIt(it);const on=tog(S[a],it);b.classList.toggle('on',on);if(on)bump(gi(d),a=='lk'?3:a=='fv'?2:1);toast(on?'تمت الإضافة':'تمت الإزالة')})}
+const acts=it=>{const f=(a,i,n)=>`<button class="tl ${has(S[a],it.t,it.id)?'on':''}" data-a="${a}" aria-label="${n}">${ic(i)}<span>${n}</span></button>`;return f('lk','heart','إعجاب')+f('fv','star','مفضلة')+f('lt','bookmark','لاحقًا')+`<button class="tl" data-a="ls" aria-label="قائمة">${ic('list')}<span>قائمة</span></button>`};
+function bindActs(it,d,root){const hb=$('#hlb');if(hb)hb.onclick=()=>mkHl(it);(root||document).querySelectorAll('[data-a]').forEach(b=>b.onclick=()=>{const a=b.dataset.a;if(a=='ls')return pickList(it);const on=tog(S[a],it);b.classList.toggle('on',on);if(on)bump(gi(d),a=='lk'?3:a=='fv'?2:1);toast(on?'تمت الإضافة':'تمت الإزالة')})}
 const er=(id,s,x,cur)=>`<a class="er ${x.episode_number===cur?'on':''}" href="#/w/tv/${id}/${s}/${x.episode_number}"><div class="en">${x.episode_number}</div><div class="et">${x.still_path?`<img loading="lazy" src="${IMG}w300${x.still_path}" alt="">`:''}</div><div class="ei"><b>${esc(x.name)}</b><small>${x.runtime?x.runtime+' دقيقة · ':''}${esc(fd(x.air_date))}</small>${x.overview?`<p>${esc(x.overview)}</p>`:''}</div></a>`;
 const JOB={Director:'إخراج',Screenplay:'سيناريو',Writer:'كتابة',Novel:'رواية',Story:'قصة',Producer:'إنتاج','Executive Producer':'إنتاج تنفيذي','Original Music Composer':'موسيقى','Director of Photography':'تصوير',Editor:'مونتاج'};
 function crewOf(d){const seen=new Set(),out=[],ord=Object.keys(JOB);
@@ -600,7 +578,7 @@ async function details(ty,id,my){const t0=Date.now();app.innerHTML=loader;
  const ss=ty=='tv'?(d.seasons||[]).filter(s=>s.season_number>0&&s.air_date&&s.air_date<=today):[],rc=S.cont[ty+id],cs=rc&&ss.some(s=>s.season_number==rc.s)?rc.s:(ss[0]?ss[0].season_number:1);
  const go=ty=='movie'?`#/w/movie/${id}`:rc?`#/w/tv/${id}/${rc.s}/${rc.e}`:`#/w/tv/${id}/${cs}/1`;
  if(S.ss)return location.replace(go);
- await wait(Math.max(0,HOLD-(Date.now()-t0)));if(my!=rid)return;HELD[ty+id]=Date.now();bump(gi(d),1);hNav(ty,id,d);
+ await wait(Math.max(0,HOLD-(Date.now()-t0)));if(my!=rid)return;HELD[ty+id]=Date.now();bump(gi(d),1);
  const it=item(d,ty),seen=new Set([+id]),sim=pick([...(d.recommendations?.results||[]),...(d.similar?.results||[])],ty,60).filter(x=>!seen.has(x.id)&&seen.add(x.id)).slice(0,18);
  const c=cert(d),rt=ty=='tv'?((d.episode_run_time||[])[0]||(d.last_episode_to_air||{}).runtime):d.runtime,cast=S.kid.on?[]:(d.credits?.cast||[]).filter(p=>p.profile_path).slice(0,24),gn=a.genres&&a.genres.length?a.genres:(d.genres||[]);
  const crew=S.kid.on?[]:crewOf(d),vd=d.videos?.results||[],tr=vd.find(v=>v.site=='YouTube'&&v.type=='Trailer')||vd.find(v=>v.site=='YouTube'),at=a.title||a.name,pr=Math.round((d.vote_average||0)*10);
@@ -656,7 +634,7 @@ async function watch(ty,id,s,e,my){const t0=Date.now(),need=!(HELD[ty+id]&&t0-HE
  let prev=null,next=null;if(ty=='tv'){const i=eps.findIndex(x=>x.episode_number===e);if(eps[i-1])prev=`${s}/${eps[i-1].episode_number}`;if(eps[i+1])next=`${s}/${eps[i+1].episode_number}`;else{const n=ss.filter(x=>x.season_number>s).sort((a,b)=>a.season_number-b.season_number)[0];if(n)next=`${n.season_number}/1`}}
  S.cont[ty+id]={type:ty,id:+id,s,e,t:Date.now(),ti:ttl(d),b:d.backdrop_path,g:gi(d),ad:!!d.adult,c:cert(d)};bump(gi(d),2);save();
  const it=item(d,ty),ep=ty=='tv'?eps.find(x=>x.episode_number===e):null,title=ttl(d)+(ty=='tv'?` · م${s} ح${e}`:'');
- const guide='';hWatch(ty,id,d,ep,s,e);
+ const guide='';
  app.innerHTML=`<div class="wl"><div class="wp"><div class="player" id="pl">${guide}</div></div>
  <div class="wt">${S.ss?'':`<h1 class="ttl">${esc(title)}</h1><small>${ep?esc(ep.name):yr(d)+' · ★ '+vt(d)}</small><div class="tools">${acts(it)}</div>`}<div class="nv">${prev?`<a class="btn" href="#/w/tv/${id}/${prev}">${ic('back')}السابقة</a>`:''}${next?`<a class="btn p" href="#/w/tv/${id}/${next}">التالية</a>`:''}${S.ss?'':`<button class="btn" id="gdb">${ic('cc')}كيف أفعّل الترجمة؟</button><a class="btn" href="#/m/${ty}/${id}">${ic('eye')}تفاصيل العمل</a>`}</div></div>
  <div class="wsv"><div class="src"><button class="srb" id="srb" aria-haspopup="dialog">${ic('bolt')}<span><small>مصدر المشاهدة</small><b id="srn"></b></span>${ic('chev')}</button><button class="btn" id="srx">${ic('refresh')}المشغل لا يعمل؟</button></div><div class="slow" id="slow" role="status" hidden><span>إن لم يبدأ العرض، جرّب مصدرًا آخر.</span><button class="btn p" id="slowb">المصدر التالي</button></div></div>
@@ -665,12 +643,34 @@ async function watch(ty,id,s,e,my){const t0=Date.now(),need=!(HELD[ty+id]&&t0-HE
  const gb=$('#gdb');if(gb)gb.onclick=()=>modal(`<h3>تفعيل الترجمة العربية</h3>${steps()}<button class="btn p" style="width:100%" onclick="cm()">فهمت</button>`);
  let slt;const pl=$('#pl'),mark=k=>{const n=$('#srn');if(n)n.textContent=(SV.find(z=>z.k==k)||SV[0]).n};
  const play=k=>{const v=SV.find(z=>z.k==k)||SV[0];S.srv=v.k;save();mark(v.k);const g=$('#gd');if(g)g.remove();
-  pl.innerHTML=`<div class="ld">${ic('eye')}<b>جارٍ التحميل…</b><small>${v.k=='z'?'يجهّز هذا الخيار أعلى جودة ممكنة، وسيبدأ العرض بعد لحظات.':''}</small></div><iframe src="${AR(v.u(ty,id,s,e))}" allowfullscreen allow="autoplay *; fullscreen *; picture-in-picture *; encrypted-media *" onload="this.style.opacity=1"></iframe>`;const sw=$('#slow');if(sw)sw.hidden=true;clearTimeout(slt);slt=setTimeout(()=>{const z=$('#slow');if(z)z.hidden=false},1e4);timers.push(slt)};
+  pl.innerHTML=`<div class="ld">${ic('eye')}<b>جارٍ التحميل…</b><small>${v.k=='z'?'يجهّز هذا الخيار أعلى جودة ممكنة، وسيبدأ العرض بعد لحظات.':''}</small></div><iframe src="${v.u(ty,id,s,e)}" allowfullscreen allow="autoplay *; fullscreen *; picture-in-picture *; encrypted-media *" onload="this.style.opacity=1"></iframe>`;const sw=$('#slow');if(sw)sw.hidden=true;clearTimeout(slt);slt=setTimeout(()=>{const z=$('#slow');if(z)z.hidden=false},1e4);timers.push(slt)};
  const nextSrc=()=>{const i=SV.findIndex(z=>z.k==S.srv);play(SV[(i+1)%SV.length].k);toast('المصدر: '+SV.find(z=>z.k==S.srv).n)};
  $('#srx').onclick=nextSrc;$('#slowb').onclick=nextSrc;
  $('#srb').onclick=()=>{modal(`<h3>اختر المصدر</h3><div class="sol">${SV.map(v=>`<button class="so ${v.k==S.srv?'on':''}" data-k="${v.k}" style="--c:${v.c}"><span><b>${v.n}</b><em>${v.g}</em></span><small>${v.d}</small></button>`).join('')}</div><button class="btn" style="width:100%;margin-top:10px" onclick="cm()">إغلاق</button>`,'bs');
   $$('.so').forEach(b=>b.onclick=()=>{play(b.dataset.k);cm();pl.scrollIntoView({block:'center',behavior:'smooth'})})};
  const sv=SV.find(z=>z.k==S.srv)?S.srv:'z';mark(sv);play(sv)}
+/* ===================== المقترحات (عشوائية بلا تكرار) ===================== */
+const POOL=[['movie',{sort_by:'popularity.desc','vote_count.gte':500}],['tv',{sort_by:'popularity.desc','vote_count.gte':300}],['movie',{sort_by:'vote_average.desc','vote_count.gte':2000}],['tv',{sort_by:'vote_average.desc','vote_count.gte':800}],['tv',{sort_by:'popularity.desc',with_original_language:'tr','vote_count.gte':40}],['movie',{sort_by:'revenue.desc','vote_count.gte':1000}],['tv',{sort_by:'popularity.desc',with_original_language:'ko','vote_count.gte':100}],['movie',{sort_by:'popularity.desc',with_original_language:'ja','vote_count.gte':300}]];
+const PI={};
+async function anim(sl,on){if(!on){clearInterval(cyc.get(sl));return}
+ if(!sl._im){sl._im=1;const r=await nr(`/${sl.dataset.t}/${sl.dataset.i}/images`,{include_image_language:'null'}),box=sl.querySelector('.rimg'),cur=box.querySelector('img');
+  (r.backdrops||[]).slice(0,8).map(b=>b.file_path).filter(p=>!cur.src.endsWith(p)).slice(0,5).forEach(p=>{const i=new Image();i.src=IMG+'w780'+p;i.alt='';box.appendChild(i)})}
+ const im=[...sl.querySelectorAll('.rimg img')];if(im.length<2)return;let n=im.findIndex(i=>i.style.opacity=='1');if(n<0)n=0;
+ clearInterval(cyc.get(sl));cyc.set(sl,setInterval(()=>{im[n].style.opacity=0;n=(n+1)%im.length;im[n].style.opacity=1},3200))}
+async function picks(my){app.innerHTML=`<div id="rl"><div id="rend" style="height:2px"></div></div>`;const R=$('#rl');let busy=false;
+ const so=new IntersectionObserver(es=>es.forEach(e=>anim(e.target,e.isIntersecting)),{root:R,threshold:.6});OB.push(so);
+ async function more(tries=0){if(busy)return;busy=true;
+  const jobs=[0,1,2,3].map(()=>{const[ty,q]=POOL[Math.random()*POOL.length|0],pg=1+Math.random()*(ty=='tv'?12:20)|0;return nr('/discover/'+ty,{...q,page:pg,language:'ar',[ty=='tv'?'first_air_date.lte':'primary_release_date.lte']:today}).then(r=>pick(r.results,ty,40))});
+  const rs=(await Promise.all(jobs)).flat();if(my!=rid||!$('#rl'))return;
+  const seen=new Set(),l=shuf(rs).filter(x=>{const k=x.media_type+x.id;if(seen.has(k)||S.sn.includes(k)||(x.overview||'').length<40)return false;seen.add(k);return true}).slice(0,8);
+  l.forEach(x=>{S.sn.push(x.media_type+x.id);PI[x.media_type+x.id]=x});S.sn=S.sn.slice(-700);save();
+  $('#rend').insertAdjacentHTML('beforebegin',l.map(x=>{const ps=x.overview.split(/(?<=[.!؟?])\s+/),pp=[];for(let i=0;i<ps.length;i+=2)pp.push(ps.slice(i,i+2).join(' '));
+   const b=(a,i,n)=>`<button class="ico ${has(S[a],x.media_type,x.id)?'on':''}" data-a="${a}" aria-label="${n}">${ic(i)}</button>`;
+   return `<section class="rs" data-t="${x.media_type}" data-i="${x.id}"><div class="rimg"><img style="opacity:1" src="${IMG}w780${x.backdrop_path}" alt=""></div><div class="rb"><div><span class="pill a">${TYN(x)}</span><span class="pill">★ ${vt(x)}</span><span class="pill">${yr(x)}</span></div><h2>${esc(ttl(x))}</h2><div class="story">${pp.map(z=>`<p>${esc(z)}</p>`).join('')}</div><div><a class="btn p" href="${href(x)}">${ic('play','f')}التفاصيل</a></div></div><div class="rside">${b('lk','heart','إعجاب')}${b('fv','star','المفضلة')}${b('lt','bookmark','لاحقًا')}<button class="ico" data-a="ls" aria-label="قائمة">${ic('plus')}</button></div></section>`}).join(''));
+  R.querySelectorAll('.rs').forEach(s=>so.observe(s));busy=false;
+  if(!l.length&&tries<4)return more(tries+1);const e=$('#rend');if(e&&e.getBoundingClientRect().top<innerHeight*3)more()}
+ R.onclick=e=>{const b=e.target.closest('[data-a]');if(!b)return;const sl=b.closest('.rs'),x=PI[sl.dataset.t+sl.dataset.i],a=b.dataset.a,it=item(x,sl.dataset.t);if(a=='ls')return pickList(it);const on=tog(S[a],it);b.classList.toggle('on',on);if(on)bump(gi(x),a=='lk'?3:1);toast(on?'تمت الإضافة':'تمت الإزالة')};
+ const eo=new IntersectionObserver(es=>{if(es[0].isIntersecting)more()},{root:R,rootMargin:'1500px'});eo.observe($('#rend'));OB.push(eo);more()}
 /* ===================== حسابي (بلا صورة شخصية) ===================== */
 let AT='lk';const HC=['#0c0a09','#7a3a00','#0b6a52','#9a1d3a','#3b3a9a'];
 function mkHl(it){if(S.hl.some(h=>h.t==it.t&&h.mid==it.id))return toast('لهذا العمل هايلايت في حسابك');
@@ -684,175 +684,33 @@ function openHl(i,k=0){const h=S.hl[i];if(!h)return;const n=Math.max(1,h.s.lengt
   $('#ok').onclick=()=>{const x=$('#tx').value.trim();if(!x)return;h.s.push({x,c});save();openHl(i,h.s.length-1)}};
  const dl=$('#dt');if(dl)dl.onclick=()=>{h.s.splice(k,1);save();openHl(i,Math.max(0,k-1))};
  $('#rm').onclick=()=>{S.hl.splice(i,1);save();cm();account()}}
-function settings(){const kd=S.kid.on,a=S.acc,lk=!!(S.lock&&S.lock.h),ar=S.set.ar!==false;
- const row=(i,t,p,x)=>`<div class="box"><span style="color:var(--a)">${ic(i)}</span><div><b>${t}</b>${p?`<p>${p}</p>`:''}</div>${x||''}</div>`,sw=(id,on,n)=>`<button class="sw ${on?'on':''}" id="${id}" role="switch" aria-checked="${on}" aria-label="${n}"></button>`,hd=t=>`<h4 class="sth2">${t}</h4>`;
- modal(`<h3>الإعدادات</h3>${hd('الحساب')}${a?row('user',esc(a.email),'@'+esc(a.un||S.un||'see_user'),'<button class="btn" id="syb">مزامنة</button>')+row('key','الرمز السري','<span class="cdx" id="scd" dir="ltr">••••••••</span>','<button class="btn" id="scs">إظهار</button>'):row('user','غير مرتبط بحساب','بياناتك محفوظة على هذا الجهاز. اربطها بحساب لنسخها ومزامنتها.','<button class="btn p" id="acb">ربط حساب</button>')}${row('list','قوائمي','إنشاء قائمة جديدة','<button class="btn" id="nl3">إنشاء</button>')}
- ${hd('الأمان')}${row('smile','وضع الأطفال',kd?'مفعّل. الخروج يحتاج الرمز.':'محتوى مناسب للأطفال فقط.',`<button class="btn p" id="kdb">${kd?'خروج':'دخول'}</button>`)}${a?row('lock','كلمة المرور','','<button class="btn" id="cpw">تغيير</button>'):''}
- ${hd('المظهر')}${themeBox()}
- ${hd('التشغيل')}${kd?'':row('bolt','سوبر سي','بحث فقط، وفي المشاهدة الحلقات والمصادر.',sw('ssw',S.ss,'سوبر سي'))}${row('cc','الترجمة العربية تلقائيًا','تُفضَّل العربية عند توفّرها، ويبقى التحكم اليدوي داخل المشغّل.',sw('arw',ar,'الترجمة العربية'))}
- ${hd('قفل التطبيق')}${row('lock','رمز من 4 أرقام',lk?'مفعّل. يُطلب عند فتح التطبيق.':'يُطلب قبل فتح التطبيق.',sw('lkw',lk,'قفل التطبيق'))}
- ${a?hd('تسجيل الخروج')+`<button class="btn" id="lgo" style="width:100%">${ic('out')}تسجيل الخروج</button>`:''}<button class="btn" style="width:100%;margin-top:12px" onclick="cm()">إغلاق</button>`,'bs');
- $('#kdb').onclick=kd?kidExit:kidEnter;bindTheme();const w=$('#ssw');if(w)w.onclick=()=>S.ss?(S.ss=false,save(),chrome(),cm(),account()):superAsk();
- $('#arw').onclick=e=>{S.set.ar=S.set.ar===false;save();e.currentTarget.classList.toggle('on',S.set.ar);e.currentTarget.setAttribute('aria-checked',S.set.ar)};
- $('#lkw').onclick=()=>lk?pinAsk('تعطيل قفل التطبيق','اكتب الرمز الحالي.',0,async p=>{if(await kh(p,S.lock.s)!=S.lock.h)return 'الرمز غير صحيح.';S.lock=null;save();settings();toast('تم تعطيل القفل')}):pinAsk('رمز قفل التطبيق','اختر 4 أرقام تُطلب عند فتح التطبيق.',1,async p=>{const z=Math.random().toString(36).slice(2);S.lock={h:await kh(p,z),s:z,f:0,lu:0};save();settings();toast('تم تفعيل القفل')});
- $('#nl3').onclick=()=>listModal(null,i=>{AT='c'+i;ED=false;location.hash==='#/me'?account():location.hash='#/me'});
- const acb=$('#acb');if(acb)acb.onclick=()=>authModal('in');
- if(a){$('#syb').onclick=async()=>{toast('جارٍ المزامنة…');try{await cloudPull();await cloudPush();toast('تمت المزامنة')}catch(e){toast(fbErr(e))}};
-  let vs=0;$('#scs').onclick=e=>{vs=!vs;$('#scd').textContent=vs?(a.code||'—'):'••••••••';e.currentTarget.textContent=vs?'إخفاء':'إظهار'};
-  $('#cpw').onclick=pwModal;
-  $('#lgo').onclick=async()=>{try{await fbTmo(cloudPush(),4000)}catch(e){}try{await fbInit();await FA.signOut()}catch(e){}S.acc=null;save();cm();toast('تم تسجيل الخروج');if(location.hash.indexOf('#/me')==0)account()}}}
+function settings(){const kd=S.kid.on;
+ modal(`<h3>الإعدادات</h3><div class="box"><span style="color:var(--a)">${ic('smile')}</span><div><b>وضع الأطفال</b><p>${kd?'مفعّل الآن. الخروج منه يحتاج رمز PIN.':'محتوى مناسب للأطفال فقط، ويُقفل برمز من 4 أرقام.'}</p></div><button class="btn p" id="kdb">${kd?'خروج':'دخول'}</button></div>${kd?'':`<div class="box"><span style="color:var(--a)">${ic('bolt')}</span><div><b>سوبر سي</b><p>وضع مشاهدة هادئ: بحث فقط، وفي المشاهدة الحلقات والمواسم ومصادر المشاهدة.</p></div><button class="sw ${S.ss?'on':''}" id="ssw" role="switch" aria-checked="${S.ss}" aria-label="سوبر سي"></button></div>`}${themeBox()}<button class="btn" style="width:100%;margin-top:10px" onclick="cm()">إغلاق</button>`,'bs');
+ $('#kdb').onclick=kd?kidExit:kidEnter;bindTheme();const w=$('#ssw');if(w)w.onclick=()=>S.ss?(S.ss=false,save(),chrome(),cm(),account()):superAsk()}
 function account(tab){if(tab)AT=tab;let li=AT[0]=='c'?+AT.slice(1):-1,cur=li>=0?S.ls[li]:null;if(li>=0&&!cur){AT='ls';li=-1}
  const kd=S.kid.on,inL=AT=='ls';if(kd&&cur)ED=false;document.body.classList.toggle('ed',ED);
  const MT={lk:['heart','الإعجابات'],fv:['star','المفضلة'],lt:['bookmark','مشاهدة لاحقًا']},raw=cur?cur.items:(inL?[]:S[AT]),arr=kd?raw.filter(isKidSafe):raw;
  const tabs=[['lk','heart','الإعجابات'],['fv','star','المفضلة'],['lt','bookmark','لاحقًا'],['ls','list','قوائمي']].map(([k,i,n])=>{const on=k==AT||(k=='ls'&&li>=0);return `<button data-t="${k}" role="tab" aria-selected="${on}" class="${on?'on':''}" aria-label="${n}">${ic(i)}</button>`}).join('');
  const edb=`<button class="btn ${ED?'on':''}" id="edm">${ic('grip')}ترتيب</button>`;let mid;
  if(inL)mid=`<div class="th2">${ic('list')}<b>قوائمي</b><small>${S.ls.length}</small><button class="btn" id="nl">${ic('plus')}إضافة</button>${edb}</div>${ED?'<p class="edn">اسحب القوائم لإعادة ترتيبها</p>':''}${S.ls.length?`<div class="lrs" id="lrs">${S.ls.map((l,i)=>`<button class="lr" data-t="c${i}" data-dl>${ic(l.ic||'list')}<b>${esc(l.n)}</b><small>${kd?kf(l.items).length:l.items.length}</small></button>`).join('')}</div>`:empty('list','لا توجد قوائم بعد. اضغط «إضافة» لإنشاء أول قائمة.')}`;
- else{const grid=arr.length?`<div class="pg" id="pg">${arr.map(i=>`<a href="#/m/${i.t}/${i.id}">${i.p?`<img loading="lazy" src="${IMG}w342${i.p}" alt="">`:''}</a>`).join('')}</div>`:empty(cur?(cur.ic||'list'):MT[AT][0],cur?'القائمة فارغة. اضغط «إضافة» لإضافة أعمال إليها.':'لا شيء هنا بعد. ابدأ بإضافة ما يعجبك.');
-  mid=(cur?`<div class="th2"><button class="btn" data-t="ls" aria-label="رجوع">${ic('back')}</button>${ic(cur.ic||'list')}<b>${esc(cur.n)}</b><small>${arr.length}</small>${kd?'':`<button class="btn" id="ad2">${ic('plus')}إضافة</button>`}<button class="btn" id="el2">${ic('pencil')}تعديل</button>${kd?'':edb}</div>${ED?'<p class="edn">اسحب الأعمال لإعادة ترتيبها</p>':''}`:'')+grid}
- app.innerHTML=`<div class="ig">${kd?`<div class="kdb">${ic('smile')}وضع الأطفال مفعّل</div>`:''}<div class="igt"><div class="igav" id="igav">${avH()}</div><div class="igs">${[['lk','إعجابات',kf(S.lk).length],['fv','المفضلة',kf(S.fv).length],['lt','لاحقًا',kf(S.lt).length],['ls','قوائم',S.ls.length]].map(([k,n,c])=>`<button data-t="${k}"><b>${c}</b><small>${n}</small></button>`).join('')}</div></div><div class="igb"><b class="ttl">${esc(S.nm||'مشاهد See')}</b><span class="igu">@${esc(S.un||'see_user')}</span><p class="ttl igbio${S.bio?'':' mu'}">${S.bio?esc(S.bio):'أضف نبذة عنك من «تعديل الملف الشخصي».'}</p></div><div class="igr"><button class="btn" id="ed">${ic('pencil')}تعديل الملف الشخصي</button><button class="btn" id="hs" style="flex:0 0 auto">${ic('clock')}السجل</button><button class="btn" id="stg">${ic('gear')}الإعدادات</button></div></div>
+ else{const grid=arr.length?`<div class="pg" id="pg">${arr.map(i=>`<a href="#/m/${i.t}/${i.id}">${i.p?`<img loading="lazy" src="${IMG}w342${i.p}" alt="">`:''}</a>`).join('')}</div>`:empty(cur?(cur.ic||'list'):MT[AT][0],cur?'القائمة فارغة، أضف إليها من صفحة أي عمل أو من المُقترحات.':'لا شيء هنا بعد. ابدأ بإضافة ما يعجبك.');
+  mid=(cur?`<div class="th2"><button class="btn" data-t="ls" aria-label="رجوع">${ic('back')}</button>${ic(cur.ic||'list')}<b>${esc(cur.n)}</b><small>${arr.length}</small><button class="btn" id="el2">${ic('pencil')}تعديل</button>${kd?'':edb}</div>${ED?'<p class="edn">اسحب الأعمال لإعادة ترتيبها</p>':''}`:'')+grid}
+ app.innerHTML=`<div class="ig">${kd?`<div class="kdb">${ic('smile')}وضع الأطفال مفعّل</div>`:''}<div class="igt"><div class="igav" id="igav">${avH()}</div><div class="igs">${[['lk','إعجابات',kf(S.lk).length],['fv','المفضلة',kf(S.fv).length],['lt','لاحقًا',kf(S.lt).length],['ls','قوائم',S.ls.length]].map(([k,n,c])=>`<button data-t="${k}"><b>${c}</b><small>${n}</small></button>`).join('')}</div></div><div class="igb"><b class="ttl">${esc(S.nm||'مشاهد See')}</b><span class="igu">@${esc(S.un||'see_user')}</span><p class="ttl igbio${S.bio?'':' mu'}">${S.bio?esc(S.bio):'أضف نبذة عنك من «تعديل الملف الشخصي».'}</p></div><div class="igr"><button class="btn" id="ed">${ic('pencil')}تعديل الملف الشخصي</button><button class="btn" id="stg">${ic('gear')}الإعدادات</button></div></div>
  ${kd?'':`<div class="hl">${S.hl.map((h,i)=>`<button data-h="${i}"><span><img src="${IMG}w185${h.p}" alt=""></span>${esc(h.n)}</button>`).join('')||'<small style="padding:8px 0">افتح صفحة عمل أكملته واضغط «أنشئ هايلايت» لتنشئ له هايلايت خاصًا.</small>'}</div>`}
  <div class="tb" id="tb" role="tablist">${tabs}</div>${mid}`;
  $$('[data-t]').forEach(b=>b.onclick=()=>{if(Date.now()-DM<350)return;AT=b.dataset.t;ED=false;account()});$$('[data-h]').forEach(b=>b.onclick=()=>openHl(+b.dataset.h));
- $('#ed').onclick=editProfile;$('#igav').onclick=editProfile;$('#stg').onclick=settings;$('#hs').onclick=()=>location.hash='#/hist';
+ $('#ed').onclick=editProfile;$('#igav').onclick=editProfile;$('#stg').onclick=settings;
  const nl=$('#nl');if(nl)nl.onclick=()=>listModal(null,i=>{AT='c'+i;ED=false;account()});
- const em=$('#edm');if(em)em.onclick=()=>{ED=!ED;account()};const ad2=$('#ad2');if(ad2)ad2.onclick=()=>addToList(li);
+ const em=$('#edm');if(em)em.onclick=()=>{ED=!ED;account()};
  const el=$('#el2');if(el)el.onclick=()=>listModal(li,i=>{AT=i<0?'ls':AT;account()});
  if(ED){const pg=$('#pg');if(pg)pg.onclick=e=>{if(e.target.closest('a'))e.preventDefault()};
   if(inL)drag($('#lrs'),'[data-dl]',(f,t)=>{mv(S.ls,f,t);account()});
   else drag(pg,'.pg a',(f,t)=>{mv(arr,f,t);account()})}}
 /* ===================== الإقلاع ===================== */
-/* ===================== السجل الدائم (مشاهدة + تصفّح) ===================== */
-var WK=null,WRL={},WSV=0;
-function hNav(ty,id,d){const a=S.nh,n=Date.now(),z=a[0];if(z&&z.t==ty&&z.id==+id&&n-z.a<3e4)return;a.unshift({t:ty,id:+id,ti:ttl(d),p:d.poster_path,a:n});if(a.length>4000)a.length=4000;save()}
-function hWatch(ty,id,d,ep,s,e){const k=ty=='tv'?`tv:${id}:${s}:${e}`:`movie:${id}`,now=Date.now(),W=S.wh,o=W[k]||{k,t:ty,id:+id,f:now,v:0,pr:0,pos:0};
- const rt=((ty=='tv'?((ep&&ep.runtime)||(d.episode_run_time||[])[0]||(d.last_episode_to_air||{}).runtime):d.runtime)||0)*60;
- o.ti=ttl(d);o.p=d.poster_path;if(ty=='tv'){o.s=+s;o.e=+e;o.en=ep?ep.name:''}if(rt&&!o.du)o.du=rt;
- if(!o.ts||now-o.ts>2e4)o.v=(o.v||0)+1;o.ts=now;W[k]=o;
- const ks=Object.keys(W);if(ks.length>2500)ks.sort((x,y)=>W[x].ts-W[y].ts).slice(0,ks.length-2500).forEach(z=>delete W[z]);
- save();WK=k;let last=now;
- timers.push(setInterval(()=>{const t=Date.now(),dt=(t-last)/1000;last=t;if(WK!=k||document.visibilityState!='visible'||(WRL[k]&&t-WRL[k]<2e4))return;o.pos=Math.min(o.du||1e9,(o.pos||0)+dt);if(o.du)o.pr=Math.min(99,Math.round(o.pos/o.du*100));o.ts=t;save()},1e4))}
-addEventListener('message',ev=>{const f=document.querySelector('#pl iframe');if(!f||ev.source!==f.contentWindow||!WK||!S.wh[WK])return;let m=ev.data;if(typeof m=='string'){try{m=JSON.parse(m)}catch(e){return}}if(!m||typeof m!='object')return;
- const q=m.data&&typeof m.data=='object'?m.data:m,ct=Number(q.currentTime??q.time??q.position),du=Number(q.duration??q.total??0);if(!isFinite(ct)||ct<0)return;
- const o=S.wh[WK],t=Date.now();o.pos=ct;if(du>0)o.du=du;if(o.du)o.pr=Math.min(100,Math.round(ct/o.du*100));o.ts=t;WRL[WK]=t;if(t-WSV>5e3){WSV=t;save()}});
-const fmtS=x=>{x=Math.floor(x);const h=x/3600|0,m=(x%3600)/60|0,c=x%60,p=n=>String(n).padStart(2,'0');return(h?h+':'+p(m):m)+':'+p(c)};
-let HTB='w',HN=60;
-function hist(tab){if(tab&&tab!=HTB){HTB=tab;HN=60}
- const tv=HTB=='w',L=tv?Object.values(S.wh).sort((a,b)=>b.ts-a.ts):S.nh,vs=L.slice(0,HN);
- const dk=ts=>{const d=new Date(ts),n=new Date();return d.toDateString()==n.toDateString()?'اليوم':d.toDateString()==new Date(n-864e5).toDateString()?'أمس':d.toLocaleDateString('ar',{weekday:'long',day:'numeric',month:'long',year:'numeric'})},tt=ts=>new Date(ts).toLocaleTimeString('ar',{hour:'2-digit',minute:'2-digit',second:'2-digit'});
- const im=(p,pr)=>`<span class="hxp">${p?`<img loading="lazy" src="${IMG}w185${p}" alt="">`:''}${pr>0?`<i style="width:${pr}%"></i>`:''}</span>`;
- let g='',h='';
- vs.forEach(x=>{const ts=tv?x.ts:x.a,k=dk(ts);if(k!=g){g=k;h+=`<h3 class="hxg">${k}</h3>`}
-  if(tv){const w=x.t=='tv',l3=[tt(ts),x.v>1?x.v+' مرات':'مرة واحدة'];if(x.pos>0)l3.push('آخر موضع '+fmtS(x.pos));if(x.pr>0)l3.push(x.pr+'%');
-   h+=`<a class="hxr" href="#/w/${x.t}/${x.id}${w?`/${x.s}/${x.e}`:''}">${im(x.p,x.pr)}<div class="hxi"><b class="ttl">${esc(x.ti)}</b><small>${w?`الموسم ${x.s} · الحلقة ${x.e}${x.en?' — '+esc(x.en):''}`:'فيلم'}</small><small>${l3.join(' · ')}</small></div></a>`}
-  else h+=`<a class="hxr" href="#/m/${x.t}/${x.id}">${im(x.p,0)}<div class="hxi"><b class="ttl">${esc(x.ti)}</b><small>${x.t=='tv'?'مسلسل':'فيلم'} · ${tt(ts)}</small></div></a>`});
- app.innerHTML=`<div class="th2"><a class="btn" href="#/me" aria-label="رجوع">${ic('back')}</a>${ic('clock')}<b>السجل</b><small>${L.length}</small></div><div class="chips" id="hch"><button data-k="w" class="${tv?'on':''}">المشاهدة</button><button data-k="n" class="${tv?'':'on'}">التصفّح</button></div>${vs.length?`<div class="hxl">${h}</div>`:empty('clock','لا يوجد سجل بعد')}${L.length>HN?'<button class="btn hxm" id="hm">عرض المزيد</button>':''}`;
- $('#hch').onclick=e=>{const b=e.target.closest('button');if(b)hist(b.dataset.k)};const m=$('#hm');if(m)m.onclick=()=>{HN+=60;hist()}}
-/* ===================== المشاركة والترجمة ===================== */
-function shareIt(it){const u=location.href.split('#')[0]+`#/m/${it.t}/${it.id}`;
- if(navigator.share)navigator.share({url:u}).catch(()=>{});else{try{navigator.clipboard.writeText(u);toast('تم نسخ الرابط')}catch(e){prompt('',u)}}}
-function AR(u){return S.set&&S.set.ar===false?u:u+(u.indexOf('?')>=0?'&':'?')+'ds_lang=ar&sub_lang=ar&lang=ar'}
-/* ===================== إضافة أعمال إلى قائمة ===================== */
-function addToList(li){const L=S.ls[li];if(!L)return;let R=[],tz;
- modal(`<h3>إضافة إلى «${esc(L.n)}»</h3><input id="as" type="search" placeholder="ابحث عن فيلم أو مسلسل" autocomplete="off"><div class="lrs" id="asr" style="padding:8px 0"></div><button class="btn p" style="width:100%" id="asd">تم</button>`,'bs');
- const draw=()=>{$('#asr').innerHTML=R.map((x,i)=>`<button class="lr" data-i="${i}">${ic(has(L.items,x.media_type,x.id)?'check':'plus')}<b class="ttl">${esc(ttl(x))}</b><small>${yr(x)} · ${TYN(x)}</small></button>`).join('')};
- $('#as').oninput=e=>{clearTimeout(tz);const q=e.target.value.trim();tz=setTimeout(async()=>{if(!q){R=[];return draw()}const r=await nr('/search/multi',{query:q});if($('#as')&&$('#as').value.trim()==q){R=(r.results||[]).filter(x=>x.media_type!='person'&&x.poster_path&&ok(x)&&al(x)&&!x.adult&&isKidSafe(x)).slice(0,12);draw()}},350)};
- $('#asr').onclick=e=>{const b=e.target.closest('.lr');if(!b)return;const x=R[b.dataset.i];tog(L.items,item(x,x.media_type));draw()};
- $('#asd').onclick=()=>{cm();account()};$('#as').focus()}
-/* ===================== الإشعارات (من بيانات المتصفح فقط) ===================== */
-const NT={
- new:[['{k} جديد متاح','«{t}» وصل حديثًا إلى See. ألقِ نظرة.'],['جديد على See','أُضيف «{t}» مؤخرًا وقد يكون سهرتك القادمة.'],['{k} وصل حديثًا','هل سمعت عن «{t}»؟ اكتشفه الآن.']],
- vis:[['زرت هذا العمل من قبل','«{t}» ما زال بانتظارك، تابع من حيث توقفت.'],['هل تذكر «{t}»؟','عُد إليه وأكمل رحلتك معه.'],['ما زلت مهتمًا؟','زرت «{t}» مؤخرًا، لعل الوقت مناسب الآن.']],
- cont:[['تابع المشاهدة','أوقفت «{t}» {se}. أكمل الآن.'],['أكمل ما بدأته','«{t}» ينتظرك {se}.']],
- lt:[['عنوانك المحفوظ ينتظرك','«{t}» في قائمة المشاهدة لاحقًا. هل حان وقته؟'],['تذكير لطيف','حفظت «{t}» لوقت لاحق، لا تتركه ينتظر طويلًا.']],
- fv:[['من مفضلتك','«{t}» من أعمالك المفضلة. وقت مناسب لإعادة المشاهدة.'],['عمل تحبه','مضى وقت على «{t}»، ربما حان موعد العودة.']]};
-function ntMake(n){const N=S.nt,now=Date.now(),kd=S.kid.on,Q={new:[],vis:[],cont:[],lt:[],fv:[]};let c={};try{c=JSON.parse(localStorage.getItem('see_sc')||'{}')}catch(e){}
- Object.keys(c).filter(k=>k.indexOf('new')==0&&k.slice(-1)==(kd?'k':'n')).forEach(k=>(c[k].v||[]).slice(0,14).forEach(x=>{if(x.poster_path&&x.media_type&&isKidSafe(x))Q.new.push({ty:x.media_type,i:x.id,t:ttl(x),p:x.poster_path})}));
- if(!kd)S.nh.slice(0,40).forEach(x=>Q.vis.push({ty:x.t,i:x.id,t:x.ti,p:x.p}));
- Object.values(S.cont).filter(x=>x.ti&&isKidSafe(x)).forEach(x=>Q.cont.push({ty:x.type,i:x.id,t:x.ti,p:x.b,s:x.s,e:x.e}));
- S.lt.filter(isKidSafe).forEach(x=>Q.lt.push({ty:x.t,i:x.id,t:x.ti,p:x.p}));S.fv.filter(isKidSafe).forEach(x=>Q.fv.push({ty:x.t,i:x.id,t:x.ti,p:x.p}));
- const out=[],kinds=Object.keys(Q).filter(k=>Q[k].length);
- for(let j=0;j<n&&kinds.length;j++){let done=0;const ks=shuf(kinds).sort((a,b)=>(a==N.lk)-(b==N.lk));
-  for(const k of ks){const key=z=>k+z.ty+z.i,fr=shuf(Q[k]).filter(z=>!(N.sh[key(z)]>now-3*864e5)&&!out.some(o=>o.i==z.i&&o.ty==z.ty));if(!fr.length)continue;
-   const z=fr[0],T=NT[k],ix=T.map((_,q)=>q).filter(q=>q!=N.tp[k]),q=ix[Math.random()*ix.length|0];N.tp[k]=q;N.sh[key(z)]=now;N.lk=k;
-   const w=z.ty=='tv'?'مسلسل':'فيلم',se=z.ty=='tv'?`عند الموسم ${z.s} الحلقة ${z.e}`:'قبل أن تنهيه',f=t=>t.replace('{k}',w).replace('{t}',z.t).replace('{se}',se);
-   out.push({k,ty:z.ty,i:z.i,p:z.p,h:f(T[q][0]),x:f(T[q][1]),hr:k=='cont'?(z.ty=='tv'?`#/w/tv/${z.i}/${z.s}/${z.e}`:`#/w/movie/${z.i}`):`#/m/${z.ty}/${z.i}`,a:now-j*1e3});done=1;break}
-  if(!done)break}
- Object.keys(N.sh).forEach(k=>{if(N.sh[k]<now-7*864e5)delete N.sh[k]});
- if(!out.length&&!N.l.length)out.push({k:'wel',h:'أهلًا بك في See',x:'ستصلك هنا تنبيهات وتذكيرات تناسب ما تتصفحه وتحفظه.',hr:'#/',a:now});
- return out}
-function ntTick(){if($('#lkc'))return;const N=S.nt,now=Date.now();if(N.l.length&&now-N.g<27e5)return;const add=ntMake(N.l.length?1+(Math.random()<.4):3);if(!add.length)return;
- N.g=now;add.forEach(x=>N.l.unshift(x));N.l.length=Math.min(N.l.length,40);save();ntBadge();const b=$('#bl');if(b){b.classList.remove('rg');void b.offsetWidth;b.classList.add('rg')}}
-function ntBadge(){const b=$('#bc2');if(!b)return;const n=S.nt.l.filter(x=>x.a>S.nt.rd).length;b.hidden=!n;b.textContent=n>9?'9+':n}
-function ntOpen(){const rd=S.nt.rd;S.nt.rd=Date.now();save();ntBadge();
- const rt=new Intl.RelativeTimeFormat('ar',{numeric:'auto'}),ago=ts=>{const x=(Date.now()-ts)/1e3;return x<60?'الآن':x<3600?rt.format(-Math.round(x/60),'minute'):x<86400?rt.format(-Math.round(x/3600),'hour'):rt.format(-Math.round(x/86400),'day')};
- modal(`<h3>الإشعارات</h3>${S.nt.l.length?`<div class="ntl">${S.nt.l.slice(0,30).map(n=>`<a class="ntr ${n.a>rd?'u':''}" href="${n.hr||'#/'}"><span class="ntp">${n.p?`<img src="${IMG}w185${n.p}" alt="">`:ic('bell')}</span><div><b>${esc(n.h)}</b><p>${esc(n.x)}</p><small>${ago(n.a)}</small></div></a>`).join('')}</div>`:empty('bell','لا إشعارات بعد')}<button class="btn" style="width:100%" onclick="cm()">إغلاق</button>`,'bs');
- $$('.ntr').forEach(a=>a.addEventListener('click',cm))}
-/* ===================== قفل التطبيق ===================== */
-function lockScreen(){if($('#lkc'))return;const d=document.createElement('div');d.id='lkc';
- d.innerHTML=`<div class="lkb">${ic('lock')}<h2>See</h2><small>اكتب رمز القفل للمتابعة</small><input id="lki" class="pin" type="password" inputmode="numeric" maxlength="4" autocomplete="off" placeholder="••••" dir="ltr" aria-label="رمز القفل"><p class="pne" id="lke" role="alert"></p>${S.acc&&fbReady()?'<button class="lnk" id="lkf">نسيت الرمز؟</button>':''}</div>`;document.body.appendChild(d);
- const i=d.querySelector('#lki'),er=m=>d.querySelector('#lke').textContent=m;i.focus();
- i.oninput=async()=>{i.value=i.value.replace(/\D/g,'').slice(0,4);if(i.value.length<4)return;const L=S.lock;if(!L)return d.remove();
-  if(L.lu>Date.now()){i.value='';return er('محاولات كثيرة. انتظر قليلًا.')}
-  if(await kh(i.value,L.s)==L.h){L.f=0;L.lu=0;save();d.remove();return}
-  L.f=(L.f||0)+1;i.value='';if(L.f>=5){L.f=0;L.lu=Date.now()+6e4;er('تم إيقاف المحاولات لمدة دقيقة.')}else er('الرمز غير صحيح.');save()};
- const f=d.querySelector('#lkf');if(f)f.onclick=async()=>{const pw=prompt('اكتب كلمة مرور حسابك لإلغاء القفل');if(!pw)return;try{await fbInit();await FA.signInWithEmailAndPassword(S.acc.email,pw);S.lock=null;save();d.remove()}catch(e){er(fbErr(e))}}}
-var HIDT=0;document.addEventListener('visibilitychange',()=>{if(document.hidden)HIDT=Date.now();else if(S.lock&&S.lock.h&&HIDT&&Date.now()-HIDT>12e4)lockScreen()});
-/* ===================== الحساب السحابي (نسخ ومزامنة للملف نفسه) ===================== */
-var FBP=null,FA=null,FD=null,CQT=0;
-const fbReady=()=>!!(FB_CFG.apiKey&&FB_CFG.projectId),fbTmo=(p,ms)=>Promise.race([p,new Promise((_,j)=>setTimeout(()=>j({code:'auth/network-request-failed'}),ms||8000))]);
-function fbInit(){if(FBP)return FBP;FBP=new Promise((ok2,no)=>{const ld=u=>new Promise((r,j)=>{const t=document.createElement('script');t.src=u;t.onload=r;t.onerror=j;document.head.appendChild(t)}),b='https://www.gstatic.com/firebasejs/10.12.2/';
- ld(b+'firebase-app-compat.js').then(()=>Promise.all([ld(b+'firebase-auth-compat.js'),ld(b+'firebase-firestore-compat.js')])).then(()=>{firebase.initializeApp(FB_CFG);FA=firebase.auth();FD=firebase.firestore();ok2()}).catch(e=>{FBP=null;no({code:'auth/network-request-failed'})})});return FBP}
-const fbUser=()=>fbInit().then(()=>new Promise(r=>{const u=FA.onAuthStateChanged(x=>{u();r(x)})}));
-const fbErr=e=>({'auth/email-already-in-use':'هذا البريد مسجّل مسبقًا.','auth/invalid-email':'البريد الإلكتروني غير صالح.','auth/weak-password':'كلمة المرور ضعيفة (6 أحرف على الأقل).','auth/wrong-password':'كلمة المرور غير صحيحة.','auth/invalid-credential':'البريد أو كلمة المرور غير صحيحة.','auth/user-not-found':'لا يوجد حساب بهذا البريد.','auth/wrong-code':'الرمز السري غير صحيح.','auth/too-many-requests':'محاولات كثيرة. حاول لاحقًا.','auth/network-request-failed':'تحقق من اتصالك بالإنترنت.','permission-denied':'تعذّر الوصول إلى قاعدة البيانات. تحقق من قواعد Firestore.'}[e&&e.code]||'تعذّر إتمام العملية. حاول مجددًا.');
-const _te=new TextEncoder(),_td=new TextDecoder(),fbB=b=>btoa(String.fromCharCode(...new Uint8Array(b))),fbU=x=>Uint8Array.from(atob(x),c=>c.charCodeAt(0));
-async function fbKey(code,salt){const k=await crypto.subtle.importKey('raw',_te.encode(code),'PBKDF2',false,['deriveKey']);return crypto.subtle.deriveKey({name:'PBKDF2',salt,iterations:150000,hash:'SHA-256'},k,{name:'AES-GCM',length:256},false,['encrypt','decrypt'])}
-async function fbSeal(code,pw){const salt=crypto.getRandomValues(new Uint8Array(16)),iv=crypto.getRandomValues(new Uint8Array(12)),k=await fbKey(code,salt);return{salt:fbB(salt),iv:fbB(iv),ct:fbB(await crypto.subtle.encrypt({name:'AES-GCM',iv},k,_te.encode(pw)))}}
-async function fbOpen(code,o){const k=await fbKey(code,fbU(o.salt));return _td.decode(await crypto.subtle.decrypt({name:'AES-GCM',iv:fbU(o.iv)},k,fbU(o.ct)))}
-const fbEk=async e=>[...new Uint8Array(await crypto.subtle.digest('SHA-256',_te.encode(e.trim().toLowerCase())))].map(z=>z.toString(16).padStart(2,'0')).join(''),fbCode=()=>[...crypto.getRandomValues(new Uint32Array(8))].map(x=>x%10).join('');
-function cq(){if(!S||!S.acc||!fbReady())return;clearTimeout(CQT);CQT=setTimeout(()=>cloudPush().catch(()=>{}),4000)}
-async function cloudPush(){if(!S.acc||!fbReady())return;const u=await fbUser();if(!u)return;const m={...S};['wh','nh','lock','kid','acc','sn','nt'].forEach(k=>delete m[k]);
- const r=FD.doc('users/'+u.uid),b=FD.batch();b.set(r.collection('data').doc('main'),{j:JSON.stringify(m),av:avt(),u:Date.now()});b.set(r.collection('data').doc('watch'),{j:JSON.stringify(S.wh)});b.set(r.collection('data').doc('nav'),{j:JSON.stringify(S.nh)});await b.commit()}
-function mergeS(c){const un=(a,b)=>{const o=[...(a||[])];(b||[]).forEach(x=>{if(!has(o,x.t,x.id))o.push(x)});return o};
- S.lk=un(S.lk,c.lk);S.fv=un(S.fv,c.fv);S.lt=un(S.lt,c.lt);
- (c.ls||[]).forEach(l=>{const m=S.ls.find(z=>z.n==l.n);if(m)m.items=un(m.items,l.items);else S.ls.push(l)});
- (c.hl||[]).forEach(h=>{if(!S.hl.some(z=>z.t==h.t&&z.mid==h.mid))S.hl.push(h)});
- for(const k in c.cont||{}){const o=S.cont[k];if(!o||c.cont[k].t>o.t)S.cont[k]=c.cont[k]}
- for(const k in c.taste||{})S.taste[k]=Math.max(S.taste[k]||0,c.taste[k]);
- ['nm','un','bio'].forEach(k=>{if(!S[k]&&c[k])S[k]=c[k]});if(S.theme=='classic'&&c.theme)S.theme=c.theme;if(S.srv=='z'&&c.srv)S.srv=c.srv;if(c.set)S.set={...c.set,...S.set};}
-async function cloudPull(){if(!S.acc||!fbReady())return;const u=await fbUser();if(!u)return;const r=FD.doc('users/'+u.uid).collection('data'),[m,w,n]=await Promise.all(['main','watch','nav'].map(k=>r.doc(k).get()));
- const J=d=>{try{return d.exists?JSON.parse(d.data().j):null}catch(e){return null}},cm2=J(m),cw=J(w),cn=J(n);
- if(cm2)mergeS(cm2);
- if(cw)Object.values(cw).forEach(x=>{const o=S.wh[x.k];if(!o)S.wh[x.k]=x;else{const v=Math.max(o.v||0,x.v||0);if((x.ts||0)>(o.ts||0))S.wh[x.k]={...x};S.wh[x.k].v=v}});
- if(cn){const seen=new Set(S.nh.map(z=>z.t+z.id+'_'+z.a));cn.forEach(z=>{if(!seen.has(z.t+z.id+'_'+z.a))S.nh.push(z)});S.nh.sort((a,b)=>b.a-a.a);if(S.nh.length>4000)S.nh.length=4000}
- if(m.exists&&m.data().av&&!avt()){try{localStorage.setItem('see_av',m.data().av)}catch(e){}}
- try{localStorage.setItem('see',JSON.stringify(S))}catch(e){}}
-async function fbRegister(email,un,pw){await fbInit();const cr=await FA.createUserWithEmailAndPassword(email,pw),u=cr.user,code=fbCode();
- try{const sl=await fbSeal(code,pw);await FD.collection('codes').doc(await fbEk(email)).set({uid:u.uid,...sl});await FD.doc('users/'+u.uid).set({email,un,code,created:Date.now()})}catch(e){await u.delete().catch(()=>{});throw e}
- if(un)S.un=un;S.acc={email,un,code,uid:u.uid};save();await cloudPush();return code}
-async function fbLogin(email,secret,mode){await fbInit();let pw=secret;
- if(mode=='code'){const d=await FD.collection('codes').doc(await fbEk(email)).get();if(!d.exists)throw{code:'auth/user-not-found'};try{pw=await fbOpen(secret,d.data())}catch(e){throw{code:'auth/wrong-code'}}}
- const cr=await FA.signInWithEmailAndPassword(email,pw),u=cr.user,p=(await FD.doc('users/'+u.uid).get()).data()||{};
- S.acc={email,un:p.un||'',code:p.code||'',uid:u.uid};await cloudPull();if(!S.un&&p.un)S.un=p.un;save();await cloudPush()}
-function authModal(tab){
- if(!fbReady())return modal(`<h3>الحساب السحابي</h3><small>لم يتم ربط Firebase بعد. ضع إعدادات مشروعك في FB_CFG أعلى الشيفرة، ثم فعّل Email/Password وأنشئ قاعدة Firestore.</small><button class="btn" style="width:100%;margin-top:10px" onclick="cm()">إغلاق</button>`,'bs');
- const up=tab=='up';let mode='pw';
- modal(`<h3>${up?'إنشاء حساب':'تسجيل الدخول'}</h3><small>${up?'ينتقل ما لديك الآن (المفضلة والسجل والقوائم والإعدادات) إلى حسابك دون أن تبدأ من الصفر.':'يُستعاد ملفك على هذا الجهاز.'}</small><input id="fe" type="email" dir="ltr" autocomplete="email" placeholder="البريد الإلكتروني">${up?'<input id="fu" dir="ltr" maxlength="24" autocapitalize="off" autocomplete="username" placeholder="اسم المستخدم">':''}${up?'':'<div class="chips" id="fm" style="position:static;padding:4px 0"><button data-m="pw" class="on">كلمة المرور</button><button data-m="code">الرمز السري</button></div>'}<input id="fp" type="password" dir="ltr" autocomplete="${up?'new-password':'current-password'}" placeholder="كلمة المرور"><p class="pne" id="fer" role="alert"></p><button class="btn p" id="fgo" style="width:100%">${up?'إنشاء الحساب':'دخول'}</button><button class="lnk" id="fsw" style="margin-top:8px">${up?'لدي حساب بالفعل':'ليس لدي حساب'}</button>`,'bs');
- const er=m=>$('#fer').textContent=m,fp=$('#fp');
- if(up)$('#fu').oninput=e=>{e.target.value=e.target.value.toLowerCase().replace(/^@/,'').replace(/[^a-z0-9._]/g,'')};
- const fm=$('#fm');if(fm)fm.onclick=e=>{const b=e.target.closest('button');if(!b)return;mode=b.dataset.m;$$('#fm button').forEach(z=>z.classList.toggle('on',z==b));fp.value='';fp.type=mode=='code'?'text':'password';fp.inputMode=mode=='code'?'numeric':'text';fp.maxLength=mode=='code'?8:128;fp.placeholder=mode=='code'?'الرمز السري (8 أرقام)':'كلمة المرور'};
- $('#fsw').onclick=()=>authModal(up?'in':'up');
- $('#fgo').onclick=async()=>{const em=$('#fe').value.trim(),v=fp.value,btn=$('#fgo');er('');if(!em)return er('اكتب البريد الإلكتروني.');
-  if(up){const un=$('#fu').value.trim();if(un.length<3)return er('اسم المستخدم 3 أحرف على الأقل.');if(v.length<6)return er('كلمة المرور 6 أحرف على الأقل.');
-   btn.disabled=true;try{const c=await fbRegister(em,un,v);cm();chrome();modal(`<h3>رمزك السري</h3><p class="cdx big" dir="ltr">${esc(c)}</p><small>8 أرقام. استخدمه مع بريدك لتسجيل الدخول بدل كلمة المرور. يظهر دائمًا في إعدادات حسابك.</small><button class="btn p" style="width:100%;margin-top:10px" onclick="cm()">تم</button>`,'bs')}catch(e){er(fbErr(e));btn.disabled=false}}
-  else{if(!v)return er(mode=='code'?'اكتب الرمز السري.':'اكتب كلمة المرور.');if(mode=='code'&&!/^\d{8}$/.test(v))return er('الرمز السري 8 أرقام.');
-   btn.disabled=true;try{await fbLogin(em,v,mode);applyTheme(S.theme,1);chrome();route();toast('تم تسجيل الدخول')}catch(e){er(fbErr(e));btn.disabled=false}}}}
-function pwModal(){modal(`<h3>تغيير كلمة المرور</h3><input id="pwo" type="password" dir="ltr" autocomplete="current-password" placeholder="كلمة المرور الحالية"><input id="pwn" type="password" dir="ltr" autocomplete="new-password" placeholder="كلمة المرور الجديدة"><p class="pne" id="pwe" role="alert"></p><button class="btn p" id="pwg" style="width:100%">حفظ</button>`,'bs');
- $('#pwg').onclick=async()=>{const o=$('#pwo').value,n=$('#pwn').value,er=m=>$('#pwe').textContent=m;if(n.length<6)return er('6 أحرف على الأقل.');
-  try{const u=await fbUser();await u.reauthenticateWithCredential(firebase.auth.EmailAuthProvider.credential(S.acc.email,o));await u.updatePassword(n);await FD.collection('codes').doc(await fbEk(S.acc.email)).set({uid:u.uid,...await fbSeal(S.acc.code,n)});cm();toast('تم تغيير كلمة المرور')}catch(e){er(fbErr(e))}}}
 /* ===================== الثيمات ===================== */
 const THEMES=[['classic','الأساسي','سينما دافئة بحواف مقصوصة وخط كوفي',['#0c0a09','#ffb02e','#201b17','#3a3029',18]],['black','الأسود','أسود خالص وزوايا حادة وبياض نقي',['#000000','#f5f5f5','#131313','#2a2a2a',2]],['brown','البني','قهوة دافئة وملمس ورقي وخط نسخي',['#1b130d','#e0a458','#33241a','#5a4230',22]],['purple','البنفسجي','زجاج بنفسجي وتوهج نيون وحواف دائرية',['#0d0820','#b388ff','#20174a','#3d3080',28]]];
 function applyTheme(k,boot){if(!THEMES.some(x=>x[0]==k))k='classic';S.theme=k;document.documentElement.dataset.theme=k;const m=document.querySelector('meta[name=theme-color]');if(m)m.content=THEMES.find(x=>x[0]==k)[3][0];if(!boot)save()}
-const themeBox=()=>`<div class="thm" id="thm"><div class="tgr">${THEMES.map(([k,n,d,p])=>`<button class="tc ${S.theme==k?'on':''}" data-th="${k}" style="--pb:${p[0]};--pa:${p[1]};--ps:${p[2]};--pl:${p[3]};--k:${p[4]}"><span class="tv2"><span class="pb"></span><span class="pr"><span></span><span></span><span></span></span><span class="pc2"></span></span><b>${n}</b><small>${d}</small></button>`).join('')}</div></div>`;
+const themeBox=()=>`<div class="thm" id="thm"><h3>${ic('sparkle')}المظهر</h3><p>اختر هوية تصميم كاملة للتطبيق. يُحفظ اختيارك تلقائيًا في المتصفح.</p><div class="tgr">${THEMES.map(([k,n,d,p])=>`<button class="tc ${S.theme==k?'on':''}" data-th="${k}" style="--pb:${p[0]};--pa:${p[1]};--ps:${p[2]};--pl:${p[3]};--k:${p[4]}"><span class="tv2"><span class="pb"></span><span class="pr"><span></span><span></span><span></span></span><span class="pc2"></span></span><b>${n}</b><small>${d}</small></button>`).join('')}</div></div>`;
 function bindTheme(){$$('[data-th]').forEach(b=>b.onclick=()=>{applyTheme(b.dataset.th);$$('[data-th]').forEach(z=>z.classList.toggle('on',z==b));toast('تم تطبيق ثيم «'+THEMES.find(x=>x[0]==b.dataset.th)[1]+'»')})}
 /* ===================== الملف الشخصي ===================== */
 const avt=()=>{try{return localStorage.getItem('see_av')||''}catch(e){return ''}};
@@ -905,9 +763,7 @@ function seedo(){SD={a:{},shown:new Set(),n:0};
    await say(first?`وجدت لك <b>${l.length}</b> اقتراحات مبنية على إجاباتك. اضغط على أي عمل لعرض تفاصيله:`:'اقتراحات إضافية تناسبك:');
    l.forEach(x=>{SD.shown.add(x.media_type+x.id);c.insertAdjacentHTML('beforeend',sdCard(x,SD.shown.size,a))});first=0;sv(c.lastElementChild);
    const r=await choose({o:['اكتشف المزيد','ابدأ من جديد']});push(r[0],'us');if(r[0]=='ابدأ من جديد')return seedo()}})()}
-addEventListener('keydown',e=>{if(e.key=='Escape'&&$('#md').classList.contains('on'))cm()});if(S.lock&&S.lock.h)lockScreen();applyTheme(S.theme,1);chrome();addEventListener('hashchange',route);route();setTimeout(()=>$('#sp').classList.add('x'),4500);
-setTimeout(ntTick,8e3);setInterval(ntTick,6e5);
-if(S.acc&&fbReady())setTimeout(()=>cloudPull().then(()=>{applyTheme(S.theme,1);if(location.hash.indexOf('#/me')==0||location.hash.indexOf('#/hist')==0)route()}).catch(()=>{}),2500);
+addEventListener('keydown',e=>{if(e.key=='Escape'&&$('#md').classList.contains('on'))cm()});applyTheme(S.theme,1);chrome();addEventListener('hashchange',route);route();setTimeout(()=>$('#sp').classList.add('x'),4500)
 
 	
 </script>
