@@ -500,10 +500,10 @@ const nr=(p,q)=>tm(p,q).catch(()=>({results:[]}));
 const dt=x=>x.release_date||x.first_air_date||'',ok=x=>{const d=dt(x);return !!d&&d<=today},yr=x=>dt(x).slice(0,4),vt=x=>(x.vote_average||0).toFixed(1);
 const lat=s=>/^[\u0000-\u024f\u2000-\u206f\s]+$/.test(s||'');
 const ttl=x=>{const c=[x.title,x.name,x.original_title,x.original_name].filter(Boolean);return c.find(lat)||c[0]||''};
-const al=x=>!!x.original_language&&['en','tr','ko','ja','es','fr'].includes(x.original_language);
+const al=x=>!!x.original_language&&['en','tr','ko','ja','es','fr','hi','de'].includes(x.original_language);
 const fam=(x,vc)=>x.poster_path&&x.backdrop_path&&ok(x)&&al(x)&&!x.adult&&(x.vote_count||0)>=vc&&isKidSafe(x);
 const pick=(a,ty,vc)=>(a||[]).filter(x=>fam(x,vc)).map(x=>({...x,media_type:x.media_type||ty}));
-const gi=x=>x.genre_ids||(x.genres||[]).map(g=>g.id),LN={en:'الإنجليزية',tr:'التركية',ko:'الكورية',ja:'اليابانية',es:'الإسبانية',fr:'الفرنسية'};
+const gi=x=>x.genre_ids||(x.genres||[]).map(g=>g.id),LN={en:'الإنجليزية',tr:'التركية',ko:'الكورية',ja:'اليابانية',es:'الإسبانية',fr:'الفرنسية',hi:'الهندية',de:'الألمانية'};
 const fd=s=>s?new Date(s+'T00:00:00').toLocaleDateString('ar',{year:'numeric',month:'long',day:'numeric'}):'—';
 const AG={G:'0+',PG:'7+','PG-13':'13+',R:'17+','NC-17':'18+','TV-Y':'0+','TV-G':'0+','TV-Y7':'7+','TV-PG':'10+','TV-14':'14+','TV-MA':'17+'},STT={'Returning Series':'مستمر','Ended':'انتهى','Canceled':'أُلغي','In Production':'قيد الإنتاج','Planned':'مخطط','Released':'صدر'};
 const cert=d=>{if(d.content_ratings){return(d.content_ratings.results.find(r=>r.iso_3166_1=='US')||{}).rating||''}if(d.release_dates){const u=d.release_dates.results.find(r=>r.iso_3166_1=='US');return u?((u.release_dates.find(z=>z.certification)||{}).certification||''):''}return ''};
@@ -599,6 +599,7 @@ async function home(my){
  const cs=Object.values(S.cont).filter(c=>c.b&&c.ti&&isKidSafe(c)).sort((a,b)=>b.t-a.t).slice(0,10),wl=kf(S.lt).slice(0,14);
  app.innerHTML=`<div class="chips" id="ch">${[['all','الكل'],['tv','مسلسلات'],['movie','أفلام']].map(([k,n])=>`<button data-k="${k}" class="${HT==k?'on':''}">${n}</button>`).join('')}</div>
  <div id="hbox"><div class="hero"><div class="hsk"></div></div></div>
+ ${sec('hw','🎃','ليالي الهالوين','أشهر أفلام الرعب والهالوين لسهرة مخيفة.',`<div class="rail" id="hw1">${sk(5,'pk')}</div>`,'movie')}
  ${cs.length?sec('cn','▶','تابع من حيث توقفت','',`<div class="rail">${cs.map(cont).join('')}</div>`):''}
  ${sec('s1','01','مزاجك الليلة','اختر ما تشعر به الآن، ونحن نختار لك.',`<div class="mos" id="mos">${MOODS.map((m,i)=>`<button class="mo ${i==MI?'on':''}" data-i="${i}"><span>${ic(m[0])}</span>${m[1]}</button>`).join('')}</div><div class="rail" id="msh">${sk(5,'pk')}</div>`,'',`<button class="rf" id="rfm" aria-label="تبديل">${ic('refresh')}</button>`)}
  ${sec('s2','02','نبض الأسبوع','ما يشاهده الجميع الآن.',`<div class="bn" id="bn">${'<i class="sk"></i>'.repeat(6)}</div>`)}
@@ -631,7 +632,9 @@ async function home(my){
   const l=(await scache(key+(S.kid.on?'k':'n'),ttl,fn)).filter(isKidSafe);if(!live(id))return;s.classList.toggle('em',!l.length);b.innerHTML=l.slice(0,14).map(arch).join('')}
  const fNew=()=>nsec('#nw1','new'+HT,18e5,async()=>{const rs=await Promise.all(types().map(t=>{const m=t=='tv'?'first_air_date':'primary_release_date',vc=t=='tv'?10:25;return dsc(t,{sort_by:m+'.desc',[m+'.gte']:D(75),'vote_count.gte':vc,page:1},vc)}));return rs.flat().sort((a,b)=>dt(b).localeCompare(dt(a)))});
  const fTop=()=>{if(HT!='movie')nsec('#nw2','tvtop',216e5,()=>dsc('tv',{sort_by:'popularity.desc','vote_count.gte':300,page:1},300));if(HT!='tv')nsec('#nw3','mvtop',216e5,()=>dsc('movie',{sort_by:'popularity.desc','vote_count.gte':1500,page:1},1500))};
- const fills=()=>{fHero();fPulse();fTk();fMood();fLands();fSlot();fClassic();fNew();fTop()};
+ const fHal=()=>nsec('#hw1','hal',216e5,async()=>{const[a,b,c]=await Promise.all([dsc('movie',{sort_by:'popularity.desc',with_genres:27,'vote_count.gte':500,page:1},500),nr('/search/movie',{query:'halloween',page:1}),dsc('movie',{sort_by:'vote_average.desc',with_genres:27,'vote_count.gte':2000,page:1},2000)]),seen=new Set();
+  return[...a,...pick(b.results,'movie',300),...c].filter(x=>!seen.has(x.id)&&seen.add(x.id)).sort((x,y)=>(y.popularity||0)-(x.popularity||0))});
+ const fills=()=>{fHero();fHal();fPulse();fTk();fMood();fLands();fSlot();fClassic();fNew();fTop()};
  const sel=(box,cls,fn)=>$(box).onclick=e=>{const b=e.target.closest(cls);if(!b)return;$$(box+' '+cls).forEach(z=>z.classList.toggle('on',z==b));fn(+b.dataset.i)};
  $('#ch').onclick=e=>{const b=e.target.closest('button');if(!b)return;HT=b.dataset.k;$$('#ch button').forEach(x=>x.classList.toggle('on',x==b));vis();fills()};
  sel('#mos','.mo',i=>{MI=i;fMood()});sel('#lns','.ob',i=>{LI=i;fLands()});sel('#sls','.sl',i=>{SI=i;fSlot()});
