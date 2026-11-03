@@ -240,6 +240,11 @@ select{background:var(--s2);border:1px solid var(--ln);border-radius:12px;paddin
 .ph{display:flex;gap:18px;align-items:center;padding:24px 18px 6px;max-width:900px;margin:0 auto}.ph .av{width:120px;height:120px;border-radius:50%;overflow:hidden;border:3px solid var(--a);flex:none;background:var(--s2);display:grid;place-items:center}.ph .av img{width:100%;height:100%;object-fit:cover}.ph h1{font-family:var(--dsp);font-size:1.8rem;line-height:1.25}
 .inf{display:grid;grid-template-columns:repeat(auto-fit,minmax(138px,1fr));gap:10px;margin:14px 0 4px}.inf>div{background:var(--s1);border:1px solid var(--ln);border-inline-start:3px solid var(--a);border-radius:6px 16px 16px 6px;padding:10px 12px}.inf small{display:flex;align-items:center;gap:6px;font-size:.72rem;margin-bottom:4px}.inf small svg{width:14px;height:14px;color:var(--a)}.inf b{font-size:.9rem}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+/* ===== زر دائرة التحميل (إنشاء حساب / دخول) ===== */
+.btn.ldg{display:flex;width:54px!important;height:54px;padding:0;border-radius:50%;margin-inline:auto;pointer-events:none;transition:width .28s,border-radius .28s}
+.spn{display:block;flex:none;width:24px;height:24px;border-radius:50%;border:3px solid color-mix(in srgb,currentColor 25%,transparent);border-top-color:currentColor;animation:rot .8s linear infinite}
+.fst{text-align:center;color:var(--mu);font-size:.82rem;min-height:1.2em;margin-top:8px}
+@media(prefers-reduced-motion:reduce){.spn{animation:rot 1.6s linear infinite!important}}
 
 /* ---------- الملف الشخصي (نمط Instagram) ---------- */
 .ig{max-width:760px;margin:0 auto;padding:22px 18px 6px}
@@ -448,10 +453,13 @@ body.ss .acb2{display:none}
 /* ===================== الإعدادات والسيرفرات ===================== */
 const API='https://api.themoviedb.org/3',IMG='https://image.tmdb.org/t/p/',KEY='4e5b0ace6aaab68ef66d1183d954ecb4',HOLD=1500;
 /* ===== إعدادات Firebase: ضع بيانات مشروعك هنا (Authentication: Email/Password + Firestore) =====
-   قواعد Firestore المطلوبة:
+   مهم: فعّل Authentication ثم Sign-in method ثم Email/Password، وأنشئ قاعدة Firestore، وانسخ القواعد التالية في Firestore ثم Rules ثم Publish:
    rules_version='2'; service cloud.firestore{match /databases/{d}/documents{
+     match /users/{u}{allow read,write:if request.auth!=null&&request.auth.uid==u}
      match /users/{u}/{p=**}{allow read,write:if request.auth!=null&&request.auth.uid==u}
-     match /codes/{k}{allow get:if true;allow create:if request.auth!=null;allow update:if request.auth!=null&&request.auth.uid==resource.data.uid}}} */
+     match /codes/{k}{allow get:if true;allow create:if request.auth!=null;allow update:if request.auth!=null&&request.auth.uid==resource.data.uid}}}
+   ما يُحفظ لكل مستخدم في users/{uid}: البريد، اسم المستخدم، الاسم، النبذة، الرمز السري (8 أرقام)، وتاريخ الإنشاء.
+   وبيانات الإعجابات والمفضلة والقوائم والسجل في users/{uid}/data وusers/{uid}/hist. */
 const FB_CFG={apiKey:"AIzaSyCjhmGWOGvLJhm2XakeaMalKWOr0NikL2A",authDomain:"moriq-573c9.firebaseapp.com",projectId:"moriq-573c9",storageBucket:"moriq-573c9.firebasestorage.app",messagingSenderId:"706262823542",appId:"1:706262823542:web:f7d21bef8b74ce4aeb6557",measurementId:"G-ZGME4J60SD"};
 /* كل سيرفر: تفاصيل كاملة (مميزات + مقاييس + لمن يناسب). عدّل أي قيمة هنا فقط وتتغير البطاقة تلقائيًا */
 const SV=[
@@ -897,15 +905,26 @@ const fbReady=()=>!!(FB_CFG.apiKey&&FB_CFG.projectId),fbTmo=(p,ms)=>Promise.race
 function fbInit(){if(FBP)return FBP;FBP=new Promise((ok2,no)=>{const ld=u=>new Promise((r,j)=>{const t=document.createElement('script');t.src=u;t.onload=r;t.onerror=j;document.head.appendChild(t)}),b='https://www.gstatic.com/firebasejs/10.12.2/';
  ld(b+'firebase-app-compat.js').then(()=>Promise.all([ld(b+'firebase-auth-compat.js'),ld(b+'firebase-firestore-compat.js')])).then(()=>{firebase.initializeApp(FB_CFG);FA=firebase.auth();FD=firebase.firestore();ok2()}).catch(e=>{FBP=null;no({code:'auth/network-request-failed'})})});return FBP}
 const fbUser=()=>fbInit().then(()=>new Promise(r=>{const u=FA.onAuthStateChanged(x=>{u();r(x)})}));
-const fbErr=e=>({'auth/email-already-in-use':'هذا البريد مسجّل مسبقًا. جرّب تسجيل الدخول.','auth/invalid-email':'البريد الإلكتروني غير صالح.','auth/weak-password':'كلمة المرور ضعيفة. استخدم 6 أحرف على الأقل.','auth/wrong-password':'كلمة المرور غير صحيحة.','auth/invalid-credential':'البريد أو كلمة المرور غير صحيحة.','auth/user-not-found':'لا يوجد حساب بهذا البريد.','auth/wrong-code':'الرمز السري غير صحيح.','auth/too-many-requests':'محاولات كثيرة. يرجى المحاولة لاحقًا.','auth/network-request-failed':'مشكلة في الاتصال. تحقق من الإنترنت وحاول مرة أخرى.','auth/requires-recent-login':'يرجى تسجيل الدخول مرة أخرى للمتابعة.','unavailable':'مشكلة في الاتصال. يرجى المحاولة لاحقًا.'}[e&&e.code]||'تعذّر إتمام العملية. يرجى المحاولة مرة أخرى.');
+const fbErr=e=>({'auth/email-already-in-use':'هذا البريد مسجّل مسبقًا. جرّب تسجيل الدخول.','auth/invalid-email':'البريد الإلكتروني غير صالح.','auth/weak-password':'كلمة المرور ضعيفة. استخدم 6 أحرف على الأقل.','auth/wrong-password':'كلمة المرور غير صحيحة.','auth/invalid-credential':'البريد أو كلمة المرور غير صحيحة.','auth/user-not-found':'لا يوجد حساب بهذا البريد.','auth/wrong-code':'الرمز السري غير صحيح.','auth/no-code':'لا يوجد رمز سري لهذا البريد. تأكد من البريد أو سجّل الدخول بكلمة المرور.','auth/too-many-requests':'محاولات كثيرة. يرجى المحاولة لاحقًا.','auth/network-request-failed':'مشكلة في الاتصال. تحقق من الإنترنت وحاول مرة أخرى.','auth/requires-recent-login':'يرجى تسجيل الدخول مرة أخرى للمتابعة.','auth/operation-not-allowed':'تسجيل الدخول بالبريد وكلمة المرور غير مفعّل في مشروع Firebase (Authentication ثم Sign-in method).','auth/user-disabled':'هذا الحساب معطّل.','no-crypto':'المتصفح لا يدعم التشفير المطلوب. افتح الموقع عبر https.','permission-denied':'تعذّر الحفظ في قاعدة البيانات. تأكد من نشر قواعد Firestore الموجودة في أعلى الكود.','unavailable':'مشكلة في الاتصال. يرجى المحاولة لاحقًا.'}[e&&e.code]||'تعذّر إتمام العملية. يرجى المحاولة مرة أخرى.');
+/* ===== أدوات الكود السري (8 أرقام) والتشفير ===== */
+const normEmail=e=>String(e||'').trim().toLowerCase();
+const fbCode=()=>{const a=new Uint32Array(2);crypto.getRandomValues(a);return String((a[0]%10000)*10000+(a[1]%10000)).padStart(8,'0')};
+const fbSub=()=>{if(!(window.crypto&&crypto.subtle))throw{code:'no-crypto'};return crypto.subtle};
+const fbB64=u=>{let s='';new Uint8Array(u).forEach(c=>s+=String.fromCharCode(c));return btoa(s)},fbUn=s=>Uint8Array.from(atob(s),c=>c.charCodeAt(0));
+async function fbEk(email){const b=await fbSub().digest('SHA-256',new TextEncoder().encode('see-email:'+normEmail(email)));return[...new Uint8Array(b)].map(z=>z.toString(16).padStart(2,'0')).join('')}
+async function fbKey(code,salt){const s=fbSub(),k=await s.importKey('raw',new TextEncoder().encode(String(code)),'PBKDF2',false,['deriveKey']);return s.deriveKey({name:'PBKDF2',salt,iterations:200000,hash:'SHA-256'},k,{name:'AES-GCM',length:256},false,['encrypt','decrypt'])}
+async function fbSeal(code,pw){const salt=crypto.getRandomValues(new Uint8Array(16)),iv=crypto.getRandomValues(new Uint8Array(12)),key=await fbKey(code,salt),ct=await fbSub().encrypt({name:'AES-GCM',iv},key,new TextEncoder().encode(pw));return{s:fbB64(salt),i:fbB64(iv),c:fbB64(ct)}}
+async function fbOpen(code,d){const key=await fbKey(code,fbUn(d.s)),pt=await fbSub().decrypt({name:'AES-GCM',iv:fbUn(d.i)},key,fbUn(d.c));return new TextDecoder().decode(pt)}
 function cq(){if(!S||!S.acc||!fbReady())return;clearTimeout(CQT);CQT=setTimeout(()=>cloudPush().catch(()=>{}),4000)}
 var PUSHED={};const HCH=200;
 const hChunks=(a,p)=>{const o={};for(let i=0;i<a.length;i+=HCH)o[p+(i/HCH|0)]=JSON.stringify(a.slice(i,i+HCH));return o};
 async function cloudPush(){if(!S.acc||!fbReady())return;const u=await fbUser();if(!u)return;const m={...S};['wh','nh','lock','kid','acc','sn','nt'].forEach(k=>delete m[k]);
- const r=FD.doc('users/'+u.uid),W=Object.values(S.wh).sort((a,b)=>(a.f||0)-(b.f||0)),N=[...S.nh].sort((a,b)=>a.a-b.a),ops=[['data/main',{j:JSON.stringify(m),av:avt()}]];
+ const r=FD.doc('users/'+u.uid),W=Object.values(S.wh).sort((a,b)=>(a.f||0)-(b.f||0)),N=[...S.nh].sort((a,b)=>a.a-b.a);
+ /* الملف التعريفي (البريد + الرمز + الاسم) يُحدَّث دائمًا في وثيقة المستخدم نفسها */
+ const ops=[['@profile',{email:S.acc.email||u.email||'',un:S.un||S.acc.un||'',nm:S.nm||'',bio:S.bio||'',code:S.acc.code||''}],['data/main',{j:JSON.stringify(m),av:avt()}]];
  const wc=hChunks(W,'w'),nc=hChunks(N,'n');Object.keys(wc).forEach(k=>ops.push(['hist/'+k,{j:wc[k]}]));Object.keys(nc).forEach(k=>ops.push(['hist/'+k,{j:nc[k]}]));
  const todo=ops.filter(([p,d])=>PUSHED[p]!==JSON.stringify(d));
- for(let i=0;i<todo.length;i+=8){const b=FD.batch();todo.slice(i,i+8).forEach(([p,d])=>{const q=p.split('/');b.set(r.collection(q[0]).doc(q[1]),{...d,u:Date.now()})});await b.commit()}
+ for(let i=0;i<todo.length;i+=8){const b=FD.batch(),t=Date.now();todo.slice(i,i+8).forEach(([p,d])=>{if(p=='@profile')b.set(r,{...d,upd:t},{merge:true});else{const q=p.split('/');b.set(r.collection(q[0]).doc(q[1]),{...d,u:t})}});await b.commit()}
  todo.forEach(([p,d])=>PUSHED[p]=JSON.stringify(d))}
 function mergeS(c,cw){const un=(a,b)=>{const o=[...(a||[])];(b||[]).forEach(x=>{if(!has(o,x.t,x.id))o.push(x)});return o};
  S.lk=un(S.lk,c.lk);S.fv=un(S.fv,c.fv);S.lt=un(S.lt,c.lt);
@@ -923,30 +942,52 @@ async function cloudPull(cw){if(!S.acc||!fbReady())return;const u=await fbUser()
  const seen=new Set(S.nh.map(z=>z.t+z.id+'_'+z.a));N.forEach(z=>{if(z&&!seen.has(z.t+z.id+'_'+z.a)){seen.add(z.t+z.id+'_'+z.a);S.nh.push(z)}});S.nh.sort((a,b)=>b.a-a.a);
  if(m.exists&&m.data().av&&(cw||!avt())){try{localStorage.setItem('see_av',m.data().av)}catch(e){}acbRefresh()}
  lsMain();lsHist()}
-async function fbRegister(email,un,pw){await fbInit();const cr=await FA.createUserWithEmailAndPassword(email,pw),u=cr.user,code=fbCode();
- try{const sl=await fbSeal(code,pw);await FD.collection('codes').doc(await fbEk(email)).set({uid:u.uid,...sl});await FD.doc('users/'+u.uid).set({email,un,code,created:Date.now()})}catch(e){await u.delete().catch(()=>{});throw e}
- if(un)S.un=un;S.acc={email,un,code,uid:u.uid};PUSHED={};save(1);await cloudPush();return code}
-async function fbLogin(email,secret,mode,cw){await fbInit();let pw=secret;
- if(mode=='code'){const d=await FD.collection('codes').doc(await fbEk(email)).get();if(!d.exists)throw{code:'auth/user-not-found'};try{pw=await fbOpen(secret,d.data())}catch(e){throw{code:'auth/wrong-code'}}}
- const cr=await FA.signInWithEmailAndPassword(email,pw),u=cr.user,p=(await FD.doc('users/'+u.uid).get()).data()||{};
- S.acc={email,un:p.un||'',code:p.code||'',uid:u.uid};PUSHED={};await cloudPull(cw===undefined?1:cw);if(!S.un&&p.un)S.un=p.un;save(1);await cloudPush()}
+/* إنشاء حساب: نجهّز الرمز والتشفير أولًا، ثم ننشئ المستخدم، ثم نكتب كل شيء في Firestore دفعة واحدة (وثيقة المستخدم + وثيقة الرمز) */
+async function fbRegister(email,un,pw){await fbInit();email=normEmail(email);
+ const code=fbCode(),ek=await fbEk(email),sl=await fbSeal(code,pw);
+ const cr=await fbTmo(FA.createUserWithEmailAndPassword(email,pw),25000),u=cr.user;
+ try{const b=FD.batch(),t=Date.now();
+  b.set(FD.doc('users/'+u.uid),{email,un,nm:S.nm||'',bio:S.bio||'',code,created:t,upd:t});
+  b.set(FD.collection('codes').doc(ek),{uid:u.uid,...sl});
+  await fbTmo(b.commit(),15000)}catch(e){await u.delete().catch(()=>{});throw e}
+ if(un)S.un=un;S.acc={email,un,code,uid:u.uid};PUSHED={};save(1);
+ cloudPush().catch(()=>{});return code}
+/* ترميم الحسابات القديمة التي أُنشئت في Authentication فقط بدون بيانات في Firestore */
+async function fbEnsure(u,email,pw,p){p=p||{};const okc=/^\d{8}$/.test(p.code||'');if(okc&&p.email)return p;
+ try{const code=okc?p.code:fbCode(),ek=await fbEk(email),sl=await fbSeal(code,pw),np={...p,email,un:p.un||S.un||'',nm:p.nm||S.nm||'',code,created:p.created||Date.now(),upd:Date.now()},b=FD.batch();
+  b.set(FD.doc('users/'+u.uid),np,{merge:true});b.set(FD.collection('codes').doc(ek),{uid:u.uid,...sl});await fbTmo(b.commit(),15000);return np}catch(e){return p}}
+async function fbLogin(email,secret,mode,cw){await fbInit();email=normEmail(email);let pw=secret;
+ if(mode=='code'){const d=await fbTmo(FD.collection('codes').doc(await fbEk(email)).get(),15000);if(!d.exists)throw{code:'auth/no-code'};try{pw=await fbOpen(secret,d.data())}catch(e){throw{code:'auth/wrong-code'}}}
+ const cr=await fbTmo(FA.signInWithEmailAndPassword(email,pw),20000),u=cr.user;let p={};
+ try{p=(await fbTmo(FD.doc('users/'+u.uid).get(),15000)).data()||{}}catch(e){}
+ p=await fbEnsure(u,email,pw,p);
+ S.acc={email,un:p.un||'',code:p.code||'',uid:u.uid};PUSHED={};await cloudPull(cw===undefined?1:cw);if(!S.un&&p.un)S.un=p.un;if(!S.nm&&p.nm)S.nm=p.nm;save(1);await cloudPush()}
 document.addEventListener('visibilitychange',()=>{if(document.hidden&&S.acc&&fbReady())cloudPush().catch(()=>{})});addEventListener('pagehide',()=>{if(S.acc&&fbReady())cloudPush().catch(()=>{})});
+/* زر على شكل دائرة تدور أثناء العمل */
+function busy(btn,on,txt){if(!btn)return;if(on){btn._h=btn.innerHTML;btn.classList.add('ldg');btn.disabled=true;btn.setAttribute('aria-busy','true');btn.setAttribute('aria-label',txt);btn.innerHTML='<i class="spn"></i>'}
+ else{btn.classList.remove('ldg');btn.disabled=false;btn.removeAttribute('aria-busy');btn.removeAttribute('aria-label');if(btn._h!=null)btn.innerHTML=btn._h}
+ const s=$('#fst');if(s)s.textContent=on?txt:'';document.querySelectorAll('#md input,#md .chips button,#fsw').forEach(x=>x.disabled=!!on)}
+function codeModal(c,em){modal(`<h3>تم إنشاء حسابك</h3><small>حُفظ بريدك ورمزك وبياناتك في حسابك. هذا رمزك السري المكوّن من 8 أرقام، استخدمه مع بريدك لتسجيل الدخول بدل كلمة المرور.</small><p class="cdx big" dir="ltr">${esc(c)}</p><div class="acg"><button class="btn" id="cpc" type="button">${ic('key')}نسخ الرمز</button><button class="btn p" type="button" onclick="cm()">تم</button></div><small style="display:block;margin-top:10px">البريد: <b dir="ltr">${esc(em)}</b>. يمكنك رؤية الرمز لاحقًا في «تعديل الملف الشخصي».</small>`,'bs');
+ $('#cpc').onclick=()=>{try{navigator.clipboard.writeText(c).then(()=>toast('تم نسخ الرمز'),()=>toast('تعذّر النسخ'))}catch(e){toast('تعذّر النسخ')}}}
 function authModal(tab){
  if(!fbReady())return modal(`<h3>الحساب</h3><small>الحساب غير متاح حاليًا. يرجى المحاولة لاحقًا.</small><button class="btn" style="width:100%;margin-top:10px" onclick="cm()">إغلاق</button>`,'bs');
- const up=tab=='up';let mode='pw';
- modal(`<h3>${up?'إنشاء حساب':'تسجيل الدخول'}</h3><small>${up?'تُحفظ بياناتك الحالية في حسابك، فلا تبدأ من الصفر.':'سجّل دخولك لتصل إلى ملفك وبياناتك.'}</small><input id="fe" type="email" dir="ltr" autocomplete="email" placeholder="البريد الإلكتروني">${up?'<input id="fu" dir="ltr" maxlength="24" autocapitalize="off" autocomplete="username" placeholder="اسم المستخدم">':''}${up?'':'<div class="chips" id="fm" style="position:static;padding:4px 0"><button data-m="pw" class="on">كلمة المرور</button><button data-m="code">الرمز السري</button></div>'}<input id="fp" type="password" dir="ltr" autocomplete="${up?'new-password':'current-password'}" placeholder="كلمة المرور"><p class="pne" id="fer" role="alert"></p><button class="btn p" id="fgo" style="width:100%">${up?'إنشاء الحساب':'دخول'}</button><button class="lnk" id="fsw" style="margin-top:8px">${up?'لدي حساب بالفعل':'ليس لدي حساب'}</button>`,'bs');
- const er=m=>$('#fer').textContent=m,fp=$('#fp');
+ const up=tab=='up';let mode='pw',bz=0;
+ modal(`<h3>${up?'إنشاء حساب':'تسجيل الدخول'}</h3><small>${up?'تُحفظ بياناتك الحالية في حسابك، فلا تبدأ من الصفر.':'سجّل دخولك بالبريد مع كلمة المرور أو الرمز السري.'}</small><input id="fe" type="email" dir="ltr" autocomplete="email" autocapitalize="off" placeholder="البريد الإلكتروني">${up?'<input id="fu" dir="ltr" maxlength="24" autocapitalize="off" autocomplete="username" placeholder="اسم المستخدم">':''}${up?'':'<div class="chips" id="fm" style="position:static;padding:4px 0"><button data-m="pw" class="on">كلمة المرور</button><button data-m="code">الرمز السري</button></div>'}<input id="fp" type="password" dir="ltr" autocomplete="${up?'new-password':'current-password'}" placeholder="كلمة المرور"><p class="pne" id="fer" role="alert"></p><button class="btn p" id="fgo" type="button" style="width:100%">${up?'إنشاء الحساب':'دخول'}</button><p class="fst" id="fst" role="status"></p><button class="lnk" id="fsw" type="button" style="margin-top:8px">${up?'لدي حساب بالفعل':'ليس لدي حساب'}</button>`,'bs');
+ const er=m=>{const e=$('#fer');if(e)e.textContent=m;else if(m)toast(m)},fp=$('#fp');
  if(up)$('#fu').oninput=e=>{e.target.value=e.target.value.toLowerCase().replace(/^@/,'').replace(/[^a-z0-9._]/g,'')};
- const fm=$('#fm');if(fm)fm.onclick=e=>{const b=e.target.closest('button');if(!b)return;mode=b.dataset.m;$$('#fm button').forEach(z=>z.classList.toggle('on',z==b));fp.value='';fp.type=mode=='code'?'text':'password';fp.inputMode=mode=='code'?'numeric':'text';fp.maxLength=mode=='code'?8:128;fp.placeholder=mode=='code'?'الرمز السري (8 أرقام)':'كلمة المرور'};
- $('#fsw').onclick=()=>authModal(up?'in':'up');
- $('#fgo').onclick=async()=>{const em=$('#fe').value.trim(),v=fp.value,btn=$('#fgo');er('');if(!em)return er('اكتب البريد الإلكتروني.');
+ $$('#md input').forEach(i=>i.onkeydown=e=>{if(e.key=='Enter'){e.preventDefault();$('#fgo').click()}});
+ const fm=$('#fm');if(fm)fm.onclick=e=>{const b=e.target.closest('button');if(!b||bz)return;mode=b.dataset.m;$$('#fm button').forEach(z=>z.classList.toggle('on',z==b));fp.value='';fp.type=mode=='code'?'text':'password';fp.inputMode=mode=='code'?'numeric':'text';fp.maxLength=mode=='code'?8:128;fp.placeholder=mode=='code'?'الرمز السري (8 أرقام)':'كلمة المرور'};
+ $('#fsw').onclick=()=>{if(!bz)authModal(up?'in':'up')};
+ $('#fgo').onclick=async()=>{if(bz)return;const em=$('#fe').value.trim(),v=fp.value,btn=$('#fgo');er('');if(!/^\S+@\S+\.\S+$/.test(em))return er('اكتب بريدًا إلكترونيًا صحيحًا.');
   if(up){const un=$('#fu').value.trim();if(un.length<3)return er('اسم المستخدم 3 أحرف على الأقل.');if(v.length<6)return er('كلمة المرور 6 أحرف على الأقل.');
-   btn.disabled=true;try{const c=await fbRegister(em,un,v);cm();chrome();acRefresh();modal(`<h3>رمزك السري</h3><p class="cdx big" dir="ltr">${esc(c)}</p><small>8 أرقام. استخدمه مع بريدك لتسجيل الدخول بدل كلمة المرور. يمكنك رؤيته دائمًا في «تعديل الملف الشخصي».</small><button class="btn p" style="width:100%;margin-top:10px" onclick="cm()">تم</button>`,'bs')}catch(e){er(fbErr(e));btn.disabled=false}}
+   bz=1;busy(btn,1,'جارٍ إنشاء الحساب…');
+   try{const c=await fbRegister(em,un,v);cm();chrome();acRefresh();codeModal(c,normEmail(em))}catch(e){bz=0;busy(btn,0);er(fbErr(e))}}
   else{if(!v)return er(mode=='code'?'اكتب الرمز السري.':'اكتب كلمة المرور.');if(mode=='code'&&!/^\d{8}$/.test(v))return er('الرمز السري 8 أرقام.');
-   btn.disabled=true;try{await fbLogin(em,v,mode);applyTheme(S.theme,1);cm();chrome();route();toast('تم تسجيل الدخول')}catch(e){er(fbErr(e));btn.disabled=false}}}}
+   bz=1;busy(btn,1,'جارٍ تسجيل الدخول…');
+   try{await fbLogin(em,v,mode);applyTheme(S.theme,1);cm();chrome();route();toast('تم تسجيل الدخول')}catch(e){bz=0;busy(btn,0);er(fbErr(e))}}}}
 function pwModal(){modal(`<h3>تغيير كلمة المرور</h3><input id="pwo" type="password" dir="ltr" autocomplete="current-password" placeholder="كلمة المرور الحالية"><input id="pwn" type="password" dir="ltr" autocomplete="new-password" placeholder="كلمة المرور الجديدة"><p class="pne" id="pwe" role="alert"></p><button class="btn p" id="pwg" style="width:100%">حفظ</button>`,'bs');
  $('#pwg').onclick=async()=>{const o=$('#pwo').value,n=$('#pwn').value,er=m=>$('#pwe').textContent=m;if(n.length<6)return er('6 أحرف على الأقل.');
-  try{const u=await fbUser();await u.reauthenticateWithCredential(firebase.auth.EmailAuthProvider.credential(S.acc.email,o));await u.updatePassword(n);await FD.collection('codes').doc(await fbEk(S.acc.email)).set({uid:u.uid,...await fbSeal(S.acc.code,n)});cm();toast('تم تغيير كلمة المرور')}catch(e){er(fbErr(e))}}}
+  try{const u=await fbUser();await u.reauthenticateWithCredential(firebase.auth.EmailAuthProvider.credential(S.acc.email,o));await u.updatePassword(n);let cd=S.acc.code;if(!/^\d{8}$/.test(cd||'')){cd=fbCode();S.acc.code=cd;await FD.doc('users/'+u.uid).set({code:cd},{merge:true});save(1)}await FD.collection('codes').doc(await fbEk(S.acc.email)).set({uid:u.uid,...await fbSeal(cd,n)});cm();toast('تم تغيير كلمة المرور')}catch(e){er(fbErr(e))}}}
 /* ===================== الثيمات ===================== */
 const THEMES=[['classic','الأساسي','سينما دافئة بحواف مقصوصة وخط كوفي',['#0c0a09','#ffb02e','#201b17','#3a3029',18]],['black','الأسود','أسود خالص وزوايا حادة وبياض نقي',['#000000','#f5f5f5','#131313','#2a2a2a',2]],['brown','البني','قهوة دافئة وملمس ورقي وخط نسخي',['#1b130d','#e0a458','#33241a','#5a4230',22]],['purple','البنفسجي','زجاج بنفسجي وتوهج نيون وحواف دائرية',['#0d0820','#b388ff','#20174a','#3d3080',28]]];
 function applyTheme(k,boot){if(!THEMES.some(x=>x[0]==k))k='classic';S.theme=k;document.documentElement.dataset.theme=k;const m=document.querySelector('meta[name=theme-color]');if(m)m.content=THEMES.find(x=>x[0]==k)[3][0];if(!boot)save()}
