@@ -472,6 +472,29 @@ body.ss .hpb{display:none}
 .dlb{display:flex;align-items:center;justify-content:center;gap:6px;margin:16px auto 0;padding:6px 10px;color:var(--mu);font-size:.76rem;opacity:.8}
 .dlb svg{width:14px;height:14px}.dlb:hover,.dlb:active{color:var(--c);opacity:1}
 .btn.dg{background:var(--c);border-color:var(--c);color:#fff}
+
+/* ===== تعديل 1: إيقاع مسافات موحّد للأقسام (الأساسية والاختيارية) ===== */
+:root{--sg:28px}
+#app>.sx{margin-top:var(--sg)}
+#app>.sx>.rail,#app>.sx>.hscr>.rail{padding-bottom:6px}
+#app>.sx:empty,.sx .sub:empty{display:none}
+.sx.op .sh2 i{line-height:1}
+.sx.op .sh2 h2{font-size:clamp(1.02rem,4.5vw,1.45rem);line-height:1.35;min-width:0}
+
+/* ===== تعديل 2: أسهم التمرير الأفقي (للشاشات الكبيرة فقط — السحب يبقى كما هو) ===== */
+.hscr{position:relative}
+.hscb{display:none}
+@media(min-width:801px) and (min-height:520px){
+ .hscr.hscr-l>.hscb.hscb-l,.hscr.hscr-r>.hscb.hscb-r{display:grid}
+ .hscb{position:absolute;top:var(--ay,50%);z-index:8;width:42px;height:42px;margin-top:-21px;place-items:center;padding:0;border-radius:50%;background:color-mix(in srgb,var(--s1) 88%,transparent);border:1px solid var(--ln);color:var(--tx);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:0 8px 22px #000a;opacity:0;transition:opacity .25s,background .2s,color .2s,border-color .2s,transform .2s}
+ .hscb svg{width:20px;height:20px;stroke-width:2.4}
+ .hscb.hscb-l{left:10px}.hscb.hscb-r{right:10px}
+ .hscr:hover>.hscb,.hscr:focus-within>.hscb{opacity:1}
+ .hscb:hover{background:var(--a);border-color:var(--a);color:var(--ink)}
+ .hscb:active{transform:scale(.92)}
+ .hscr.hscr-s>.hscb{width:34px;height:34px;margin-top:-17px}.hscr.hscr-s>.hscb svg{width:17px;height:17px}
+}
+@media(hover:none) and (min-width:801px) and (min-height:520px){.hscb{opacity:.92}}
 </style>
 </head>
 <body>
@@ -658,8 +681,11 @@ let HT='all',MI=0,LI=0,SI=0;
 const MOODS=[['smile','أضحك',35,35],['fire','حماس',28,10759],['moon','تشويق',53,9648],['ghost','رعب',27,0],['heart','رومانسية',10749,18],['rocket','خيال','878|14',10765],['diamond','جريمة',80,80],['gift','عائلة',10751,10751]];
 const LANDS=[['tr','TR','تركيا'],['ko','KR','كوريا'],['ja','JP','اليابان'],['es','ES','إسبانيا'],['fr','FR','فرنسا'],['en','US','أمريكا']];
 const SLOTS=[['خفيفة','حتى ١٠٠ دقيقة',60,100],['متوسطة','١٠٠ – ١٣٥ دقيقة',100,135],['سهرة','أكثر من ١٣٥ دقيقة',135,300]];
-const sec=(id,no,t,sub,body,only='',x='')=>`<section class="sx" id="${id}"${only?` data-o="${only}"`:''}><div class="sh2"><i>${no}</i><h2>${t}</h2>${x}</div>${sub?`<p class="sub">${sub}</p>`:''}${body}</section>`;
+const sec=(id,no,t,sub,body,only='',x='',cls='')=>`<section class="sx${cls?' '+cls:''}" id="${id}"${only?` data-o="${only}"`:''}><div class="sh2"><i>${no}</i><h2>${t}</h2>${x}</div>${sub?`<p class="sub">${sub}</p>`:''}${body}</section>`;
 async function dsc(ty,q,vc){const r=await nr('/discover/'+ty,{[ty=='tv'?'first_air_date.lte':'primary_release_date.lte']:today,...q});const o=pick(r.results,ty,vc);return !o.length&&q.page>1?dsc(ty,{...q,page:1},vc):o}
+/* جلب صفحة إضافية تلقائيًا عند قلّة النتائج كي يمتلئ صف البوسترات مثل بقية الأقسام */
+const uq=a=>{const z=new Set();return a.filter(x=>{const k=(x.media_type||(x.first_air_date!==undefined?'tv':'movie'))+x.id;return !z.has(k)&&z.add(k)})};
+async function dsm(ty,q,vc,pg){let o=await dsc(ty,{...q,page:pg},vc);if(o.length<10){const o2=await dsc(ty,{...q,page:pg+1},vc);o=uq([...o,...o2])}return o}
 const types=()=>HT=='all'?['movie','tv']:[HT];
 function heroHTML(l){return `<div class="hero">${l.map((x,i)=>`<article class="hs ${i?'':'on'}"><img src="${IMG}w1280${x.backdrop_path}" alt=""><div class="hp"><img src="${IMG}w342${x.poster_path}" alt=""></div><div class="hc"><div class="kick"><span class="pill a">${ic('fire')}الأكثر رواجًا · ${i+1}</span><span class="pill">${TYN(x)}</span></div><h1 class="ttl">${esc(ttl(x))}</h1><div class="meta"><b>★ ${vt(x)}</b><span>${yr(x)}</span></div><p>${esc(x.ov)}</p><a class="btn p" href="${href(x)}">${ic('play','f')}تفاصيل العمل</a></div></article>`).join('')}<div class="dots">${l.map((_,i)=>`<button class="${i?'':'on'}" data-i="${i}" aria-label="${i+1}"></button>`).join('')}</div></div>`}
 function heroRun(box){const hs=[...box.querySelectorAll('.hs')],ds=[...box.querySelectorAll('.dots button')];let n=0;
@@ -668,22 +694,26 @@ function heroRun(box){const hs=[...box.querySelectorAll('.hs')],ds=[...box.query
 async function home(my){
  if(S.ss){app.innerHTML=`<div class="shh">${ic('eye')}<h1>ماذا تريد أن تشاهد؟</h1><form id="sf2"><input id="q2" type="search" placeholder="اكتب اسم فيلم أو مسلسل" autocomplete="off"></form></div>`;$('#sf2').onsubmit=e=>{e.preventDefault();const v=$('#q2').value.trim();if(v)location.hash='#/s/'+encodeURIComponent(v)};return}
  const cs=Object.values(S.cont).filter(c=>c.b&&c.ti&&isKidSafe(c)).sort((a,b)=>b.t-a.t).slice(0,10),wl=kf(S.lt).slice(0,14);
+ const SEAS=[['hal','hw','hw1','🎃','ليالي الهالوين','أشهر أفلام الرعب والهالوين لسهرة مخيفة.','movie'],['win','wn','wn1','❄️','ليالي الشتاء','أعمال دافئة لسهرات الشتاء الباردة.',''],['sum','sm','sm1','☀️','العطلة الصيفية','أعمال مرحة ومغامرات لأيام العطلة.',''],['xms','xm','xm1','🎄','أجواء عيد الميلاد','أعمال دافئة ومرحة لأجواء الأعياد.','']],
+  opt=[...SEAS.filter(z=>HP.s[z[0]]).map(z=>sec(z[1],z[3],z[4],z[5],`<div class="rail" id="${z[2]}">${sk(5,'pk')}</div>`,z[6],'','op')),...ORGS.filter(o=>HP.o[o.k]).map(o=>sec('og'+o.k,o.e,o.t,o.sd,`<div class="rail" id="og${o.k}1">${sk(5,'pk')}</div>`,'','','op'))],
+  OP=[0,1,2,3,4,5].map(n=>opt.filter((_,i)=>Math.min(5,i*6/opt.length|0)==n).join(''));
  app.innerHTML=`<div class="chips" id="ch">${[['all','الكل'],['tv','مسلسلات'],['movie','أفلام']].map(([k,n])=>`<button data-k="${k}" class="${HT==k?'on':''}">${n}</button>`).join('')}</div>
  <div id="hbox"><div class="hero"><div class="hsk"></div></div></div>
- ${HP.s.hal?sec('hw','🎃','ليالي الهالوين','أشهر أفلام الرعب والهالوين لسهرة مخيفة.',`<div class="rail" id="hw1">${sk(5,'pk')}</div>`,'movie'):''}
- ${HP.s.win?sec('wn','❄️','ليالي الشتاء','أعمال دافئة لسهرات الشتاء الباردة.',`<div class="rail" id="wn1">${sk(5,'pk')}</div>`):''}
- ${HP.s.sum?sec('sm','☀️','العطلة الصيفية','أعمال مرحة ومغامرات لأيام العطلة.',`<div class="rail" id="sm1">${sk(5,'pk')}</div>`):''}
- ${HP.s.xms?sec('xm','🎄','أجواء عيد الميلاد','أعمال دافئة ومرحة لأجواء الأعياد.',`<div class="rail" id="xm1">${sk(5,'pk')}</div>`):''}
  ${cs.length?sec('cn','▶','تابع من حيث توقفت','',`<div class="rail">${cs.map(cont).join('')}</div>`):''}
+ ${OP[0]}
  ${sec('s1','01','مزاجك الليلة','اختر ما تشعر به الآن، ونحن نختار لك.',`<div class="mos" id="mos">${MOODS.map((m,i)=>`<button class="mo ${i==MI?'on':''}" data-i="${i}"><span>${ic(m[0])}</span>${m[1]}</button>`).join('')}</div><div class="rail" id="msh">${sk(5,'pk')}</div>`,'',`<button class="rf" id="rfm" aria-label="تبديل">${ic('refresh')}</button>`)}
  ${sec('s2','02','نبض الأسبوع','ما يشاهده الجميع الآن.',`<div class="bn" id="bn">${'<i class="sk"></i>'.repeat(6)}</div>`)}
  ${sec('n1','✦','أحدث الأعمال','أعمال صدرت خلال الأسابيع الأخيرة.',`<div class="rail" id="nw1">${sk(5,'pk')}</div>`)}
+ ${OP[1]}
  ${sec('n2','★','أشهر المسلسلات','الأكثر متابعة بين المسلسلات.',`<div class="rail" id="nw2">${sk(5,'pk')}</div>`,'tv')}
  ${sec('n3','★','أشهر الأفلام','الأكثر مشاهدة بين الأفلام.',`<div class="rail" id="nw3">${sk(5,'pk')}</div>`,'movie')}
- ${ORGS.filter(o=>HP.o[o.k]).map(o=>sec('og'+o.k,o.e,o.t,o.sd,`<div class="rail" id="og${o.k}1">${sk(5,'pk')}</div>`)).join('')}
+ ${OP[2]}
  ${sec('s3','03','على الشاشة الآن','تذاكر العروض الحالية.',`<div class="rail" id="tkr">${sk(3)}</div>`)}
+ ${OP[3]}
  ${sec('s4','04','رحلة حول العالم','اختر وجهتك وشاهد أشهر أعمالها.',`<div class="lns" id="lns">${LANDS.map((l,i)=>`<button class="ob ${i==LI?'on':''}" data-i="${i}"><span>${l[1]}</span>${l[2]}</button>`).join('')}</div><div class="rail" id="lsh">${sk(5,'pk')}</div>`,'',`<button class="rf" id="rfl" aria-label="تبديل">${ic('refresh')}</button>`)}
+ ${OP[4]}
  ${sec('s5','05','على قدر وقتك','أفلام تناسب طول سهرتك.',`<div class="sls" id="sls">${SLOTS.map((s,i)=>`<button class="sl ${i==SI?'on':''}" data-i="${i}"><b>${s[0]}</b><small>${s[1]}</small></button>`).join('')}</div><div class="rail" id="ssh">${sk(5,'pk')}</div>`,'movie')}
+ ${OP[5]}
  ${sec('s6','06','ذاكرة السينما','كلاسيكيات خالدة قبل عام ٢٠٠٠.',`<div class="rail" id="csh">${sk(5,'pk')}</div>`,'movie')}
  ${wl.length?sec('s7','07','على رف الانتظار','أعمال حفظتها لوقت لاحق.',`<div class="rail">${wl.map(i=>arch(fromIt(i))).join('')}</div>`):''}`;
  const live=id=>my==rid&&$(id),vis=()=>$$('.sx[data-o]').forEach(s=>s.style.display=HT==({movie:'tv',tv:'movie'})[s.dataset.o]?'none':'');vis();
@@ -709,11 +739,11 @@ async function home(my){
  const fTop=()=>{if(HT!='movie')nsec('#nw2','tvtop',216e5,()=>dsc('tv',{sort_by:'popularity.desc','vote_count.gte':300,page:1},300));if(HT!='tv')nsec('#nw3','mvtop',216e5,()=>dsc('movie',{sort_by:'popularity.desc','vote_count.gte':1500,page:1},1500))};
  const fHal=()=>nsec('#hw1','hal',216e5,async()=>{const[a,b,c]=await Promise.all([dsc('movie',{sort_by:'popularity.desc',with_genres:27,'vote_count.gte':500,page:1},500),nr('/search/movie',{query:'halloween',page:1}),dsc('movie',{sort_by:'vote_average.desc',with_genres:27,'vote_count.gte':2000,page:1},2000)]),seen=new Set();
   return[...a,...pick(b.results,'movie',300),...c].filter(x=>!seen.has(x.id)&&seen.add(x.id)).sort((x,y)=>(y.popularity||0)-(x.popularity||0))});
- const fSea=(id,key,ns,m,v)=>nsec(id,key+HT,216e5,async()=>{const ids=await kwIds(ns);let l=[];
-   if(ids.length){const rs=await Promise.all(types().map(ty=>{const vc=ty=='tv'?v:m;return dsc(ty,{sort_by:'popularity.desc',with_keywords:ids.join('|'),'vote_count.gte':vc,page:1},vc)}));l=rs.flat()}
+ const fSea=(id,key,ns,m,v)=>nsec(id,key+'2'+HT,216e5,async()=>{const ids=await kwIds(ns);let l=[];
+   if(ids.length){const rs=await Promise.all(types().map(ty=>{const vc=ty=='tv'?v:m;return dsm(ty,{sort_by:'popularity.desc',with_keywords:ids.join('|'),'vote_count.gte':vc},vc,1)}));l=rs.flat()}
    if(l.length<6){const rs=await Promise.all(types().map(async ty=>pick((await nr('/search/'+ty,{query:ns[0],page:1})).results,ty,ty=='tv'?v:m)));l=[...l,...rs.flat()]}
    const seen=new Set();return l.filter(x=>!seen.has(x.media_type+x.id)&&seen.add(x.media_type+x.id)).sort((a,b)=>(b.popularity||0)-(a.popularity||0))});
-  const fOrg=()=>ORGS.forEach(o=>{if(!HP.o[o.k])return;nsec('#og'+o.k+'1','og'+o.k+HT,216e5,async()=>{const pg=1+(Math.random()*2|0);const rs=await Promise.all(types().map(ty=>{const vc=ty=='tv'?o.v:o.m;return dsc(ty,{sort_by:'vote_count.desc',with_original_language:o.l,'vote_count.gte':vc,page:pg},vc)}));return shuf(rs.flat())})});
+  const fOrg=()=>ORGS.forEach(o=>{if(!HP.o[o.k])return;nsec('#og'+o.k+'1','og2'+o.k+HT,216e5,async()=>{const pg=1+(Math.random()*2|0);const rs=await Promise.all(types().map(ty=>{const vc=ty=='tv'?o.v:o.m;return dsm(ty,{sort_by:'vote_count.desc',with_original_language:o.l,'vote_count.gte':vc},vc,pg)}));return shuf(uq(rs.flat()))})});
   const fills=()=>{fHero();fHal();fPulse();fTk();fMood();fLands();fSlot();fClassic();fNew();fTop();if(HP.s.win)fSea('#wn1','win',KWS.win,300,100);if(HP.s.sum)fSea('#sm1','sum',KWS.sum,400,100);if(HP.s.xms)fSea('#xm1','xms',KWS.xms,300,80);fOrg()};
  const sel=(box,cls,fn)=>$(box).onclick=e=>{const b=e.target.closest(cls);if(!b)return;$$(box+' '+cls).forEach(z=>z.classList.toggle('on',z==b));fn(+b.dataset.i)};
  $('#ch').onclick=e=>{const b=e.target.closest('button');if(!b)return;HT=b.dataset.k;$$('#ch button').forEach(x=>x.classList.toggle('on',x==b));vis();fills()};
@@ -1138,6 +1168,31 @@ setInterval(ntTick,6e5);
 if(S.acc&&fbReady())setTimeout(()=>cloudPull(0).then(()=>{applyTheme(S.theme,1);ntBadge();if(!$('#md').classList.contains('on')&&(location.hash.indexOf('#/me')==0||location.hash.indexOf('#/hist')==0))route()}).catch(()=>{}),2500);
 
 	
+/* ===== أسهم التنقل الأفقي: تظهر على الشاشات الكبيرة فقط، والسحب يعمل كما هو ===== */
+(function(){try{
+ const SEL='.rail,.mos,.lns,.cast,.ssn,.hl',
+  ARW={l:'<svg viewBox="0 0 24 24"><polyline points="15 6 9 12 15 18"/></svg>',r:'<svg viewBox="0 0 24 24"><polyline points="9 6 15 12 9 18"/></svg>'},
+  LB={l:'تمرير لليسار',r:'تمرير لليمين'},recs=new Map(),rm=matchMedia('(prefers-reduced-motion:reduce)'),
+  ro=typeof ResizeObserver=='function'?new ResizeObserver(es=>es.forEach(e=>{const r=recs.get(e.target);r&&r.f()})):null;
+ const upd=(el,w)=>{
+  const max=el.scrollWidth-el.clientWidth,sl=el.scrollLeft,x=(getComputedStyle(el).direction=='rtl'&&sl<=0)?max+sl:sl,can=max>6;
+  w.classList.toggle('hscr-l',can&&x>3);w.classList.toggle('hscr-r',can&&x<max-3);w.classList.toggle('hscr-s',el.clientHeight>0&&el.clientHeight<130);
+  /* موضع السهم عند منتصف أول بوستر (بالقياس الثابت offsetTop حتى لا يتأثر بتأثيرات hover) */
+  const t=el.querySelector('.po,.th,.in,.sk,.pc img,.ob span,.mo span,.hl span');
+  if(t&&can){let y=0,n=t;while(n&&n!==w){y+=n.offsetTop;n=n.offsetParent}if(n===w&&t.offsetHeight){const v=Math.round(y+t.offsetHeight/2)+'px';if(w.style.getPropertyValue('--ay')!==v)w.style.setProperty('--ay',v)}}};
+ const build=el=>{
+  if(el.dataset.arw)return;el.dataset.arw='1';
+  const p=el.parentNode;if(!p||/flex|grid/.test(getComputedStyle(p).display))return;
+  const w=document.createElement('div');w.className='hscr';p.insertBefore(w,el);w.appendChild(el);
+  ['l','r'].forEach(d=>{const b=document.createElement('button');b.type='button';b.className='hscb hscb-'+d;b.tabIndex=-1;b.setAttribute('aria-label',LB[d]);b.innerHTML=ARW[d];
+   b.onclick=e=>{e.preventDefault();e.stopPropagation();el.scrollBy({left:(d=='r'?1:-1)*Math.max(240,el.clientWidth*.8),behavior:rm.matches?'auto':'smooth'})};w.appendChild(b)});
+  const f=()=>upd(el,w);el.addEventListener('scroll',f,{passive:true});if(ro)ro.observe(el);recs.set(el,{w,f})};
+ let q=0;
+ const scan=()=>{q=0;recs.forEach((r,el)=>{if(!el.isConnected){if(ro)ro.unobserve(el);recs.delete(el)}});document.querySelectorAll(SEL).forEach(build);recs.forEach(r=>r.f())},
+  sched=()=>{if(!q)q=requestAnimationFrame(scan)};
+ new MutationObserver(sched).observe(document.body,{childList:true,subtree:true});
+ addEventListener('resize',sched,{passive:true});scan();
+}catch(e){}})();
 </script>
 
 </body>
