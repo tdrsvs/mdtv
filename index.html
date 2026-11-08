@@ -495,6 +495,65 @@ body.ss .hpb{display:none}
  .hscr.hscr-s>.hscb{width:34px;height:34px;margin-top:-17px}.hscr.hscr-s>.hscb svg{width:17px;height:17px}
 }
 @media(hover:none) and (min-width:801px) and (min-height:520px){.hscb{opacity:.92}}
+
+/* ===== الأقسام الاختيارية: قسم موحّد داخل الرئيسية ===== */
+.oph .sub{margin-bottom:12px}
+.opt{display:flex;flex-wrap:wrap;gap:8px;padding:0 18px;margin-bottom:14px}.opt.one{display:none}
+.opc{display:inline-flex;align-items:center;gap:7px;padding:8px 15px;border-radius:var(--lf);background:var(--s1);border:1px solid var(--ln);color:var(--mu);font-weight:700;font-size:.86rem;transition:.2s}
+.opc .ope{font-size:1rem;line-height:1}.opc .ope.cd{font:800 .66rem/1 var(--dsp);letter-spacing:.5px;direction:ltr}
+.opc.on{background:var(--tx);color:var(--bg);border-color:var(--tx)}
+.opc.em,.opc.vh{display:none!important}
+.opb{padding:0 18px}
+.opp{padding:14px;border-radius:var(--r);background:var(--s1);border:1px solid var(--ln);animation:rise .35s}.opp[hidden]{display:none}
+.oph2{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.oph2 .ope{width:48px;height:48px;border-radius:14px;display:grid;place-items:center;font-size:1.6rem;line-height:1;flex:none;background:color-mix(in srgb,var(--a) 14%,var(--s2));border:1px solid color-mix(in srgb,var(--a) 35%,var(--ln))}
+.oph2 .ope.cd{font:800 .85rem/1 var(--dsp);color:var(--a);letter-spacing:.5px;direction:ltr}
+.oph2 b{display:block;font-family:var(--dsp);font-size:1.05rem;line-height:1.4}.oph2 small{display:block;color:var(--mu);font-size:.78rem;line-height:1.6}
+.opg{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px 10px}
+.opg .ar,.opg .sk.pk{flex:none;width:auto;min-width:0}
+.opg .ar:nth-child(n+7),.opg .sk:nth-child(n+7){display:none}
+.opg .ar b{font-size:.78rem}
+@media(min-width:700px){.opg{grid-template-columns:repeat(4,minmax(0,1fr))}.opg .ar:nth-child(n+7){display:block}.opg .ar:nth-child(n+9){display:none}}
+@media(min-width:1100px){.opg{grid-template-columns:repeat(6,minmax(0,1fr))}.opg .ar:nth-child(n+9){display:block}}
+
+/* ===== صفحة المشاهدة: نظيفة ومخصّصة للمشاهدة ===== */
+.wl.wn{max-width:1100px}
+.wch{padding:16px;border-radius:var(--r);background:var(--s1);border:1px solid var(--ln)}
+.wch0 h2{font-family:var(--dsp);font-size:1.25rem;display:flex;align-items:center;gap:8px}.wch0 h2 svg{width:20px;height:20px;color:var(--a)}
+.wch0 p{color:var(--mu);font-size:.88rem;margin:6px 0 14px;line-height:1.8}
+.wos{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.wo{position:relative;display:flex;align-items:center;gap:12px;min-height:78px;padding:12px 14px;border-radius:var(--lf);background:var(--s2);border:1.5px solid var(--ln);text-align:start;color:var(--tx);transition:.2s;overflow:hidden}
+.wo::before{content:"";position:absolute;inset-block:0;inset-inline-start:0;width:4px;background:var(--c)}
+.wo i{font-style:normal;width:36px;height:36px;border-radius:50%;background:var(--c);color:var(--ink);display:grid;place-items:center;font:700 1.05rem/1 var(--dsp);flex:none}
+.wo span{display:grid;gap:2px;min-width:0}
+.wo b{font-family:var(--dsp);font-size:1.25rem;line-height:1.25}
+.wo small{display:block;font-size:.72rem;color:var(--mu)}
+.wo .o2{display:none;color:var(--c);font-weight:800}
+.wo.on{border-color:var(--c);background:color-mix(in srgb,var(--c) 13%,var(--s2));box-shadow:0 0 0 1px var(--c) inset}
+.wo.on .o1{display:none}.wo.on .o2{display:flex;align-items:center;gap:6px}
+.wo.on .o2::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--c);animation:pu .8s infinite alternate}
+.wo:active{transform:scale(.97)}
+.wnote{margin-top:14px;font-size:.84rem;line-height:1.9;color:var(--mu)}.wnote b{color:var(--tx)}
+.wch .slow{margin-top:12px}
+.wsb{display:flex;align-items:center;gap:12px;width:100%;margin-top:12px;padding:14px 16px;border-radius:var(--lf);background:var(--s1);border:1px solid var(--ln);color:var(--tx);text-align:start;transition:.2s}
+.wsb:hover,.wsb:active{border-color:var(--a)}
+.wsb>svg:first-child{width:24px;height:24px;color:var(--a);flex:none}.wsb>svg:last-child{width:18px;height:18px;color:var(--mu);flex:none;transform:rotate(90deg)}
+.wsb span{flex:1;display:grid;gap:2px;min-width:0}.wsb b{font-size:.98rem}.wsb small{font-size:.74rem;color:var(--mu)}
+.player .ld{gap:10px}.player .ld small{font-size:.78rem}
+.rgw{position:relative;width:84px;height:84px;margin:0 auto;display:grid;place-items:center}.rgw>*{grid-area:1/1}.rgw .rg{width:84px;height:84px}.rgw svg{width:34px;height:34px;margin:0;animation:none}
+@media(min-width:1000px){.wl.wn{grid-template-areas:"pl sv";grid-template-columns:minmax(0,1fr) 380px}}
+
+/* ===== نافذة تعليمات الترجمة ===== */
+.mb.subm .mc{width:min(820px,100%)}
+.sbi{display:grid;grid-template-columns:1fr;gap:12px;margin:4px 0 14px}
+@media(min-width:640px){.sbi{grid-template-columns:1fr 1fr}}
+.sbi figure{position:relative;margin:0;border-radius:14px;overflow:hidden;border:1px solid var(--ln);background:var(--s2)}
+.sbi img{display:block;width:100%;height:auto;max-height:56vh;object-fit:contain;background:#000}
+.sbi figure span{position:absolute;top:8px;inset-inline-start:8px;width:28px;height:28px;border-radius:50%;background:var(--a);color:var(--ink);display:grid;place-items:center;font-weight:800;z-index:1}
+.sbi figure.bad img{display:none}.sbi figure.bad::after{content:"تعذّر تحميل الصورة";display:grid;place-items:center;min-height:120px;color:var(--mu);font-size:.8rem}
+.sbn{display:grid;gap:8px;margin-bottom:14px}
+.sbn p{padding:12px 14px;border-radius:var(--lf);background:var(--s2);border:1px solid var(--ln);font-size:.92rem;line-height:1.95}
+.sbn .or{justify-self:center;font-size:.8rem;color:var(--mu);font-weight:800}
 </style>
 </head>
 <body>
@@ -514,13 +573,15 @@ const API='https://api.themoviedb.org/3',IMG='https://image.tmdb.org/t/p/',KEY='
 const FB_CFG={apiKey:"AIzaSyCjhmGWOGvLJhm2XakeaMalKWOr0NikL2A",authDomain:"moriq-573c9.firebaseapp.com",projectId:"moriq-573c9",storageBucket:"moriq-573c9.firebasestorage.app",messagingSenderId:"706262823542",appId:"1:706262823542:web:f7d21bef8b74ce4aeb6557",measurementId:"G-ZGME4J60SD"};
 /* كل سيرفر: تفاصيل كاملة (مميزات + مقاييس + لمن يناسب). عدّل أي قيمة هنا فقط وتتغير البطاقة تلقائيًا */
 const SV=[
-{k:'d',n:'سيبلاس',g:'الرئيسي',c:'#5ab4ff',sc:'8.4',
+{k:'u',n:'الترا',g:'الأول',c:'#b388ff',u:(t,i,s,e)=>t=='tv'?`https://nexa.mov/watch/tmdb-tv/${i}/s${s}-e${e}?src=rail`:`https://nexa.mov/watch/tmdb-movie/${i}?src=rail`},
+{k:'d',n:'التيمت',g:'الرئيسي',c:'#5ab4ff',sc:'8.4',
  f:[['hd','جودة جيدة'],['noad','بلا إعلانات'],['lock','ثابت'],['clock','بدء أبطأ قليلًا']],
  m:[['الجودة',4],['السرعة',3],['الثبات',5],['الترجمة',4],['دقة العمل',4]],
  b:'الأنسب لمعظم الأعمال، ثابت وبلا إعلانات.',
  d:'هادئ وثابت، لكنه قد يحتاج لحظات ليبدأ التشغيل.',
  u:(t,i,s,e)=>`https://cinesrc.st/embed/${t}/${i}${t=='tv'?`?s=${s}&e=${e}`:''}`},
-{k:'s',n:'فلاشسي',g:'احتياطي',c:'#ff5b3d',sc:'7.8',
+{k:'p',n:'بلاس',g:'الثالث',c:'#44e0a4',u:(t,i,s,e)=>t=='tv'?`https://peachify.net/tv/${i}/${s}/${e}`:`https://peachify.net/movie_${i}`},
+{k:'s',n:'برو',g:'احتياطي',c:'#ff5b3d',sc:'7.8',
  f:[['hd','جودة جيدة'],['noad','بلا إعلانات'],['play','تشغيل مباشر'],['target','دقة اختيار أقل']],
  m:[['الجودة',4],['السرعة',4],['الثبات',4],['الترجمة',4],['دقة العمل',2]],
  b:'خيار احتياطي حين لا يعمل الخيار الرئيسي.',
@@ -534,7 +595,7 @@ P.share='<circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx=
 const LIC=['list','film','fire','crown','ghost','rocket','moon','smile','diamond','flag','gift','bolt'];
 const ic=(n,c)=>`<svg viewBox="0 0 24 24"${c?` class="${c}"`:''}>${P[n]||P.list}</svg>`;
 const $=s=>document.querySelector(s),$$=s=>document.querySelectorAll(s),app=$('#app'),esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-let S;try{S=JSON.parse(localStorage.getItem('see')||'{}')}catch(e){S={}}S={lk:[],fv:[],lt:[],ls:[],hl:[],nm:'',cont:{},taste:{},q:[],sn:[],srv:'d',ss:false,theme:'classic',un:'',bio:'',kid:{on:false,h:'',s:'',f:0,lu:0},wh:{},nh:[],nt:{},set:{ar:true},lock:null,acc:null,...S};delete S.av;S.nt=S.nt||{};S.nt.l=S.nt.l||[];S.nt.sh=S.nt.sh||{};S.nt.tp=S.nt.tp||{};S.nt.rd=S.nt.rd||0;S.nt.g=S.nt.g||0;S.set=S.set||{ar:true};S.wh=S.wh||{};S.nh=S.nh||[];
+let S;try{S=JSON.parse(localStorage.getItem('see')||'{}')}catch(e){S={}}S={lk:[],fv:[],lt:[],ls:[],hl:[],nm:'',cont:{},taste:{},q:[],sn:[],srv:'u',ss:false,theme:'classic',un:'',bio:'',kid:{on:false,h:'',s:'',f:0,lu:0},wh:{},nh:[],nt:{},set:{ar:true},lock:null,acc:null,...S};delete S.av;S.nt=S.nt||{};S.nt.l=S.nt.l||[];S.nt.sh=S.nt.sh||{};S.nt.tp=S.nt.tp||{};S.nt.rd=S.nt.rd||0;S.nt.g=S.nt.g||0;S.set=S.set||{ar:true};S.wh=S.wh||{};S.nh=S.nh||[];if(!S.srv2){S.srv='u';S.srv2=1}
 const lsMain=()=>{if(window.WIPING)return;try{const m={...S};delete m.wh;delete m.nh;localStorage.setItem('see',JSON.stringify(m))}catch(e){}},lsHist=()=>{if(window.WIPING)return;try{localStorage.setItem('see_wh',JSON.stringify(S.wh));localStorage.setItem('see_nh',JSON.stringify(S.nh))}catch(e){}};
 try{const w=localStorage.getItem('see_wh'),n=localStorage.getItem('see_nh');if(w){const z=JSON.parse(w);if(z&&typeof z=='object'&&!Array.isArray(z))S.wh=z}if(n){const z=JSON.parse(n);if(Array.isArray(z))S.nh=z}}catch(e){}
 lsHist();lsMain();
@@ -695,28 +756,24 @@ async function home(my){
  if(S.ss){app.innerHTML=`<div class="shh">${ic('eye')}<h1>ماذا تريد أن تشاهد؟</h1><form id="sf2"><input id="q2" type="search" placeholder="اكتب اسم فيلم أو مسلسل" autocomplete="off"></form></div>`;$('#sf2').onsubmit=e=>{e.preventDefault();const v=$('#q2').value.trim();if(v)location.hash='#/s/'+encodeURIComponent(v)};return}
  const cs=Object.values(S.cont).filter(c=>c.b&&c.ti&&isKidSafe(c)).sort((a,b)=>b.t-a.t).slice(0,10),wl=kf(S.lt).slice(0,14);
  const SEAS=[['hal','hw','hw1','🎃','ليالي الهالوين','أشهر أفلام الرعب والهالوين لسهرة مخيفة.','movie'],['win','wn','wn1','❄️','ليالي الشتاء','أعمال دافئة لسهرات الشتاء الباردة.',''],['sum','sm','sm1','☀️','العطلة الصيفية','أعمال مرحة ومغامرات لأيام العطلة.',''],['xms','xm','xm1','🎄','أجواء عيد الميلاد','أعمال دافئة ومرحة لأجواء الأعياد.','']],
-  opt=[...SEAS.filter(z=>HP.s[z[0]]).map(z=>sec(z[1],z[3],z[4],z[5],`<div class="rail" id="${z[2]}">${sk(5,'pk')}</div>`,z[6],'','op')),...ORGS.filter(o=>HP.o[o.k]).map(o=>sec('og'+o.k,o.e,o.t,o.sd,`<div class="rail" id="og${o.k}1">${sk(5,'pk')}</div>`,'','','op'))],
-  OP=[0,1,2,3,4,5].map(n=>opt.filter((_,i)=>Math.min(5,i*6/opt.length|0)==n).join(''));
+  SL={hal:'الهالوين',win:'الشتاء',sum:'الصيف',xms:'عيد الميلاد'},
+  opi=[...SEAS.filter(z=>HP.s[z[0]]).map(z=>({k:z[0],id:z[2],e:z[3],l:SL[z[0]],t:z[4],s:z[5],o:z[6]})),...ORGS.filter(o=>HP.o[o.k]).map(o=>({k:'og'+o.k,id:'og'+o.k+'1',e:o.e,l:o.t.replace('أفلام ومسلسلات ',''),t:o.t,s:o.sd,o:'',c:1}))],
+  OPH=opi.length?`<section class="sx oph" id="oph"><div class="sh2"><i>✦</i><h2>أجواؤك المختارة</h2></div><p class="sub">أعمال حسب اختياراتك، بدّل بين الأقسام بلمسة واحدة.</p><div class="opt${opi.length<2?' one':''}" role="tablist">${opi.map((z,n)=>`<button type="button" role="tab" class="opc${n?'':' on'}" data-k="${z.k}"${z.o?` data-o="${z.o}"`:''} aria-selected="${!n}"><span class="ope${z.c?' cd':''}">${z.e}</span>${z.l}</button>`).join('')}</div><div class="opb">${opi.map((z,n)=>`<div class="opp" role="tabpanel" data-k="${z.k}"${n?' hidden':''}><div class="oph2"><span class="ope${z.c?' cd':''}">${z.e}</span><div><b>${z.t}</b><small>${z.s}</small></div></div><div class="opg" id="${z.id}">${sk(6,'pk')}</div></div>`).join('')}</div></section>`:'';
  app.innerHTML=`<div class="chips" id="ch">${[['all','الكل'],['tv','مسلسلات'],['movie','أفلام']].map(([k,n])=>`<button data-k="${k}" class="${HT==k?'on':''}">${n}</button>`).join('')}</div>
  <div id="hbox"><div class="hero"><div class="hsk"></div></div></div>
  ${cs.length?sec('cn','▶','تابع من حيث توقفت','',`<div class="rail">${cs.map(cont).join('')}</div>`):''}
- ${OP[0]}
+ ${OPH}
  ${sec('s1','01','مزاجك الليلة','اختر ما تشعر به الآن، ونحن نختار لك.',`<div class="mos" id="mos">${MOODS.map((m,i)=>`<button class="mo ${i==MI?'on':''}" data-i="${i}"><span>${ic(m[0])}</span>${m[1]}</button>`).join('')}</div><div class="rail" id="msh">${sk(5,'pk')}</div>`,'',`<button class="rf" id="rfm" aria-label="تبديل">${ic('refresh')}</button>`)}
  ${sec('s2','02','نبض الأسبوع','ما يشاهده الجميع الآن.',`<div class="bn" id="bn">${'<i class="sk"></i>'.repeat(6)}</div>`)}
  ${sec('n1','✦','أحدث الأعمال','أعمال صدرت خلال الأسابيع الأخيرة.',`<div class="rail" id="nw1">${sk(5,'pk')}</div>`)}
- ${OP[1]}
  ${sec('n2','★','أشهر المسلسلات','الأكثر متابعة بين المسلسلات.',`<div class="rail" id="nw2">${sk(5,'pk')}</div>`,'tv')}
  ${sec('n3','★','أشهر الأفلام','الأكثر مشاهدة بين الأفلام.',`<div class="rail" id="nw3">${sk(5,'pk')}</div>`,'movie')}
- ${OP[2]}
  ${sec('s3','03','على الشاشة الآن','تذاكر العروض الحالية.',`<div class="rail" id="tkr">${sk(3)}</div>`)}
- ${OP[3]}
  ${sec('s4','04','رحلة حول العالم','اختر وجهتك وشاهد أشهر أعمالها.',`<div class="lns" id="lns">${LANDS.map((l,i)=>`<button class="ob ${i==LI?'on':''}" data-i="${i}"><span>${l[1]}</span>${l[2]}</button>`).join('')}</div><div class="rail" id="lsh">${sk(5,'pk')}</div>`,'',`<button class="rf" id="rfl" aria-label="تبديل">${ic('refresh')}</button>`)}
- ${OP[4]}
  ${sec('s5','05','على قدر وقتك','أفلام تناسب طول سهرتك.',`<div class="sls" id="sls">${SLOTS.map((s,i)=>`<button class="sl ${i==SI?'on':''}" data-i="${i}"><b>${s[0]}</b><small>${s[1]}</small></button>`).join('')}</div><div class="rail" id="ssh">${sk(5,'pk')}</div>`,'movie')}
- ${OP[5]}
  ${sec('s6','06','ذاكرة السينما','كلاسيكيات خالدة قبل عام ٢٠٠٠.',`<div class="rail" id="csh">${sk(5,'pk')}</div>`,'movie')}
  ${wl.length?sec('s7','07','على رف الانتظار','أعمال حفظتها لوقت لاحق.',`<div class="rail">${wl.map(i=>arch(fromIt(i))).join('')}</div>`):''}`;
- const live=id=>my==rid&&$(id),vis=()=>$$('.sx[data-o]').forEach(s=>s.style.display=HT==({movie:'tv',tv:'movie'})[s.dataset.o]?'none':'');vis();
+ const live=id=>my==rid&&$(id),vis=()=>{$$('.sx[data-o]').forEach(s=>s.style.display=HT==({movie:'tv',tv:'movie'})[s.dataset.o]?'none':'');$$('#oph .opc[data-o]').forEach(c=>c.classList.toggle('vh',HT==({movie:'tv',tv:'movie'})[c.dataset.o]));opSync()};vis();
  async function fHero(){clearInterval(HEROT);const ep=HT=='all'?'all':HT,[E,A]=await Promise.all([nr(`/trending/${ep}/day`),nr(`/trending/${ep}/day`,{language:'ar'})]);if(!live('#hbox'))return;
   const am=new Map((A.results||[]).map(x=>[(x.media_type||HT)+x.id,x.overview]));
   const l=pick(E.results,HT=='all'?'movie':HT,40).map(x=>({...x,ov:am.get(x.media_type+x.id)||x.overview||''})).filter(x=>x.ov.length>25).slice(0,5);
@@ -735,20 +792,23 @@ async function home(my){
  async function fClassic(){if(HT=='tv')return;const r=await dsc('movie',{sort_by:'vote_average.desc','primary_release_date.lte':'1999-12-31','vote_count.gte':3000,page:1+Math.random()*3|0},3000);if(!live('#csh'))return;$('#csh').innerHTML=shuf(r).slice(0,12).map(arch).join('')||empty('film','لا توجد كلاسيكيات')}
  async function nsec(id,key,ttl,fn){const b=$(id);if(!b)return;const s=b.closest('.sx');s.classList.remove('em');b.innerHTML=sk(5,'pk');
   const l=(await scache(key+(S.kid.on?'k':'n'),ttl,fn)).filter(isKidSafe);if(!live(id))return;s.classList.toggle('em',!l.length);b.innerHTML=l.slice(0,14).map(arch).join('')}
+  function opSync(){const h=$('#oph');if(!h)return;const cs=[...h.querySelectorAll('.opc')],ok=cs.filter(c=>!c.classList.contains('em')&&!c.classList.contains('vh')),a=ok.find(c=>c.classList.contains('on'))||ok[0];cs.forEach(c=>{const on=c==a;c.classList.toggle('on',on);c.setAttribute('aria-selected',on);const p=h.querySelector('.opp[data-k="'+c.dataset.k+'"]');if(p)p.hidden=!on});h.classList.toggle('em',!ok.length);h.querySelector('.opt').classList.toggle('one',ok.length<2)}
+  async function opn(id,key,ttl,fn){const b=$(id);if(!b)return;const p=b.closest('.opp'),c=$('#oph .opc[data-k="'+p.dataset.k+'"]');c.classList.remove('em');b.innerHTML=sk(6,'pk');opSync();
+   const l=(await scache(key+(S.kid.on?'k':'n'),ttl,fn)).filter(isKidSafe);if(!live(id))return;c.classList.toggle('em',!l.length);b.innerHTML=l.slice(0,12).map(arch).join('');opSync()}
  const fNew=()=>nsec('#nw1','new'+HT,18e5,async()=>{const rs=await Promise.all(types().map(t=>{const m=t=='tv'?'first_air_date':'primary_release_date',vc=t=='tv'?10:25;return dsc(t,{sort_by:m+'.desc',[m+'.gte']:D(75),'vote_count.gte':vc,page:1},vc)}));return rs.flat().sort((a,b)=>dt(b).localeCompare(dt(a)))});
  const fTop=()=>{if(HT!='movie')nsec('#nw2','tvtop',216e5,()=>dsc('tv',{sort_by:'popularity.desc','vote_count.gte':300,page:1},300));if(HT!='tv')nsec('#nw3','mvtop',216e5,()=>dsc('movie',{sort_by:'popularity.desc','vote_count.gte':1500,page:1},1500))};
- const fHal=()=>nsec('#hw1','hal',216e5,async()=>{const[a,b,c]=await Promise.all([dsc('movie',{sort_by:'popularity.desc',with_genres:27,'vote_count.gte':500,page:1},500),nr('/search/movie',{query:'halloween',page:1}),dsc('movie',{sort_by:'vote_average.desc',with_genres:27,'vote_count.gte':2000,page:1},2000)]),seen=new Set();
+ const fHal=()=>opn('#hw1','hal',216e5,async()=>{const[a,b,c]=await Promise.all([dsc('movie',{sort_by:'popularity.desc',with_genres:27,'vote_count.gte':500,page:1},500),nr('/search/movie',{query:'halloween',page:1}),dsc('movie',{sort_by:'vote_average.desc',with_genres:27,'vote_count.gte':2000,page:1},2000)]),seen=new Set();
   return[...a,...pick(b.results,'movie',300),...c].filter(x=>!seen.has(x.id)&&seen.add(x.id)).sort((x,y)=>(y.popularity||0)-(x.popularity||0))});
- const fSea=(id,key,ns,m,v)=>nsec(id,key+'2'+HT,216e5,async()=>{const ids=await kwIds(ns);let l=[];
+ const fSea=(id,key,ns,m,v)=>opn(id,key+'2'+HT,216e5,async()=>{const ids=await kwIds(ns);let l=[];
    if(ids.length){const rs=await Promise.all(types().map(ty=>{const vc=ty=='tv'?v:m;return dsm(ty,{sort_by:'popularity.desc',with_keywords:ids.join('|'),'vote_count.gte':vc},vc,1)}));l=rs.flat()}
    if(l.length<6){const rs=await Promise.all(types().map(async ty=>pick((await nr('/search/'+ty,{query:ns[0],page:1})).results,ty,ty=='tv'?v:m)));l=[...l,...rs.flat()]}
    const seen=new Set();return l.filter(x=>!seen.has(x.media_type+x.id)&&seen.add(x.media_type+x.id)).sort((a,b)=>(b.popularity||0)-(a.popularity||0))});
-  const fOrg=()=>ORGS.forEach(o=>{if(!HP.o[o.k])return;nsec('#og'+o.k+'1','og2'+o.k+HT,216e5,async()=>{const pg=1+(Math.random()*2|0);const rs=await Promise.all(types().map(ty=>{const vc=ty=='tv'?o.v:o.m;return dsm(ty,{sort_by:'vote_count.desc',with_original_language:o.l,'vote_count.gte':vc},vc,pg)}));return shuf(uq(rs.flat()))})});
+  const fOrg=()=>ORGS.forEach(o=>{if(!HP.o[o.k])return;opn('#og'+o.k+'1','og2'+o.k+HT,216e5,async()=>{const pg=1+(Math.random()*2|0);const rs=await Promise.all(types().map(ty=>{const vc=ty=='tv'?o.v:o.m;return dsm(ty,{sort_by:'vote_count.desc',with_original_language:o.l,'vote_count.gte':vc},vc,pg)}));return shuf(uq(rs.flat()))})});
   const fills=()=>{fHero();fHal();fPulse();fTk();fMood();fLands();fSlot();fClassic();fNew();fTop();if(HP.s.win)fSea('#wn1','win',KWS.win,300,100);if(HP.s.sum)fSea('#sm1','sum',KWS.sum,400,100);if(HP.s.xms)fSea('#xm1','xms',KWS.xms,300,80);fOrg()};
  const sel=(box,cls,fn)=>$(box).onclick=e=>{const b=e.target.closest(cls);if(!b)return;$$(box+' '+cls).forEach(z=>z.classList.toggle('on',z==b));fn(+b.dataset.i)};
  $('#ch').onclick=e=>{const b=e.target.closest('button');if(!b)return;HT=b.dataset.k;$$('#ch button').forEach(x=>x.classList.toggle('on',x==b));vis();fills()};
  sel('#mos','.mo',i=>{MI=i;fMood()});sel('#lns','.ob',i=>{LI=i;fLands()});sel('#sls','.sl',i=>{SI=i;fSlot()});
- $('#rfm').onclick=fMood;$('#rfl').onclick=fLands;
+ $('#rfm').onclick=fMood;$('#rfl').onclick=fLands;const oh=$('#oph');if(oh)oh.querySelector('.opt').onclick=e=>{const b=e.target.closest('.opc');if(!b)return;oh.querySelectorAll('.opc').forEach(z=>z.classList.toggle('on',z==b));opSync()};
  fills()}
 /* ===================== البحث ===================== */
 let SF='all';
@@ -831,21 +891,26 @@ async function watch(ty,id,s,e,my){const t0=Date.now(),need=!(HELD[ty+id]&&t0-HE
  let prev=null,next=null;if(ty=='tv'){const i=eps.findIndex(x=>x.episode_number===e);if(eps[i-1])prev=`${s}/${eps[i-1].episode_number}`;if(eps[i+1])next=`${s}/${eps[i+1].episode_number}`;else{const n=ss.filter(x=>x.season_number>s).sort((a,b)=>a.season_number-b.season_number)[0];if(n)next=`${n.season_number}/1`}}
  S.cont[ty+id]={type:ty,id:+id,s,e,t:Date.now(),ti:ttl(d),b:d.backdrop_path,p:d.poster_path,g:gi(d),ad:!!d.adult,c:cert(d)};bump(gi(d),2);save();
  const it=item(d,ty),ep=ty=='tv'?eps.find(x=>x.episode_number===e):null,title=ttl(d)+(ty=='tv'?` · م${s} ح${e}`:'');
- const guide='';hWatch(ty,id,d,ep,s,e);
- app.innerHTML=`<div class="wl"><div class="wp"><div class="player" id="pl">${guide}</div></div>
- <div class="wt">${S.ss?'':`<h1 class="ttl">${esc(title)}</h1><small>${ep?esc(ep.name):yr(d)+' · ★ '+vt(d)}</small><div class="tools">${acts(it)}</div>`}<div class="nv">${prev?`<a class="btn" href="#/w/tv/${id}/${prev}">${ic('back')}السابقة</a>`:''}${next?`<a class="btn p" href="#/w/tv/${id}/${next}">التالية</a>`:''}${S.ss?'':`<button class="btn" id="gdb">${ic('cc')}كيف أفعّل الترجمة؟</button><a class="btn" href="#/m/${ty}/${id}">${ic('eye')}تفاصيل العمل</a>`}</div></div>
- <div class="wsv"><div class="src"><button class="srb" id="srb" aria-haspopup="dialog">${ic('bolt')}<span><small>مصدر المشاهدة</small><b id="srn"></b></span>${ic('chev')}</button><button class="btn" id="srx">${ic('refresh')}المشغل لا يعمل؟</button></div><div class="slow" id="slow" role="status" hidden><span>إن لم يبدأ العرض، جرّب مصدرًا آخر.</span><button class="btn p" id="slowb">المصدر التالي</button></div></div>
- ${ty=='tv'?`<div class="wep"><div class="h" style="padding:0;justify-content:space-between;margin-top:0">الحلقات <select id="ss">${ss.map(x=>`<option value="${x.season_number}" ${x.season_number==s?'selected':''}>الموسم ${x.season_number}</option>`).join('')}</select></div>${eps.map(x=>er(id,s,x,e)).join('')}</div>`:''}</div>`;
- if(!S.ss)bindActs(it,d);const sl=$('#ss');if(sl)sl.onchange=()=>location.hash=`#/w/tv/${id}/${sl.value}/1`;const a=$('.er.on');if(a&&a.scrollIntoView)setTimeout(()=>a.scrollIntoView({block:'center'}),100);
- const gb=$('#gdb');if(gb)gb.onclick=()=>modal(`<h3>تفعيل الترجمة العربية</h3>${steps()}<button class="btn p" style="width:100%" onclick="cm()">فهمت</button>`);
- let slt;const pl=$('#pl'),mark=k=>{const n=$('#srn');if(n)n.textContent=(SV.find(z=>z.k==k)||SV[0]).n};
- const play=k=>{const v=SV.find(z=>z.k==k)||SV[0];S.srv=v.k;save();mark(v.k);const g=$('#gd');if(g)g.remove();
-  pl.innerHTML=`<div class="ld">${ic('eye')}<b>جارٍ التحميل…</b></div><iframe src="${AR(v.u(ty,id,s,e))}" allowfullscreen allow="autoplay *; fullscreen *; picture-in-picture *; encrypted-media *" onload="this.style.opacity=1"></iframe>`;const sw=$('#slow');if(sw)sw.hidden=true;clearTimeout(slt);slt=setTimeout(()=>{const z=$('#slow');if(z)z.hidden=false},1e4);timers.push(slt)};
- const nextSrc=()=>{const i=SV.findIndex(z=>z.k==S.srv);play(SV[(i+1)%SV.length].k);toast('المصدر: '+SV.find(z=>z.k==S.srv).n)};
- $('#srx').onclick=nextSrc;$('#slowb').onclick=nextSrc;
- $('#srb').onclick=()=>{modal(`<h3>اختر المصدر</h3><div class="sol">${SV.map(v=>`<button class="so ${v.k==S.srv?'on':''}" data-k="${v.k}" style="--c:${v.c}"><span><b>${v.n}</b><em>${v.g}</em></span><small>${v.d}</small></button>`).join('')}</div><button class="btn" style="width:100%;margin-top:10px" onclick="cm()">إغلاق</button>`,'bs');
-  $$('.so').forEach(b=>b.onclick=()=>{play(b.dataset.k);cm();pl.scrollIntoView({block:'center',behavior:'smooth'})})};
- const sv=SV.find(z=>z.k==S.srv)?S.srv:SV[0].k;mark(sv);play(sv)}
+ hWatch(ty,id,d,ep,s,e);const ss0=!!S.ss;
+  app.innerHTML=`<div class="wl${ss0?'':' wn'}"><div class="wp"><div class="player" id="pl"></div></div>
+  <div class="wsv"><section class="wch"><div class="wch0"><h2>${ic('play','f')}طريقة المشاهدة</h2><p>اختر أحد الخيارات التالية لتشغيل الفيلم أو الحلقة.</p></div>
+  <div class="wos" id="wos" role="radiogroup" aria-label="طريقة المشاهدة">${SV.map((v,n)=>`<button type="button" class="wo" role="radio" aria-checked="false" data-k="${v.k}" style="--c:${v.c}"><i>${n+1}</i><span><b>${v.n}</b><small class="o1">اضغط للتشغيل</small><small class="o2">يعمل الآن</small></span></button>`).join('')}</div>
+  <p class="wnote"><b>إذا لم يعمل الخيار الحالي:</b> جرّب خيارًا آخر من الخيارات الموجودة.</p>
+  <div class="slow" id="slow" role="status" hidden><span>هل توقف التشغيل؟ جرّب الانتقال إلى خيار آخر.</span><button class="btn p" id="slowb">الخيار التالي</button></div></section>
+  ${ss0?'':`<button class="wsb" id="gdb" type="button">${ic('cc')}<span><b>طريقة تفعيل الترجمة</b><small>خطوات مصوّرة تساعدك على إظهار الترجمة</small></span>${ic('chev')}</button>`}</div>
+  ${ss0?`<div class="wt"><div class="nv">${prev?`<a class="btn" href="#/w/tv/${id}/${prev}">${ic('back')}السابقة</a>`:''}${next?`<a class="btn p" href="#/w/tv/${id}/${next}">التالية</a>`:''}</div></div>`:''}
+  ${ss0&&ty=='tv'?`<div class="wep"><div class="h" style="padding:0;justify-content:space-between;margin-top:0">الحلقات <select id="ss">${ss.map(x=>`<option value="${x.season_number}" ${x.season_number==s?'selected':''}>الموسم ${x.season_number}</option>`).join('')}</select></div>${eps.map(x=>er(id,s,x,e)).join('')}</div>`:''}</div>`;
+  const sl=$('#ss');if(sl)sl.onchange=()=>location.hash=`#/w/tv/${id}/${sl.value}/1`;const a=$('.er.on');if(a&&a.scrollIntoView)setTimeout(()=>a.scrollIntoView({block:'center'}),100);
+  const gb=$('#gdb');if(gb)gb.onclick=()=>modal(`<h3>طريقة تفعيل الترجمة</h3><div class="sbi"><figure><span>1</span><img src="https://up6.cc/2026/11/179417689021041.jpg" alt="" loading="lazy" onerror="this.parentNode.classList.add('bad')"></figure><figure><span>2</span><img src="https://up6.cc/2026/11/179417689024622.jpg" alt="" loading="lazy" onerror="this.parentNode.classList.add('bad')"></figure></div><div class="sbn"><p>إذا لم تظهر لك الترجمة أو خيارات الترجمة، قم بتدوير الهاتف للوضع الأفقي ثم كبّر الشاشة، وبعدها ستظهر الخيارات.</p><span class="or">أو</span><p>قم أولاً بتدوير الهاتف، ثم اضغط على خيار الترجمة، وبعدها كبّر الشاشة.</p></div><button class="btn p" style="width:100%" onclick="cm()">فهمت</button>`,'subm');
+  let slt,wt;const pl=$('#pl'),mark=k=>$$('#wos .wo').forEach(x=>{const on=x.dataset.k==k;x.classList.toggle('on',on);x.setAttribute('aria-checked',on)}),
+  ldr=`<div class="ld"><div class="rgw"><div class="rg"></div>${ic('eye')}</div><b>جارٍ تحميل المحتوى…</b><small>سيبدأ التشغيل بعد لحظات</small></div>`;
+  const play=k=>{const v=SV.find(z=>z.k==k)||SV[0];S.srv=v.k;save();mark(v.k);clearTimeout(slt);clearTimeout(wt);const sw=$('#slow');if(sw)sw.hidden=true;
+   pl.innerHTML=ldr;
+   wt=setTimeout(()=>{if(!pl.isConnected)return;pl.innerHTML=`<div class="ld"><div class="rgw"><div class="rg"></div>${ic('eye')}</div><b>جارٍ تحميل المحتوى…</b></div><iframe src="${AR(v.u(ty,id,s,e))}" allowfullscreen allow="autoplay *; fullscreen *; picture-in-picture *; encrypted-media *" onload="this.style.opacity=1"></iframe>`;slt=setTimeout(()=>{const z=$('#slow');if(z)z.hidden=false},1e4);timers.push(slt)},3000);timers.push(wt)};
+  const nextSrc=()=>{const i=SV.findIndex(z=>z.k==S.srv);play(SV[(i+1)%SV.length].k);toast('الخيار: '+SV.find(z=>z.k==S.srv).n)};
+  $('#slowb').onclick=nextSrc;
+  $('#wos').onclick=e=>{const x=e.target.closest('.wo');if(!x)return;play(x.dataset.k);if(pl.scrollIntoView)pl.scrollIntoView({block:'center',behavior:'smooth'})};
+  const sv=SV.find(z=>z.k==S.srv)?S.srv:SV[0].k;mark(sv);play(sv)}
 /* ===================== حسابي (بلا صورة شخصية) ===================== */
 let AT='lk';const HC=['#0c0a09','#7a3a00','#0b6a52','#9a1d3a','#3b3a9a'];
 function mkHl(it){if(S.hl.some(h=>h.t==it.t&&h.mid==it.id))return toast('لهذا العمل هايلايت في حسابك');
@@ -1046,7 +1111,7 @@ function mergeS(c,cw){const un=(a,b)=>{const o=[...(a||[])];(b||[]).forEach(x=>{
  (c.hl||[]).forEach(h=>{if(!S.hl.some(z=>z.t==h.t&&z.mid==h.mid))S.hl.push(h)});
  for(const k in c.cont||{}){const o=S.cont[k];if(!o||c.cont[k].t>o.t)S.cont[k]=c.cont[k]}
  for(const k in c.taste||{})S.taste[k]=Math.max(S.taste[k]||0,c.taste[k]);
- ['nm','un','bio'].forEach(k=>{if(c[k]&&(cw||!S[k]))S[k]=c[k]});if(c.theme&&(cw||S.theme=='classic'))S.theme=c.theme;if(c.srv&&(cw||S.srv=='d'))S.srv=c.srv;if(c.set)S.set=cw?{...S.set,...c.set}:{...c.set,...S.set};}
+ ['nm','un','bio'].forEach(k=>{if(c[k]&&(cw||!S[k]))S[k]=c[k]});if(c.theme&&(cw||S.theme=='classic'))S.theme=c.theme;if(c.srv&&(cw||S.srv=='u'))S.srv=c.srv;if(c.set)S.set=cw?{...S.set,...c.set}:{...c.set,...S.set};}
 async function cloudPull(cw){if(!S.acc||!fbReady())return;const u=await fbUser();if(!u)return;const ur=FD.doc('users/'+u.uid),r=ur.collection('data'),[m,w,n,hc]=await Promise.all([r.doc('main').get(),r.doc('watch').get(),r.doc('nav').get(),ur.collection('hist').get()]);
  const J=d=>{try{return d.exists?JSON.parse(d.data().j):null}catch(e){return null}},cm2=J(m);let W=[],N=[];
  const lw=J(w);if(lw)W.push(...Object.values(lw));const ln=J(n);if(Array.isArray(ln))N.push(...ln);
