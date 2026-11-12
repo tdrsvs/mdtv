@@ -156,12 +156,35 @@ main{padding-top:62px;min-height:100vh;position:relative}
 .cg{display:grid;grid-template-columns:repeat(auto-fill,minmax(92px,1fr));gap:18px 8px}
 .pc{text-align:center;display:block}.pc .av{width:84px;height:84px;margin:0 auto 7px;border-radius:50%;overflow:hidden;background:var(--s2);border:2px solid var(--ln);display:grid;place-items:center;color:var(--mu);transition:.25s}.pc:hover .av{border-color:var(--a)}.pc .av img{width:100%;height:100%;object-fit:cover}.pc b{display:block;font-size:.78rem;line-height:1.35}.pc small{display:block;font-size:.68rem;unicode-bidi:plaintext;line-height:1.3}
 .cast{display:flex;gap:14px;overflow-x:auto;padding:2px 18px 8px;scrollbar-width:none}.cast::-webkit-scrollbar{display:none}.cast .pc{flex:0 0 88px}
-.ssn{display:flex;gap:10px;overflow-x:auto;padding-bottom:12px;scrollbar-width:none}.ssn::-webkit-scrollbar{display:none}
-.ssn button{flex:none;min-width:84px;padding:10px 12px;border-radius:var(--lf);background:var(--s1);border:1px solid var(--ln);text-align:center;transition:.2s}.ssn b{display:block;font-family:var(--dsp);font-size:1.3rem}.ssn small{font-size:.7rem}.ssn .on{background:var(--a);border-color:var(--a);color:var(--ink)}.ssn .on small{color:color-mix(in srgb,var(--ink) 73%,transparent)}
-.er{display:flex;gap:12px;align-items:center;padding:10px;border-radius:16px;border:1px solid transparent;transition:.2s}.er:hover{background:var(--s1)}.er.on{background:var(--s2);border-color:var(--a)}
-.er .en{font-family:var(--dsp);font-size:1.5rem;color:var(--a);width:34px;text-align:center;flex:none;direction:ltr}
-.er .et{width:116px;aspect-ratio:16/9;border-radius:10px;overflow:hidden;background:var(--s2);flex:none}.er .et img{width:100%;height:100%;object-fit:cover}
-.er .ei{min-width:0}.er b{font-size:.9rem;display:block;unicode-bidi:plaintext;text-align:start}.er small{font-size:.72rem}.er p{font-size:.76rem;color:var(--mu);line-height:1.6;margin-top:3px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;unicode-bidi:plaintext;text-align:start}
+/* ---------- المواسم والحلقات (تصميم جديد) ---------- */
+.sbar{display:block;margin-bottom:14px}
+.sbh{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:10px}
+.sbh small{display:block;font-size:.72rem;color:var(--mu);font-weight:700}
+.sbt{display:block;font-family:var(--dsp);font-size:clamp(1.35rem,4.6vw,1.8rem);font-weight:800;line-height:1.25}
+.sbc{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:99px;background:var(--s1);border:1px solid var(--ln);font-size:.8rem;font-weight:700;color:var(--tx2,var(--tx));white-space:nowrap}.sbc svg{width:15px;height:15px;color:var(--a)}
+.ssn{display:flex;gap:10px;overflow-x:auto;padding:8px 6px 14px;margin-inline:-6px;scrollbar-width:none;scroll-snap-type:x proximity}.ssn::-webkit-scrollbar{display:none}
+.ssn button,.ssn a{flex:none;scroll-snap-align:center;min-width:50px;height:50px;padding:0 8px;border-radius:50%;display:grid;place-items:center;background:var(--s1);border:1.5px solid var(--ln);color:var(--mu);font:800 1.08rem/1 var(--dsp);transition:transform .25s,background .25s,border-color .25s,color .25s,box-shadow .25s}
+.ssn .on{background:var(--pbg,var(--a));border-color:var(--a);color:var(--ink);transform:scale(1.12);box-shadow:0 8px 22px color-mix(in srgb,var(--a) 45%,transparent)}
+.ssn button:active,.ssn a:active{transform:scale(.92)}.ssn .on:active{transform:scale(1.04)}
+@media(hover:hover){.ssn button:not(.on):hover,.ssn a:not(.on):hover{border-color:var(--a);color:var(--tx)}}
+@media(min-width:900px){.ssn{flex-wrap:wrap;overflow:visible}}
+.egr{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+@media(min-width:620px){.egr{grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}}
+@media(min-width:900px){.egr{grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}}
+.er{position:relative;display:flex;flex-direction:column;border-radius:16px;overflow:hidden;background:var(--s1);border:1.5px solid var(--ln);transition:transform .25s,border-color .25s,box-shadow .25s;animation:rise .45s backwards;animation-delay:calc(var(--i,0)*35ms)}
+.er .et{position:relative;aspect-ratio:16/9;display:grid;place-items:center;overflow:hidden;background:linear-gradient(135deg,var(--s3),var(--s2));color:var(--mu)}
+.er .et img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.er .et::after{content:"";position:absolute;inset:auto 0 0;height:50%;background:linear-gradient(transparent,#000a);pointer-events:none}
+.er .eno svg{width:30px;height:30px;opacity:.5}
+.er .en{position:absolute;z-index:2;top:8px;inset-inline-start:8px;display:inline-flex;align-items:center;gap:4px;padding:3px 11px;border-radius:99px;background:#000b;backdrop-filter:blur(6px);color:#fff;font-size:.74rem;font-weight:800;line-height:1.6}.er .en b{font-family:var(--dsp);font-size:.92rem}
+.er .epl{position:absolute;z-index:2;inset:0;margin:auto;width:46px;height:46px;border-radius:50%;background:var(--a);color:var(--ink);display:grid;place-items:center;opacity:0;transform:scale(.7);transition:.25s;box-shadow:0 8px 24px #0009}.er .epl svg{width:20px;height:20px}
+.er>b{flex:1;padding:10px 12px 12px;font-size:.88rem;line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;unicode-bidi:plaintext;text-align:start}
+.er:active{transform:scale(.97)}
+@media(hover:hover){.er:hover{transform:translateY(-4px);border-color:var(--a);box-shadow:0 14px 32px #0009}.er:hover .et img{transform:scale(1.07)}.er:hover .epl{opacity:1;transform:scale(1)}}
+.er.on{border-color:var(--a);box-shadow:0 0 0 1px var(--a) inset,0 10px 28px color-mix(in srgb,var(--a) 28%,transparent)}.er.on .en{background:var(--a);color:var(--ink)}.er.on .epl{opacity:1;transform:scale(1)}
+.er.sk2{aspect-ratio:16/12;border:0;background:var(--s2);animation:pu 1s infinite alternate}
+.wep{min-width:0}
+@media(prefers-reduced-motion:reduce){.er{animation:none}}
 .yt{position:relative;aspect-ratio:16/9;border-radius:14px;overflow:hidden;background:#000}.yt iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
 @media(min-width:700px){.dxc{grid-template-columns:210px 1fr;padding-top:96px;gap:26px}.tools{max-width:420px}}
 
@@ -574,13 +597,6 @@ const FB_CFG={apiKey:"AIzaSyCjhmGWOGvLJhm2XakeaMalKWOr0NikL2A",authDomain:"moriq
 /* كل سيرفر: تفاصيل كاملة (مميزات + مقاييس + لمن يناسب). عدّل أي قيمة هنا فقط وتتغير البطاقة تلقائيًا */
 const SV=[
 {k:'u',n:'الترا',g:'الأول',c:'#b388ff',u:(t,i,s,e)=>t=='tv'?`https://nexa.mov/watch/tmdb-tv/${i}/s${s}-e${e}?src=rail`:`https://nexa.mov/watch/tmdb-movie/${i}?src=rail`},
-{k:'d',n:'التيمت',g:'الرئيسي',c:'#5ab4ff',sc:'8.4',
- f:[['hd','جودة جيدة'],['noad','بلا إعلانات'],['lock','ثابت'],['clock','بدء أبطأ قليلًا']],
- m:[['الجودة',4],['السرعة',3],['الثبات',5],['الترجمة',4],['دقة العمل',4]],
- b:'الأنسب لمعظم الأعمال، ثابت وبلا إعلانات.',
- d:'هادئ وثابت، لكنه قد يحتاج لحظات ليبدأ التشغيل.',
- u:(t,i,s,e)=>`https://cinesrc.st/embed/${t}/${i}${t=='tv'?`?s=${s}&e=${e}`:''}`},
-{k:'p',n:'بلاس',g:'الثالث',c:'#44e0a4',u:(t,i,s,e)=>t=='tv'?`https://peachify.net/tv/${i}/${s}/${e}`:`https://peachify.net/movie_${i}`},
 {k:'s',n:'برو',g:'احتياطي',c:'#ff5b3d',sc:'7.8',
  f:[['hd','جودة جيدة'],['noad','بلا إعلانات'],['play','تشغيل مباشر'],['target','دقة اختيار أقل']],
  m:[['الجودة',4],['السرعة',4],['الثبات',4],['الترجمة',4],['دقة العمل',2]],
@@ -595,7 +611,7 @@ P.share='<circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx=
 const LIC=['list','film','fire','crown','ghost','rocket','moon','smile','diamond','flag','gift','bolt'];
 const ic=(n,c)=>`<svg viewBox="0 0 24 24"${c?` class="${c}"`:''}>${P[n]||P.list}</svg>`;
 const $=s=>document.querySelector(s),$$=s=>document.querySelectorAll(s),app=$('#app'),esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-let S;try{S=JSON.parse(localStorage.getItem('see')||'{}')}catch(e){S={}}S={lk:[],fv:[],lt:[],ls:[],hl:[],nm:'',cont:{},taste:{},q:[],sn:[],srv:'u',ss:false,theme:'classic',un:'',bio:'',kid:{on:false,h:'',s:'',f:0,lu:0},wh:{},nh:[],nt:{},set:{ar:true},lock:null,acc:null,...S};delete S.av;S.nt=S.nt||{};S.nt.l=S.nt.l||[];S.nt.sh=S.nt.sh||{};S.nt.tp=S.nt.tp||{};S.nt.rd=S.nt.rd||0;S.nt.g=S.nt.g||0;S.set=S.set||{ar:true};S.wh=S.wh||{};S.nh=S.nh||[];if(!S.srv2){S.srv='u';S.srv2=1}
+let S;try{S=JSON.parse(localStorage.getItem('see')||'{}')}catch(e){S={}}S={lk:[],fv:[],lt:[],ls:[],hl:[],nm:'',cont:{},taste:{},q:[],sn:[],srv:'u',ss:false,theme:'classic',un:'',bio:'',kid:{on:false,h:'',s:'',f:0,lu:0},wh:{},nh:[],nt:{},set:{ar:true},lock:null,acc:null,...S};delete S.av;S.nt=S.nt||{};S.nt.l=S.nt.l||[];S.nt.sh=S.nt.sh||{};S.nt.tp=S.nt.tp||{};S.nt.rd=S.nt.rd||0;S.nt.g=S.nt.g||0;if(S.srv!='u'&&S.srv!='s')S.srv='u';S.set=S.set||{ar:true};S.wh=S.wh||{};S.nh=S.nh||[];if(!S.srv2){S.srv='u';S.srv2=1}
 const lsMain=()=>{if(window.WIPING)return;try{const m={...S};delete m.wh;delete m.nh;localStorage.setItem('see',JSON.stringify(m))}catch(e){}},lsHist=()=>{if(window.WIPING)return;try{localStorage.setItem('see_wh',JSON.stringify(S.wh));localStorage.setItem('see_nh',JSON.stringify(S.nh))}catch(e){}};
 try{const w=localStorage.getItem('see_wh'),n=localStorage.getItem('see_nh');if(w){const z=JSON.parse(w);if(z&&typeof z=='object'&&!Array.isArray(z))S.wh=z}if(n){const z=JSON.parse(n);if(Array.isArray(z))S.nh=z}}catch(e){}
 lsHist();lsMain();
@@ -823,7 +839,9 @@ async function results(q,my){if(!q){app.innerHTML=empty('search','اكتب اس�
 /* ===================== التفاصيل ===================== */
 const acts=it=>{const f=(a,i,n)=>`<button class="tl ${has(S[a],it.t,it.id)?'on':''}" data-a="${a}" aria-label="${n}">${ic(i)}<span>${n}</span></button>`;return f('lk','heart','إعجاب')+f('fv','star','مفضلة')+f('lt','bookmark','لاحقًا')+`<button class="tl" data-a="sh" aria-label="مشاركة">${ic('share')}<span>مشاركة</span></button>`};
 function bindActs(it,d,root){const hb=$('#hlb');if(hb)hb.onclick=()=>mkHl(it);(root||document).querySelectorAll('[data-a]').forEach(b=>b.onclick=()=>{const a=b.dataset.a;if(a=='sh')return shareIt(it);const on=tog(S[a],it);b.classList.toggle('on',on);if(on)bump(gi(d),a=='lk'?3:a=='fv'?2:1);toast(on?'تمت الإضافة':'تمت الإزالة')})}
-const er=(id,s,x,cur)=>`<a class="er ${x.episode_number===cur?'on':''}" href="#/w/tv/${id}/${s}/${x.episode_number}"><div class="en">${x.episode_number}</div><div class="et">${x.still_path?`<img loading="lazy" src="${IMG}w300${x.still_path}" alt="">`:''}</div><div class="ei"><b>${esc(x.name)}</b><small>${x.runtime?x.runtime+' دقيقة · ':''}${esc(fd(x.air_date))}</small>${x.overview?`<p>${esc(x.overview)}</p>`:''}</div></a>`;
+const er=(id,s,x,cur,i)=>`<a class="er${x.episode_number===cur?' on':''}" href="#/w/tv/${id}/${s}/${x.episode_number}" style="--i:${Math.min(i||0,14)}" aria-label="الحلقة ${x.episode_number}"><div class="et">${x.still_path?`<img loading="lazy" src="${IMG}w300${x.still_path}" alt="">`:`<span class="eno">${ic('eye')}</span>`}<span class="en">حلقة <b>${x.episode_number}</b></span><span class="epl">${ic('play','f')}</span></div><b class="ttl">${esc(x.name)}</b></a>`;
+const sbar=(ss,cur,id,lk,cnt)=>{const c=ss.find(x=>x.season_number==cur)||ss[0]||{};return `<div class="sbar"><div class="sbh"><div><small>اختر الموسم</small><b class="sbt" id="sbt">الموسم ${cur}</b></div><span class="sbc">${ic('film')}<span id="sbn">${cnt||c.episode_count||'—'} حلقة</span></span></div><div class="ssn" id="ssn" role="${lk?'navigation':'tablist'}" aria-label="المواسم">${ss.map(x=>{const n=x.season_number,on=n==cur;return lk?`<a href="#/w/tv/${id}/${n}/1" class="${on?'on':''}" aria-label="الموسم ${n}"${on?' aria-current="true"':''}>${n}</a>`:`<button type="button" role="tab" aria-selected="${on}" data-s="${n}" class="${on?'on':''}" aria-label="الموسم ${n}">${n}</button>`}).join('')}</div></div>`};
+const seasonFocus=()=>{const w=$('#ssn'),a=w&&w.querySelector('.on');if(!a||w.scrollWidth<=w.clientWidth+2)return;const wr=w.getBoundingClientRect(),ar=a.getBoundingClientRect();w.scrollBy({left:(ar.left+ar.width/2)-(wr.left+wr.width/2),behavior:'smooth'})};
 const JOB={Director:'إخراج',Screenplay:'سيناريو',Writer:'كتابة',Novel:'رواية',Story:'قصة',Producer:'إنتاج','Executive Producer':'إنتاج تنفيذي','Original Music Composer':'موسيقى','Director of Photography':'تصوير',Editor:'مونتاج'};
 function crewOf(d){const seen=new Set(),out=[],ord=Object.keys(JOB);
  (d.created_by||[]).forEach(p=>{if(!seen.has(p.id+'c')){seen.add(p.id+'c');out.push({id:p.id,n:p.name,j:'ابتكار'})}});
@@ -854,14 +872,15 @@ async function details(ty,id,my){const t0=Date.now();app.innerHTML=loader;
  <div class="tbs" id="tbs">${tabs.map(([k,n,x],i)=>`<button data-p="${k}" class="${i?'':'on'}">${n}${x!==''?`<em>${x}</em>`:''}</button>`).join('')}</div>
  <div id="pns"><div class="pn on" data-p="ov"><h3>${ic('film')}القصة</h3><p class="story">${esc(a.overview||d.overview)||'لا يوجد وصف لهذا العمل.'}</p><h3>${ic('list')}بطاقة العمل</h3><div class="fx">${fx.join('')}</div>
   ${crew.length?`<h3>${ic('users')}صنّاع العمل</h3><div class="cr">${crw(crew.slice(0,8))}</div>`:''}${cos.length?`<h3>${ic('building')}الإنتاج</h3><div class="tgs">${cos.map(z=>`<span>${esc(z)}</span>`).join('')}</div>`:''}</div>
- ${ss.length?`<div class="pn" data-p="ep"><div class="ssn" id="ssn">${ss.map(s=>`<button data-s="${s.season_number}" class="${s.season_number==cs?'on':''}"><b>${s.season_number}</b><small>${s.episode_count||'—'} حلقة</small></button>`).join('')}</div><div id="el"></div></div>`:''}
+ ${ss.length?`<div class="pn" data-p="ep">${sbar(ss,cs,id,0)}<div id="el"></div></div>`:''}
  <div class="pn" data-p="cs"><h3>${ic('user')}طاقم التمثيل</h3>${cast.length?`<div class="cg">${cast.map(p=>pc(p,p.character)).join('')}</div>`:'<small>لا توجد بيانات.</small>'}${crew.length>8?`<h3>${ic('users')}الطاقم الفني</h3><div class="cr">${crw(crew.slice(0,20))}</div>`:''}</div>
  ${sim.length?`<div class="pn" data-p="sm"><div class="grid" style="padding:0">${sim.map(feed).join('')}</div></div>`:''}</div><div style="height:30px"></div>`;
  bindActs(it,d);
  $$('#tbs button').forEach(b=>b.onclick=()=>{$$('#tbs button').forEach(z=>z.classList.toggle('on',z==b));$$('#pns .pn').forEach(p=>p.classList.toggle('on',p.dataset.p==b.dataset.p));const top=$('#tbs').offsetTop-62;if(scrollY>top)scrollTo({top,behavior:'smooth'})});
  if(tr)$('#trl').onclick=()=>modal(`<h3>العرض الدعائي</h3><div class="yt"><iframe src="https://www.youtube-nocookie.com/embed/${esc(tr.key)}?autoplay=1&rel=0" allow="autoplay;encrypted-media;fullscreen" allowfullscreen></iframe></div><button class="btn" style="width:100%;margin-top:12px" onclick="cm()">إغلاق</button>`);
- if(ss.length){let cur=cs;const le=async()=>{const el=$('#el');el.innerHTML=sk(2);const sd=await nr(`/tv/${id}/season/${cur}`);if(my!=rid||!$('#el'))return;el.innerHTML=(sd.episodes||[]).filter(x=>x.air_date&&x.air_date<=today).map(x=>er(id,cur,x,rc&&rc.s==cur?rc.e:0)).join('')||empty('eye','لا توجد حلقات متاحة')};
-  $('#ssn').onclick=e=>{const b=e.target.closest('button');if(!b)return;cur=+b.dataset.s;$$('#ssn button').forEach(z=>z.classList.toggle('on',z==b));le()};le()}}
+ if(ss.length){let cur=cs;const le=async()=>{const mine=cur,el=$('#el');el.innerHTML=`<div class="egr">${'<div class="er sk2"></div>'.repeat(4)}</div>`;const sd=await nr(`/tv/${id}/season/${mine}`);if(my!=rid||!$('#el')||mine!=cur)return;const L=(sd.episodes||[]).filter(x=>x.air_date&&x.air_date<=today),n=$('#sbn');if(n&&L.length)n.textContent=L.length+' حلقة';$('#el').innerHTML=L.length?`<div class="egr">${L.map((x,i)=>er(id,mine,x,rc&&rc.s==mine?rc.e:0,i)).join('')}</div>`:empty('eye','لا توجد حلقات متاحة')};
+  $('#ssn').onclick=e=>{const b=e.target.closest('button');if(!b)return;cur=+b.dataset.s;$$('#ssn button').forEach(z=>{const on=z==b;z.classList.toggle('on',on);z.setAttribute('aria-selected',on)});const si=ss.find(z=>z.season_number==cur),n=$('#sbn'),t=$('#sbt');if(t)t.textContent='الموسم '+cur;if(n)n.textContent=(si&&si.episode_count||'—')+' حلقة';seasonFocus();le()};
+  const et=$('#tbs button[data-p="ep"]');if(et)et.addEventListener('click',()=>setTimeout(seasonFocus,80));le()}}
 /* ===================== الأشخاص ===================== */
 const DEP={Acting:'تمثيل',Directing:'إخراج',Writing:'كتابة',Production:'إنتاج',Creator:'ابتكار'};
 async function person(id,my){app.innerHTML=loader;
@@ -899,8 +918,8 @@ async function watch(ty,id,s,e,my){const t0=Date.now(),need=!(HELD[ty+id]&&t0-HE
   <div class="slow" id="slow" role="status" hidden><span>هل توقف التشغيل؟ جرّب الانتقال إلى خيار آخر.</span><button class="btn p" id="slowb">الخيار التالي</button></div></section>
   ${ss0?'':`<button class="wsb" id="gdb" type="button">${ic('cc')}<span><b>طريقة تفعيل الترجمة</b><small>خطوات مصوّرة تساعدك على إظهار الترجمة</small></span>${ic('chev')}</button>`}</div>
   ${ss0?`<div class="wt"><div class="nv">${prev?`<a class="btn" href="#/w/tv/${id}/${prev}">${ic('back')}السابقة</a>`:''}${next?`<a class="btn p" href="#/w/tv/${id}/${next}">التالية</a>`:''}</div></div>`:''}
-  ${ss0&&ty=='tv'?`<div class="wep"><div class="h" style="padding:0;justify-content:space-between;margin-top:0">الحلقات <select id="ss">${ss.map(x=>`<option value="${x.season_number}" ${x.season_number==s?'selected':''}>الموسم ${x.season_number}</option>`).join('')}</select></div>${eps.map(x=>er(id,s,x,e)).join('')}</div>`:''}</div>`;
-  const sl=$('#ss');if(sl)sl.onchange=()=>location.hash=`#/w/tv/${id}/${sl.value}/1`;const a=$('.er.on');if(a&&a.scrollIntoView)setTimeout(()=>a.scrollIntoView({block:'center'}),100);
+  ${ss0&&ty=='tv'?`<div class="wep">${sbar(ss,s,id,1,eps.length)}<div class="egr">${eps.map((x,i)=>er(id,s,x,e,i)).join('')}</div></div>`:''}</div>`;
+  seasonFocus();const a=$('.er.on');if(a&&a.scrollIntoView)setTimeout(()=>a.scrollIntoView({block:'center'}),100);
   const gb=$('#gdb');if(gb)gb.onclick=()=>modal(`<h3>طريقة تفعيل الترجمة</h3><div class="sbi"><figure><span>1</span><img src="https://up6.cc/2026/11/179417689021041.jpg" alt="" loading="lazy" onerror="this.parentNode.classList.add('bad')"></figure><figure><span>2</span><img src="https://up6.cc/2026/11/179417689024622.jpg" alt="" loading="lazy" onerror="this.parentNode.classList.add('bad')"></figure></div><div class="sbn"><p>إذا لم تظهر لك الترجمة أو خيارات الترجمة، قم بتدوير الهاتف للوضع الأفقي ثم كبّر الشاشة، وبعدها ستظهر الخيارات.</p><span class="or">أو</span><p>قم أولاً بتدوير الهاتف، ثم اضغط على خيار الترجمة، وبعدها كبّر الشاشة.</p></div><button class="btn p" style="width:100%" onclick="cm()">فهمت</button>`,'subm');
   let slt,wt;const pl=$('#pl'),mark=k=>$$('#wos .wo').forEach(x=>{const on=x.dataset.k==k;x.classList.toggle('on',on);x.setAttribute('aria-checked',on)}),
   ldr=`<div class="ld"><div class="rgw"><div class="rg"></div>${ic('eye')}</div><b>جارٍ تحميل المحتوى…</b><small>سيبدأ التشغيل بعد لحظات</small></div>`;
