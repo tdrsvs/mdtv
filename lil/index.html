@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#08040f">
+<title>ليل البنفسج</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#08040f;--ink:#fff;--mute:#a99cc2;--line:#ffffff1a;--v:#8b5cf6;--m:#e04fd0;--grad:linear-gradient(90deg,#8b5cf6,#e04fd0)}
+*{box-sizing:border-box;margin:0;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth}
+body{font-family:Tajawal,system-ui,sans-serif;background:var(--bg);color:var(--ink);overflow-x:hidden}
+body.lock{overflow:hidden}
+button{font:inherit;color:inherit}
+svg{fill:currentColor}
+:focus-visible{outline:2px solid #fff;outline-offset:2px}
+
+/* NAV */
+nav{position:fixed;inset:0 0 auto;z-index:20;display:flex;align-items:center;gap:14px;padding:18px 4vw;background:linear-gradient(#08040fcc,transparent);transition:background .3s}
+nav.solid{background:#08040ff0;backdrop-filter:blur(14px)}
+.logo{font-weight:900;font-size:26px;letter-spacing:-.5px;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.tag{margin-inline-start:auto;font-size:13px;color:var(--mute);border:1px solid var(--line);padding:5px 14px;border-radius:99px}
+
+/* HERO */
+.hero{position:relative;min-height:100vh;min-height:100svh;display:flex;align-items:flex-end;overflow:hidden;isolation:isolate}
+.art{position:absolute;inset:0;z-index:-1;background:radial-gradient(900px 600px at 28% 22%,#5b21b655,transparent 70%),linear-gradient(#0a0418,#1c0b3a 55%,#33104f)}
+.stars{position:absolute;inset:0;background:
+ radial-gradient(1.5px 1.5px at 8% 14%,#fff,transparent),radial-gradient(1px 1px at 17% 30%,#fff,transparent),radial-gradient(1.5px 1.5px at 41% 10%,#fff,transparent),
+ radial-gradient(1px 1px at 52% 24%,#fff,transparent),radial-gradient(1.5px 1.5px at 63% 8%,#fff,transparent),radial-gradient(1px 1px at 74% 36%,#fff,transparent),
+ radial-gradient(1.5px 1.5px at 88% 18%,#fff,transparent),radial-gradient(1px 1px at 95% 40%,#fff,transparent),radial-gradient(1px 1px at 34% 44%,#fff,transparent),radial-gradient(1.5px 1.5px at 4% 48%,#fff,transparent);
+ animation:tw 5s ease-in-out infinite alternate}
+@keyframes tw{from{opacity:.35}to{opacity:1}}
+.moon{position:absolute;left:24%;top:15%;width:clamp(90px,13vw,190px);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 36% 34%,#fff,#efdcff 50%,#c58bff);box-shadow:0 0 140px 50px #a855f760}
+.sky{position:absolute;inset:auto 0 0;height:46%}
+.sky.far{background:#1d0c3a;clip-path:polygon(0 100%,0 55%,5% 55%,5% 38%,9% 38%,9% 60%,15% 60%,15% 30%,19% 30%,19% 52%,26% 52%,26% 66%,32% 66%,32% 36%,36% 36%,36% 56%,44% 56%,44% 44%,49% 44%,49% 68%,57% 68%,57% 34%,61% 34%,61% 58%,69% 58%,69% 26%,73% 26%,73% 54%,80% 54%,80% 62%,86% 62%,86% 40%,91% 40%,91% 58%,100% 58%,100% 100%)}
+.sky.near{height:34%;background:#07030e;clip-path:polygon(0 100%,0 62%,7% 62%,7% 44%,12% 44%,12% 70%,20% 70%,20% 52%,25% 52%,25% 74%,33% 74%,33% 40%,38% 40%,38% 64%,47% 64%,47% 76%,55% 76%,55% 48%,60% 48%,60% 70%,68% 70%,68% 56%,75% 56%,75% 72%,83% 72%,83% 42%,88% 42%,88% 66%,95% 66%,95% 54%,100% 54%,100% 100%)}
+.hero:after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(to left,#08040fe6 0,#08040f66 38%,transparent 70%),linear-gradient(transparent 60%,var(--bg))}
+.copy{padding:0 4vw 13vh;max-width:760px}
+.copy h1{font-size:clamp(58px,11vw,150px);font-weight:900;line-height:.95;letter-spacing:-2px;text-shadow:0 10px 60px #6d28d9aa}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin:22px 0 26px}
+.chips span{font-size:14px;color:#e9ddff;padding:5px 14px;border-radius:6px;background:#ffffff14;border:1px solid var(--line)}
+.chips .hot{background:var(--grad);border:0;font-weight:700;color:#fff}
+.cta{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;gap:10px;border:0;border-radius:8px;padding:13px 30px;font-weight:700;font-size:18px;cursor:pointer;transition:transform .15s,background .2s}
+.btn svg{width:26px;height:26px}
+.btn:active{transform:scale(.96)}
+.btn.w{background:#fff;color:#000}.btn.w:hover{background:#e6d9ff}
+.btn.g{background:#ffffff26;backdrop-filter:blur(10px)}.btn.g:hover{background:#ffffff3d}
+
+/* EPISODES */
+.eps{padding:10px 4vw 80px;margin-top:-6vh;position:relative}
+.eps h2{font-size:24px;font-weight:700;margin-bottom:6px}
+.eps>p{color:var(--mute);font-size:14px;margin-bottom:22px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:26px 16px}
+.card{background:none;border:0;text-align:start;cursor:pointer;transition:transform .25s}
+.card:hover{transform:scale(1.04)}
+.th{position:relative;aspect-ratio:16/9;border-radius:8px;overflow:hidden;display:grid;place-items:center;background:linear-gradient(135deg,hsl(var(--h) 62% 26%),hsl(calc(var(--h) + 40) 70% 9%));box-shadow:0 0 0 1px var(--line);transition:box-shadow .25s}
+.card:hover .th{box-shadow:0 0 0 2px #fff,0 20px 50px -14px #8b5cf6}
+.th em{font-style:normal;font-weight:900;font-size:84px;line-height:1;color:transparent;-webkit-text-stroke:2px #ffffff55}
+.th .pl{position:absolute;inset:0;display:grid;place-items:center;background:#0008;opacity:0;transition:opacity .2s}
+.card:hover .pl,.card:focus-visible .pl{opacity:1}
+.pl svg{width:54px;height:54px;padding:12px;border-radius:50%;border:2px solid #fff}
+.th u{position:absolute;inset:auto auto 0 0;height:4px;background:var(--grad)}
+.card h3{font-size:16px;margin-top:10px}
+.card small{color:var(--mute);font-size:13px}
+.card.done small{color:#c9a8ff}
+
+/* PLAYER */
+#pl{position:fixed;inset:0;z-index:50;background:#000;display:none;user-select:none}
+#pl.open{display:block}
+video{width:100%;height:100%;display:block;background:#000;object-fit:contain}
+.hit{position:absolute;inset:0}
+.idle{cursor:none}.idle .top,.idle .bar,.idle .nx{opacity:0;pointer-events:none}
+.top{position:absolute;inset:0 0 auto;display:flex;align-items:center;gap:14px;padding:max(18px,env(safe-area-inset-top)) 22px 56px;background:linear-gradient(#000b,transparent);transition:opacity .35s}
+.top .t{font-size:18px;font-weight:700;line-height:1.3}.top .t small{display:block;font-size:13px;color:#cdbfe6;font-weight:400}
+.b{border:0;background:none;height:44px;min-width:44px;padding:0 8px;border-radius:50%;cursor:pointer;display:grid;place-items:center;font-weight:700;font-size:15px;transition:background .15s,transform .12s}
+.b:hover{background:#ffffff22}.b:active{transform:scale(.9)}.b:disabled{opacity:.3;pointer-events:none}
+.b svg{width:28px;height:28px}
+.mir svg{transform:scaleX(-1)}
+.bar{position:absolute;inset:auto 0 0;padding:70px 22px max(14px,env(safe-area-inset-bottom));background:linear-gradient(transparent,#000d);transition:opacity .35s;direction:ltr}
+.seek{position:relative;height:20px;display:flex;align-items:center;cursor:pointer;touch-action:none}
+.seek i{position:absolute;left:0;height:4px;border-radius:4px;transition:height .12s}
+.seek:hover i,.seek.drag i{height:7px}
+.s-bg{width:100%;background:#ffffff30}.s-buf{background:#ffffff4d}.s-play{background:var(--grad)}
+.dot{position:absolute;width:15px;height:15px;margin-left:-7px;border-radius:50%;background:#fff;box-shadow:0 0 14px var(--v);transform:scale(0);transition:.12s}
+.seek:hover .dot,.seek.drag .dot{transform:scale(1)}
+.tip{position:absolute;bottom:24px;transform:translateX(-50%);background:#000d;padding:2px 8px;border-radius:6px;font-size:12px;opacity:0;pointer-events:none}
+.seek:hover .tip{opacity:1}
+.row{display:flex;align-items:center}.sp{flex:1}
+.time{font-size:14px;color:#ddd0f5;margin:0 12px;font-variant-numeric:tabular-nums}
+.vol{display:flex;align-items:center}.vol .seek{width:0;opacity:0;transition:.2s}.vol:hover .seek{width:90px;opacity:1;margin:0 6px}
+.menu{position:absolute;bottom:76px;right:90px;display:none;flex-direction:column;padding:6px;border-radius:10px;background:#120a22f2;border:1px solid var(--line)}
+.menu.open{display:flex}.menu button{border:0;background:none;padding:8px 24px;border-radius:6px;cursor:pointer}
+.menu button:hover{background:#ffffff1a}.menu .sel{background:var(--v)}
+.ovl{position:absolute;inset:0;display:none;place-items:center;align-content:center;gap:14px;text-align:center;padding:24px;pointer-events:none}.ovl.show{display:grid}
+#load{background:#0005}
+.ring{width:60px;height:60px;border-radius:50%;border:4px solid #ffffff22;border-top-color:var(--m);animation:sp .8s linear infinite}
+@keyframes sp{to{rotate:360deg}}
+#err{background:#08040ff2;pointer-events:auto;z-index:3}
+.big{position:absolute;inset:50% auto auto 50%;translate:-50% -50%;width:92px;height:92px;border-radius:50%;border:2px solid #fff6;background:#1a0c3299;backdrop-filter:blur(12px);display:grid;place-items:center;cursor:pointer;transition:.25s}
+.big:hover{scale:1.08}.big svg{width:44px;height:44px}.big.hide{display:none}
+.flash{position:absolute;top:50%;translate:0 -50%;padding:22px 26px;border-radius:50%;background:#ffffff26;backdrop-filter:blur(8px);font-weight:700;opacity:0;pointer-events:none}
+.flash.go{animation:fl .55s}@keyframes fl{20%{opacity:1}to{opacity:0;scale:1.2}}
+.skip,.nx{position:absolute;right:24px;bottom:130px;display:none;border:1px solid #fffa;background:#000b;padding:11px 26px;border-radius:8px;font-weight:700;cursor:pointer;transition:opacity .35s}
+.nx.show{display:flex;align-items:center;gap:8px;background:#fff;color:#000;border:0}.nx svg{width:22px;height:22px}
+.toast{position:absolute;top:76px;left:50%;translate:-50% -6px;background:#120a22ee;border:1px solid var(--line);padding:8px 20px;border-radius:99px;font-size:14px;opacity:0;transition:.3s;pointer-events:none}.toast.show{opacity:1;translate:-50% 0}
+
+@media(max-width:700px){.vol,.hd{display:none}.moon{left:12%;top:11%}.copy{padding-bottom:10vh}.btn{padding:12px 22px;font-size:16px}.th em{font-size:64px}.grid{grid-template-columns:repeat(2,1fr)}.bar{padding-inline:12px}.time{margin:0 6px;font-size:12px}.menu{right:12px}.big{width:72px;height:72px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<nav id="nav"><div class="logo">ليل البنفسج</div><span class="tag">بواسطة عمكم دراك</span></nav>
+
+<header class="hero">
+  <div class="art"><div class="stars"></div><div class="moon"></div><div class="sky far"></div><div class="sky near"></div></div>
+  <div class="copy">
+    <h1>ليل<br>البنفسج</h1>
+    <div class="chips"><span class="hot">الموسم الأول</span><span id="cnt"></span><span>مسلسل عرائي</span></div>
+    <div class="cta">
+      <button class="btn w" id="heroPlay"></button>
+      <button class="btn g" onclick="document.getElementById('eps').scrollIntoView()">كل الحلقات</button>
+    </div>
+  </div>
+</header>
+
+<main class="eps" id="eps">
+  <h2>الحلقات</h2><p id="sub"></p>
+  <div class="grid" id="grid"></div>
+</main>
+
+<section id="pl" aria-label="المشغّل">
+  <video id="v" preload="auto" playsinline></video>
+  <div id="hit" class="hit"></div>
+  <div class="top"><button class="b mir" id="bClose" aria-label="رجوع"></button><div class="t"><span id="tt"></span><small>ليل البنفسج · الموسم الأول</small></div></div>
+  <div id="flash" class="flash"></div>
+  <div id="load" class="ovl"><i class="ring"></i><span id="loadTxt"></span></div>
+  <div id="err" class="ovl"><p id="errTxt"></p><button id="retry" class="btn w">إعادة المحاولة</button></div>
+  <button id="big" class="big" aria-label="تشغيل"></button>
+  <button id="skip" class="skip">تخطّي المقدمة</button>
+  <button id="nx" class="nx"><span>الحلقة التالية</span></button>
+  <div id="toast" class="toast"></div>
+  <div class="bar">
+    <div id="seek" class="seek"><i class="s-bg"></i><i id="sb" class="s-buf"></i><i id="sp" class="s-play"></i><b id="sd" class="dot"></b><span id="stip" class="tip"></span></div>
+    <div class="row">
+      <button class="b" id="bPrev" aria-label="السابقة"></button>
+      <button class="b" id="bBack" aria-label="رجوع 10 ثوانٍ"></button>
+      <button class="b" id="bPlay" aria-label="تشغيل/إيقاف"></button>
+      <button class="b mir" id="bFwd" aria-label="تقديم 10 ثوانٍ"></button>
+      <button class="b" id="bNext" aria-label="التالية"></button>
+      <div class="vol"><button class="b" id="bMute" aria-label="كتم"></button><div id="vt" class="seek"><i class="s-bg"></i><i id="vf" class="s-play"></i></div></div>
+      <span class="time" id="time">0:00 / 0:00</span>
+      <div class="sp"></div>
+      <button class="b" id="bSpeed">1×</button>
+      <button class="b hd" id="bPip" aria-label="صورة داخل صورة"></button>
+      <button class="b" id="bFs" aria-label="ملء الشاشة"></button>
+    </div>
+    <div class="menu" id="menu"></div>
+  </div>
+</section>
+
+<script>
+const CFG = {
+  base: 'http://130.193.166.194/nasstore/ArabicTVSeries2/LaylAlbanafsaj-S01E{E}.mp4',
+  episodes: 10, seek: 10, retries: 4,
+  intro: null                       // مثال: { start: 8, end: 75 } لتفعيل زر "تخطّي المقدمة"
+};
+const $ = s => document.querySelector(s), pad = n => String(n).padStart(2, '0');
+const fmt = s => { s = Math.max(0, s | 0); const h = s / 3600 | 0, m = s % 3600 / 60 | 0; return (h ? h + ':' + pad(m) : m) + ':' + pad(s % 60); };
+const P = { play: 'M8 5v14l11-7z', pause: 'M6 5h4v14H6zm8 0h4v14h-4z', back: 'M12 5V1L7 6l5 5V7a6 6 0 1 1-6 6H4a8 8 0 1 0 8-8z',
+  next: 'M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z', prev: 'M6 6h2v12H6zm3.5 6l8.5 6V6z', arrow: 'M20 11H7.8l5.6-5.6L12 4l-8 8 8 8 1.4-1.4L7.8 13H20z',
+  vol: 'M3 9v6h4l5 5V4L7 9H3zm13.5 3A4.5 4.5 0 0 0 14 8v8a4.5 4.5 0 0 0 2.5-4z',
+  mute: 'M3 9v6h4l5 5V4L7 9H3zm13 .6l-1.4 1.4 1.8 1.8-1.8 1.8L16 16l1.8-1.8L19.6 16 21 14.6l-1.8-1.8L21 11l-1.4-1.4-1.8 1.8z',
+  pip: 'M19 11h-8v6h8v-6zm4 8V4.98C23 3.88 22.1 3 21 3H3c-1.1 0-2 .88-2 1.98V19c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2zm-2 .02H3V4.97h18v14.05z',
+  fs: 'M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z' };
+const svg = k => `<svg viewBox="0 0 24 24"><path d="${P[k]}"/></svg>`;
+const ico = (el, k) => el.innerHTML = svg(k);
+const Store = { get(k) { try { return JSON.parse(localStorage.getItem('lb2:' + k)); } catch { return null; } }, set(k, v) { try { localStorage.setItem('lb2:' + k, JSON.stringify(v)); } catch {} } };
+
+// كل الحلقات تُبنى من قالب رابط واحد
+const EP = Array.from({ length: CFG.episodes }, (_, i) => ({ e: i + 1, key: 'E' + pad(i + 1), url: CFG.base.replace('{E}', pad(i + 1)) }));
+
+const v = $('#v'), pl = $('#pl');
+let idx = 0, tries = 0, startAt = 0, lastSave = 0, retryT = 0;
+
+const UI = {
+  load(t) { $('#load').classList.toggle('show', !!t); $('#loadTxt').textContent = typeof t === 'string' ? t : ''; },
+  err(t) { $('#err').classList.toggle('show', !!t); if (t) { $('#errTxt').textContent = t; this.load(false); } },
+  toast(t) { const e = $('#toast'); e.textContent = t; e.classList.add('show'); clearTimeout(this._t); this._t = setTimeout(() => e.classList.remove('show'), 2200); },
+  flash(side, t) { const f = $('#flash'); f.style.cssText = side < 0 ? 'left:14%' : 'right:14%'; f.textContent = t; f.classList.remove('go'); void f.offsetWidth; f.classList.add('go'); },
+  cards() {
+    const box = $('#grid'); box.innerHTML = '';
+    EP.forEach((ep, i) => {
+      const p = Store.get('pos:' + ep.key), r = p && p.d ? p.t / p.d : 0, b = document.createElement('button');
+      b.className = 'card' + (r > .95 ? ' done' : ''); b.style.setProperty('--h', 255 + i * 12);
+      b.innerHTML = `<div class="th"><em>${ep.e}</em><span class="pl">${svg('play')}</span>${r > 0 && r <= .95 ? `<u style="width:${r * 100}%"></u>` : ''}</div><h3>الحلقة ${ep.e}</h3><small>${r > .95 ? 'تمت المشاهدة' : r > 0 ? 'تابع من ' + fmt(p.t) : 'الموسم الأول'}</small>`;
+      b.onclick = () => open(i); box.appendChild(b);
+    });
+    const n = resumeIdx(), q = Store.get('pos:' + EP[n].key);
+    $('#heroPlay').innerHTML = svg('play') + (n > 0 || (q && q.t > 5) ? `تابع الحلقة ${EP[n].e}` : 'ابدأ المشاهدة');
+  },
+  prog() {
+    const d = v.duration || 0, t = v.currentTime, b = v.buffered; let end = 0;
+    for (let i = 0; i < b.length; i++) if (t >= b.start(i) - .3) end = Math.max(end, b.end(i));
+    $('#sp').style.width = $('#sd').style.left = (d ? t / d * 100 : 0) + '%'; $('#sb').style.width = (d ? end / d * 100 : 0) + '%';
+    $('#time').textContent = fmt(t) + ' / ' + fmt(d);
+  },
+  state() { const p = !v.paused; ico($('#bPlay'), p ? 'pause' : 'play'); $('#big').classList.toggle('hide', p || v.currentTime > 0); }
+};
+
+function resumeIdx() {
+  let i = Store.get('last'); i = Number.isInteger(i) && EP[i] ? i : 0;
+  const p = Store.get('pos:' + EP[i].key); if (p && p.d && p.t >= p.d - 20 && i < EP.length - 1) i++;
+  return i;
+}
+function open(i) { pl.classList.add('open'); document.body.classList.add('lock'); load(i, true); wake(); }
+function close() {
+  v.pause(); clearTimeout(retryT); retryT = 0; if (document.fullscreenElement) document.exitFullscreen();
+  pl.classList.remove('open'); document.body.classList.remove('lock'); v.removeAttribute('src'); v.load(); UI.cards();
+}
+function load(i, play) {
+  if (i < 0 || i >= EP.length) return;
+  idx = i; tries = 0; clearTimeout(retryT); retryT = 0; Store.set('last', i); $('#nx').classList.remove('show');
+  const ep = EP[i], p = Store.get('pos:' + ep.key); startAt = p && p.t > 5 && p.t < p.d - 20 ? p.t : 0;
+  UI.err(false); UI.load('جارٍ التحميل…');
+  v.src = ep.url; v.load(); if (play) v.play().catch(() => {});
+  $('#tt').textContent = `الحلقة ${ep.e}`; document.title = `ليل البنفسج — الحلقة ${ep.e}`;
+  $('#bPrev').disabled = i === 0; $('#bNext').disabled = i === EP.length - 1;
+  UI.prog(); UI.state();
+  if ('mediaSession' in navigator) { navigator.mediaSession.metadata = new MediaMetadata({ title: `الحلقة ${ep.e}`, artist: 'ليل البنفسج', album: 'الموسم الأول' }); try { navigator.mediaSession.setActionHandler('nexttrack', () => load(idx + 1, true)); navigator.mediaSession.setActionHandler('previoustrack', () => load(idx - 1, true)); } catch {} }
+}
+function reload() { startAt = v.currentTime || startAt; UI.err(false); UI.load('جارٍ التحميل…'); v.src = EP[idx].url; v.load(); v.play().catch(() => {}); }
+function fail() {
+  if (retryT) return;
+  if (tries >= CFG.retries) return UI.err('تعذّر تحميل الحلقة. إذا كانت الصفحة تعمل من رابط https فالمتصفح يمنع فيديو http، شغّل الصفحة من http أو من ملف محلي.');
+  const d = 1200 * 2 ** tries++; UI.load(`انقطع التحميل، إعادة المحاولة ${tries}/${CFG.retries}…`);
+  retryT = setTimeout(() => { retryT = 0; reload(); }, d);
+}
+const toggle = () => v.paused ? v.play().catch(() => {}) : v.pause();
+const seekBy = s => { v.currentTime = Math.min(v.duration || 1e9, Math.max(0, v.currentTime + s)); };
+
+v.addEventListener('loadedmetadata', () => { if (startAt) { v.currentTime = startAt; UI.toast('تابع من ' + fmt(startAt)); startAt = 0; } UI.prog(); });
+v.addEventListener('waiting', () => UI.load(true));
+v.addEventListener('canplay', () => UI.load(false));
+v.addEventListener('playing', () => { tries = 0; UI.err(false); UI.load(false); UI.state(); });
+v.addEventListener('pause', UI.state); v.addEventListener('play', UI.state);
+v.addEventListener('progress', UI.prog);
+v.addEventListener('error', () => { if (pl.classList.contains('open')) fail(); });
+v.addEventListener('ended', () => { Store.set('pos:' + EP[idx].key, { t: v.duration, d: v.duration }); if (idx < EP.length - 1) { UI.toast('الحلقة التالية…'); load(idx + 1, true); } else { UI.state(); UI.toast('انتهى الموسم الأول'); } });
+v.addEventListener('ratechange', () => { $('#bSpeed').textContent = v.playbackRate + '×'; document.querySelectorAll('#menu button').forEach(b => b.classList.toggle('sel', parseFloat(b.textContent) === v.playbackRate)); });
+v.addEventListener('volumechange', () => { ico($('#bMute'), v.muted || !v.volume ? 'mute' : 'vol'); $('#vf').style.width = (v.muted ? 0 : v.volume * 100) + '%'; Store.set('vol', { v: v.volume, m: v.muted }); });
+v.addEventListener('timeupdate', () => {
+  UI.prog(); const t = v.currentTime, d = v.duration, i = CFG.intro; $('#skip').style.display = i && t >= i.start && t < i.end ? 'block' : 'none';
+  $('#nx').classList.toggle('show', !!d && d - t < 25 && d - t > 0 && idx < EP.length - 1);
+  if (Date.now() - lastSave > 4000 && t > 1) { lastSave = Date.now(); Store.set('pos:' + EP[idx].key, { t, d }); }
+});
+// مراقب التجمّد: لا تقدّم لمدة ~20 ثانية أثناء التشغيل -> إعادة التحميل من نفس الموضع
+let lastT = 0, still = 0;
+setInterval(() => { if (pl.classList.contains('open') && !v.paused && !v.ended && v.currentTime === lastT) { if (++still >= 10) { still = 0; fail(); } } else still = 0; lastT = v.currentTime; }, 2000);
+
+// عناصر التحكم
+ico($('#big'), 'play'); ico($('#bBack'), 'back'); ico($('#bFwd'), 'back'); ico($('#bNext'), 'next'); ico($('#bPrev'), 'prev'); ico($('#bPip'), 'pip'); ico($('#bFs'), 'fs'); ico($('#bClose'), 'arrow');
+$('#nx').insertAdjacentHTML('beforeend', svg('next'));
+[0.75, 1, 1.25, 1.5, 2].forEach(s => { const b = document.createElement('button'); b.textContent = s + '×'; b.onclick = () => { v.playbackRate = s; $('#menu').classList.remove('open'); }; $('#menu').appendChild(b); });
+if (!document.pictureInPictureEnabled) $('#bPip').hidden = true;
+function bind(el, move) {
+  const f = e => { const r = el.getBoundingClientRect(); return Math.min(1, Math.max(0, (e.clientX - r.left) / r.width)); };
+  el.onpointerdown = e => { el.setPointerCapture(e.pointerId); el.classList.add('drag'); move(f(e)); };
+  el.onpointermove = e => { if (el.classList.contains('drag')) move(f(e)); else if (el.id === 'seek') { $('#stip').textContent = fmt(f(e) * (v.duration || 0)); $('#stip').style.left = f(e) * 100 + '%'; } };
+  el.onpointerup = () => el.classList.remove('drag');
+}
+bind($('#seek'), r => { if (v.duration) { v.currentTime = r * v.duration; UI.prog(); } });
+bind($('#vt'), r => { v.muted = false; v.volume = r; });
+let tapT = 0, tapTm = 0;
+$('#hit').onpointerup = e => {
+  $('#menu').classList.remove('open');
+  const now = Date.now(), r = pl.getBoundingClientRect(), x = (e.clientX - r.left) / r.width;
+  if (now - tapT < 300) { clearTimeout(tapTm); tapT = 0; if (x < .4 || x > .6) { const f = x < .5 ? -1 : 1; seekBy(f * CFG.seek); UI.flash(f, (f < 0 ? '−' : '+') + CFG.seek); } else fs(); return; }
+  tapT = now; tapTm = setTimeout(toggle, 260);
+};
+$('#bPlay').onclick = $('#big').onclick = toggle;
+$('#bBack').onclick = () => seekBy(-CFG.seek); $('#bFwd').onclick = () => seekBy(CFG.seek);
+$('#bPrev').onclick = () => load(idx - 1, true); $('#bNext').onclick = $('#nx').onclick = () => load(idx + 1, true);
+$('#bMute').onclick = () => v.muted = !v.muted;
+$('#bSpeed').onclick = () => $('#menu').classList.toggle('open');
+$('#bPip').onclick = () => document.pictureInPictureElement ? document.exitPictureInPicture() : v.requestPictureInPicture().catch(() => {});
+function fs() { if (document.fullscreenElement) document.exitFullscreen(); else if (pl.requestFullscreen) pl.requestFullscreen(); else if (v.webkitEnterFullscreen) v.webkitEnterFullscreen(); }
+$('#bFs').onclick = fs; $('#bClose').onclick = close; $('#skip').onclick = () => v.currentTime = CFG.intro.end;
+$('#retry').onclick = () => { tries = 0; retryT = 0; reload(); };
+$('#heroPlay').onclick = () => open(resumeIdx());
+addEventListener('online', () => { if (pl.classList.contains('open') && ($('#err').classList.contains('show') || $('#load').classList.contains('show'))) $('#retry').click(); });
+addEventListener('scroll', () => $('#nav').classList.toggle('solid', scrollY > 60), { passive: true });
+
+// إخفاء أدوات التحكم تلقائياً
+let hideT; function wake() { pl.classList.remove('idle'); clearTimeout(hideT); hideT = setTimeout(() => !v.paused && pl.classList.add('idle'), 2800); }
+['pointermove', 'pointerdown'].forEach(e => pl.addEventListener(e, wake));
+
+// لوحة المفاتيح
+document.addEventListener('keydown', e => {
+  if (!pl.classList.contains('open') || e.ctrlKey || e.metaKey || e.altKey) return;
+  wake();
+  const m = { ' ': toggle, k: toggle, ArrowLeft: () => seekBy(-5), ArrowRight: () => seekBy(5), j: () => seekBy(-10), l: () => seekBy(10),
+    ArrowUp: () => v.volume = Math.min(1, v.volume + .1), ArrowDown: () => v.volume = Math.max(0, v.volume - .1), m: () => v.muted = !v.muted, f: fs, N: () => load(idx + 1, true), P: () => load(idx - 1, true), Escape: close };
+  if (m[e.key]) { e.preventDefault(); m[e.key](); } else if (/^[0-9]$/.test(e.key) && v.duration) v.currentTime = v.duration * e.key / 10;
+});
+
+// البداية
+$('#cnt').textContent = `${EP.length} حلقات`; $('#sub').textContent = `الموسم الأول · ${EP.length} حلقات`;
+const sv = Store.get('vol'); if (sv) { v.volume = sv.v; v.muted = sv.m; } else v.dispatchEvent(new Event('volumechange'));
+UI.cards(); UI.state();
+</script>
+</body>
+</html>
